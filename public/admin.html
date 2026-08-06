@@ -37,8 +37,8 @@
     <label style="margin-left:16px;"><input id="is-playoff" type="checkbox"> Bonus playoff round</label>
   </div>
 
-  <div class="section-label" style="margin-top:28px;">Option 1: Pull games automatically</div>
-  <div class="note">Tries TheSportsDB, a smaller free sports data source. Not guaranteed, ESPN's version of this is currently blocked from working here, this one hasn't been tested yet under real load. If it doesn't return anything useful, just use manual entry below instead.</div>
+  <div class="section-label" style="margin-top:28px;">Option 1: Browse the pre-loaded schedule</div>
+  <div class="note">Real matchups and dates, loaded once from the actual season schedule. If a kickoff time shown here is wrong or was TBD, fix it with the "Edit time" button before adding it to your week.</div>
   <div class="admin-controls">
     <label>Sport
       <select id="sport-select">
@@ -46,8 +46,9 @@
         <option value="college-football">College football</option>
       </select>
     </label>
-    <label style="margin-left:16px;">Date <input id="date-select" type="date"></label>
-    <button class="btn-secondary" onclick="fetchAvailableGames()">Pull games</button>
+    <label style="margin-left:16px;">From <input id="date-start" type="date"></label>
+    <label style="margin-left:16px;">To <input id="date-end" type="date"></label>
+    <button class="btn-secondary" onclick="fetchAvailableGames()">Show games</button>
   </div>
   <div id="available-games"></div>
 

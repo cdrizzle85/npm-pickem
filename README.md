@@ -47,16 +47,39 @@ npx wrangler pages dev public --d1=DB=npm-pickem-db
 
 This runs the whole site locally, including the API and a local copy of the database, at `http://localhost:8788`.
 
+## One-time schedule import
+
+Real NFL and college football matchups/dates are known months ahead, so instead of pulling them live every week (which several free APIs have failed to reliably support from Cloudflare's network), we load the whole season in once. Run this from your machine, not Cloudflare's:
+
+```bash
+node scripts/import-schedule.mjs
+```
+
+This writes `schedule_seed.sql`. Load it into your database:
+
+```bash
+npx wrangler d1 execute npm-pickem-db --remote --file=schedule_seed.sql
+```
+
+You'll also need to run `migration_002_schedule_table.sql` once first (creates the table this depends on):
+
+```bash
+npx wrangler d1 execute npm-pickem-db --remote --file=migration_002_schedule_table.sql
+```
+
+If NFL flex-schedules a game to a new time later in the season, or a college football kickoff time that was TBD gets announced, use the **Edit time** button next to that game in the admin panel, no need to re-run the import.
+
 ## Weekly workflow
 
 1. Open `/admin.html` (not linked anywhere public, bookmark it)
-2. Try **Option 1: Pull games automatically** first (TheSportsDB). If it comes back empty or errors, use **Option 2: Add a game manually** instead, just type in the teams and kickoff time.
-3. Set the round number, hit **Publish week**. Coin Flip's picks for the week are generated automatically.
-4. After games finish, hit **Try pulling results automatically**. Anything it can't resolve (manually-entered games, or a source that's down) shows up with two buttons per game, just click the team that won.
+2. **Option 1: Browse the pre-loaded schedule** — pick a sport and date range, check the games you want. Fix any wrong or TBD kickoff times with **Edit time** first.
+3. **Option 2: Add a game manually** — for anything not in the pre-loaded schedule (FCS opponents, etc.), just type it in.
+4. Set the round number, hit **Publish week**. Coin Flip's picks for the week are generated automatically.
+5. After games finish, click the **team that won** next to each game, that's it. There's no reliable automatic scoring source right now (see below), so this is the real, supported way to score a week.
 
 ## A couple of things to keep an eye on
 
-- ESPN's hidden scoreboard API is confirmed blocked from Cloudflare's network (403 Forbidden, looks like anti-bot protection on ESPN's side). We've switched automatic pulls to TheSportsDB instead, a smaller free API, but that hasn't been battle-tested here yet either. If it stops working, manual entry always works, it's not a rare fallback anymore, it's a fully supported path.
+- Three different free live-data sources (ESPN, TheSportsDB, Sleeper's undocumented endpoint) all turned out to be unreliable or blocked from Cloudflare's network, or in Sleeper's case, don't cover college football at all. The pre-loaded schedule solves game *selection*, but final scores still need a human, either you clicking the winner each week, or a paid sports data API with a real SLA if this ever needs to run unattended.
 - The admin page has no login wall, per your call, anyone with the URL can publish weeks and set results. Keep the link out of anywhere public.
 - Ties at season end are on you to run: the app tracks who's tied by win percentage, but starting a bonus playoff round is just publishing another week and marking it as a playoff round in the admin form.
-- Still to build: a way to view/add/remove players from the admin panel (noted, coming later).
+- Still to build: none currently, player management and schedule browsing are both in.

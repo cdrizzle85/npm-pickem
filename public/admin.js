@@ -67,19 +67,25 @@ async function scoreWeek(weekId) {
 
 async function fetchAvailableGames() {
   const sport = document.getElementById('sport-select').value;
-  const date = document.getElementById('date-select').value.replace(/-/g, '');
+  const start = document.getElementById('date-start').value;
+  const end = document.getElementById('date-end').value;
   const container = document.getElementById('available-games');
+
+  if (!start || !end) {
+    container.innerHTML = '<div class="empty-state">Pick a from and to date first.</div>';
+    return;
+  }
+
   container.innerHTML = 'Loading&hellip;';
 
   try {
-    const url = `/api/admin/available-games?sport=${sport}${date ? `&date=${date}` : ''}`;
-    const res = await fetch(url);
+    const res = await fetch(`/api/admin/schedule?sport=${sport}&start=${start}&end=${end}`);
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
     availableGames = data.games;
 
     if (!availableGames.length) {
-      container.innerHTML = '<div class="empty-state">No games found for that date, try manual entry below.</div>';
+      container.innerHTML = '<div class="empty-state">No pre-loaded games in that range, try manual entry below.</div>';
       return;
     }
 
@@ -90,7 +96,10 @@ async function fetchAvailableGames() {
       return `
         <label class="available-game">
           <span><input type="checkbox" onchange="toggleGame(${i}, this.checked)"> ${g.away_team} at ${g.home_team}</span>
-          <span class="time">${kickoff}</span>
+          <span class="time">
+            ${g.time_tbd ? '<span style="color:var(--loss);">TBD</span> ' : ''}${kickoff}
+            <button class="btn-secondary" style="padding:3px 8px;font-size:11px;margin-left:8px;" onclick="editScheduleTime(${g.id}, ${i})">Edit time</button>
+          </span>
         </label>`;
     }).join('');
   } catch (err) {
@@ -98,12 +107,40 @@ async function fetchAvailableGames() {
   }
 }
 
+async function editScheduleTime(scheduleId, index) {
+  const current = availableGames[index].kickoff_time;
+  const input = prompt('New kickoff time (local), format: YYYY-MM-DDTHH:MM, e.g. 2026-09-13T13:00', current.slice(0, 16));
+  if (!input) return;
+
+  try {
+    const iso = new Date(input).toISOString();
+    const res = await fetch('/api/admin/schedule', {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ id: scheduleId, kickoff_time: iso })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not update time.');
+    fetchAvailableGames();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
 function toggleGame(index, checked) {
-  const game = availableGames[index];
+  const g = availableGames[index];
+  const normalized = {
+    espn_event_id: g.source_event_id,
+    source: 'schedule',
+    sport: g.sport,
+    home_team: g.home_team,
+    away_team: g.away_team,
+    kickoff_time: g.kickoff_time
+  };
   if (checked) {
-    if (!selectedGames.find(g => g.espn_event_id === game.espn_event_id)) selectedGames.push(game);
+    if (!selectedGames.find(sg => sg.espn_event_id === normalized.espn_event_id)) selectedGames.push(normalized);
   } else {
-    selectedGames = selectedGames.filter(g => g.espn_event_id !== game.espn_event_id);
+    selectedGames = selectedGames.filter(sg => sg.espn_event_id !== normalized.espn_event_id);
   }
   renderSelected();
 }
