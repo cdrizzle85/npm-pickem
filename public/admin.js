@@ -27,8 +27,8 @@ async function fetchAvailableGames() {
   try {
     const url = `/api/admin/available-games?sport=${sport}${date ? `&date=${date}` : ''}`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error();
     const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `Request failed: ${res.status}`);
     availableGames = data.games;
 
     if (!availableGames.length) {
@@ -46,8 +46,8 @@ async function fetchAvailableGames() {
           <span class="time">${kickoff}</span>
         </label>`;
     }).join('');
-  } catch {
-    container.innerHTML = '<div class="empty-state">Could not reach ESPN, try again in a moment.</div>';
+  } catch (err) {
+    container.innerHTML = `<div class="empty-state">${err.message}</div>`;
   }
 }
 

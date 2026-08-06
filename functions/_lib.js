@@ -35,8 +35,16 @@ export async function fetchEspnScoreboard(sport, dateStr) {
   if (sport === 'college-football') params.push('groups=80', 'limit=100');
   if (params.length) url += `?${params.join('&')}`;
 
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`ESPN scoreboard fetch failed: ${res.status}`);
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36',
+      'Accept': 'application/json'
+    }
+  });
+  if (!res.ok) {
+    const bodyText = await res.text().catch(() => '');
+    throw new Error(`ESPN scoreboard fetch failed: ${res.status} ${res.statusText} ${bodyText.slice(0, 200)}`);
+  }
   const data = await res.json();
 
   return (data.events || []).map(ev => {
