@@ -21,6 +21,15 @@
   <div class="section-label">Current week</div>
   <div id="current-week-box" class="note">Loading&hellip;</div>
 
+  <div class="section-label" style="margin-top:36px;">Players</div>
+  <div id="players-list" class="note">Loading&hellip;</div>
+  <div class="admin-controls" style="margin-top:10px;">
+    <label>Name <input id="new-player-name" type="text" placeholder="First and last name" style="width:200px;"></label>
+    <label style="margin-left:16px;">Email <input id="new-player-email" type="email" placeholder="email@example.com" style="width:220px;"></label>
+    <button class="btn-secondary" onclick="addPlayer()">Add player</button>
+  </div>
+  <div id="player-status" style="margin-top:8px;font-size:13px;"></div>
+
   <div class="section-label" style="margin-top:28px;">Build a new week</div>
 
   <div class="admin-controls">
