@@ -1,10 +1,10 @@
-import { json, errorJson, fetchEspnGameResult, ensureAutoFillsForWeek } from '../../_lib.js';
+import { json, errorJson, fetchEspnGameResult, fetchSportsDbResult, ensureAutoFillsForWeek } from '../../_lib.js';
 
 // POST /api/admin/score-week
 // body: { week_id }
-// Pulls live results from ESPN for every game in the week, updates winners,
-// auto-fills any missed picks from Coin Flip, and marks the week scored
-// once every game is final.
+// Pulls live results for every game in the week (from whichever source it came from),
+// updates winners, auto-fills any missed picks from Coin Flip, and marks the week scored
+// once every game is final. Manually-entered games are skipped here, use set-result for those.
 export async function onRequestPost({ request, env }) {
   const { week_id } = await request.json();
   if (!week_id) return errorJson('week_id is required.');
@@ -19,8 +19,15 @@ export async function onRequestPost({ request, env }) {
 
   for (const game of games.results) {
     if (game.status === 'post' && game.winner_team) continue; // already scored
+    if (game.source === 'manual') {
+      allFinal = false;
+      continue; // no automatic source for this game, use the manual override
+    }
     try {
-      const result = await fetchEspnGameResult(game.sport, game.espn_event_id);
+      const result = game.source === 'sportsdb'
+        ? await fetchSportsDbResult(game.espn_event_id)
+        : await fetchEspnGameResult(game.sport, game.espn_event_id);
+
       if (result.completed) {
         await env.DB
           .prepare('UPDATE games SET status = ?, winner_team = ? WHERE id = ?')
@@ -28,10 +35,6 @@ export async function onRequestPost({ request, env }) {
           .run();
       } else {
         allFinal = false;
-        await env.DB
-          .prepare('UPDATE games SET status = ? WHERE id = ?')
-          .bind(result.status, game.id)
-          .run();
       }
     } catch (err) {
       allFinal = false;

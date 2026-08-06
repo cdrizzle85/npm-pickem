@@ -50,12 +50,13 @@ This runs the whole site locally, including the API and a local copy of the data
 ## Weekly workflow
 
 1. Open `/admin.html` (not linked anywhere public, bookmark it)
-2. Pick a sport and date, pull that day's real games from ESPN, check the ones you want
+2. Try **Option 1: Pull games automatically** first (TheSportsDB). If it comes back empty or errors, use **Option 2: Add a game manually** instead, just type in the teams and kickoff time.
 3. Set the round number, hit **Publish week**. Coin Flip's picks for the week are generated automatically.
-4. After games finish, come back and hit **Pull results & score this week**. If ESPN's data is ever down or wrong for a specific game, use the manual override box below it.
+4. After games finish, hit **Try pulling results automatically**. Anything it can't resolve (manually-entered games, or a source that's down) shows up with two buttons per game, just click the team that won.
 
 ## A couple of things to keep an eye on
 
-- ESPN's endpoints are free but unofficial and undocumented. They've been reliable in testing, but there's no uptime guarantee, which is exactly why the manual override exists.
+- ESPN's hidden scoreboard API is confirmed blocked from Cloudflare's network (403 Forbidden, looks like anti-bot protection on ESPN's side). We've switched automatic pulls to TheSportsDB instead, a smaller free API, but that hasn't been battle-tested here yet either. If it stops working, manual entry always works, it's not a rare fallback anymore, it's a fully supported path.
 - The admin page has no login wall, per your call, anyone with the URL can publish weeks and set results. Keep the link out of anywhere public.
 - Ties at season end are on you to run: the app tracks who's tied by win percentage, but starting a bonus playoff round is just publishing another week and marking it as a playoff round in the admin form.
+- Still to build: a way to view/add/remove players from the admin panel (noted, coming later).

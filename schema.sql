@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS weeks (
 CREATE TABLE IF NOT EXISTS games (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   week_id INTEGER NOT NULL REFERENCES weeks(id),
-  espn_event_id TEXT NOT NULL,
+  espn_event_id TEXT NOT NULL, -- external id from whichever source (name kept for simplicity)
+  source TEXT NOT NULL DEFAULT 'manual', -- 'espn' | 'sportsdb' | 'manual'
   sport TEXT NOT NULL, -- 'nfl' | 'college-football'
   home_team TEXT NOT NULL,
   away_team TEXT NOT NULL,

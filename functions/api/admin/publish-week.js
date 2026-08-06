@@ -19,10 +19,10 @@ export async function onRequestPost({ request, env }) {
   for (const g of games) {
     await env.DB
       .prepare(
-        `INSERT INTO games (week_id, espn_event_id, sport, home_team, away_team, kickoff_time)
-         VALUES (?, ?, ?, ?, ?, ?)`
+        `INSERT INTO games (week_id, espn_event_id, source, sport, home_team, away_team, kickoff_time)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`
       )
-      .bind(weekId, g.espn_event_id, g.sport, g.home_team, g.away_team, g.kickoff_time)
+      .bind(weekId, g.espn_event_id, g.source || 'manual', g.sport, g.home_team, g.away_team, g.kickoff_time)
       .run();
   }
 

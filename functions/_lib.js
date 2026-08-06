@@ -26,6 +26,11 @@ export async function getOrCreatePlayer(db, name, email) {
 }
 
 const ESPN_BASE = 'https://site.api.espn.com/apis/site/v2/sports/football';
+const SPORTSDB_BASE = 'https://www.thesportsdb.com/api/v1/json/123';
+const SPORTSDB_LEAGUE_IDS = {
+  'nfl': '4391',
+  'college-football': '4479' // NCAA Division 1 (FBS)
+};
 
 export async function fetchEspnScoreboard(sport, dateStr) {
   // sport: 'nfl' or 'college-football'
@@ -53,6 +58,7 @@ export async function fetchEspnScoreboard(sport, dateStr) {
     const away = comp.competitors.find(c => c.homeAway === 'away');
     return {
       espn_event_id: ev.id,
+      source: 'espn',
       sport,
       home_team: home.team.displayName,
       away_team: away.team.displayName,
@@ -61,6 +67,59 @@ export async function fetchEspnScoreboard(sport, dateStr) {
       completed: comp.status.type.completed
     };
   });
+}
+
+// TheSportsDB: a smaller, less heavily bot-protected free API (test key "123", no signup).
+// Not guaranteed reliable or complete, especially for smaller college football matchups,
+// but worth using as long as it keeps working from Cloudflare's network.
+export async function fetchSportsDbScoreboard(sport, dateStr) {
+  const leagueId = SPORTSDB_LEAGUE_IDS[sport];
+  if (!leagueId) throw new Error(`No TheSportsDB league mapping for sport: ${sport}`);
+  const date = dateStr
+    ? `${dateStr.slice(0, 4)}-${dateStr.slice(4, 6)}-${dateStr.slice(6, 8)}`
+    : new Date().toISOString().slice(0, 10);
+
+  const url = `${SPORTSDB_BASE}/eventsday.php?d=${date}&l=${leagueId}`;
+  const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+  if (!res.ok) {
+    const bodyText = await res.text().catch(() => '');
+    throw new Error(`TheSportsDB fetch failed: ${res.status} ${res.statusText} ${bodyText.slice(0, 200)}`);
+  }
+  const data = await res.json();
+  const events = data.events || [];
+
+  return events.map(ev => {
+    // strTimestamp is the closest thing to a real kickoff time; fall back to date + strTime if missing.
+    const kickoff = ev.strTimestamp
+      ? (ev.strTimestamp.endsWith('Z') ? ev.strTimestamp : `${ev.strTimestamp}Z`)
+      : `${ev.dateEvent}T${ev.strTime || '00:00:00'}Z`;
+    return {
+      espn_event_id: ev.idEvent, // reused column name, holds whichever source's id
+      source: 'sportsdb',
+      sport,
+      home_team: ev.strHomeTeam,
+      away_team: ev.strAwayTeam,
+      kickoff_time: kickoff,
+      status: ev.strPostponed === 'yes' ? 'postponed' : (ev.intHomeScore !== null ? 'post' : 'pre'),
+      completed: ev.intHomeScore !== null && ev.intAwayScore !== null
+    };
+  });
+}
+
+export async function fetchSportsDbResult(eventId) {
+  const url = `${SPORTSDB_BASE}/lookupevent.php?id=${eventId}`;
+  const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+  if (!res.ok) throw new Error(`TheSportsDB event lookup failed: ${res.status}`);
+  const data = await res.json();
+  const ev = (data.events || [])[0];
+  if (!ev) throw new Error('Event not found on TheSportsDB.');
+
+  const completed = ev.intHomeScore !== null && ev.intAwayScore !== null && ev.strPostponed !== 'yes';
+  let winner = null;
+  if (completed) {
+    winner = Number(ev.intHomeScore) > Number(ev.intAwayScore) ? ev.strHomeTeam : ev.strAwayTeam;
+  }
+  return { completed, winner_team: winner, postponed: ev.strPostponed === 'yes' };
 }
 
 export async function fetchEspnGameResult(sport, espnEventId) {
