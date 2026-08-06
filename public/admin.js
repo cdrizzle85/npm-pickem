@@ -22,7 +22,8 @@ async function loadCurrentWeek() {
 
     box.innerHTML = `<strong>Week ${data.round_number}${data.is_playoff ? ' (playoff)' : ''}</strong>, week id ${data.week_id}<br><br>` +
       gamesHtml +
-      `<button class="btn-secondary" style="margin-left:0;margin-top:10px;" onclick="scoreWeek(${data.week_id})">Try pulling results automatically</button>`;
+      `<button class="btn-secondary" style="margin-left:0;margin-top:10px;" onclick="scoreWeek(${data.week_id})">Try pulling results automatically</button>` +
+      `<button class="btn-secondary" style="margin-top:10px;color:var(--loss);border-color:var(--loss);" onclick="deleteWeek(${data.week_id}, ${data.round_number})">Delete this week</button>`;
   } catch {
     box.textContent = 'Could not load the current week.';
   }
@@ -41,6 +42,22 @@ async function setResultInline(gameId, winnerTeam) {
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not set result.');
+    loadCurrentWeek();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function deleteWeek(weekId, roundNumber) {
+  if (!confirm(`Delete week ${roundNumber}? This removes its games and everyone's picks for it. No undo.`)) return;
+  try {
+    const res = await fetch('/api/admin/delete-week', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ week_id: weekId })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not delete week.');
     loadCurrentWeek();
   } catch (err) {
     alert(err.message);
