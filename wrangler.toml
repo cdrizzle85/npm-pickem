@@ -1,0 +1,8 @@
+name = "npm-pickem"
+pages_build_output_dir = "public"
+compatibility_date = "2026-08-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "npm-pickem-db"
+database_id = "7ea3c0e7-a931-4b3c-830a-4c672d729e5a"

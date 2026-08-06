@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick 'Em Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="logo">
+  <div>
+    <div class="title">PICK 'EM ADMIN</div>
+    <div class="subtitle">Not linked anywhere public, keep this URL to yourself</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="section-label">Current week</div>
+  <div id="current-week-box" class="note">Loading&hellip;</div>
+
+  <div class="section-label" style="margin-top:28px;">Build a new week</div>
+
+  <div class="admin-controls">
+    <label>Round number <input id="round-number" type="number" min="1" value="1" style="width:80px;"></label>
+    <label style="margin-left:16px;"><input id="is-playoff" type="checkbox"> Bonus playoff round</label>
+  </div>
+
+  <div class="admin-controls" style="margin-top:14px;">
+    <label>Sport
+      <select id="sport-select">
+        <option value="nfl">NFL</option>
+        <option value="college-football">College football</option>
+      </select>
+    </label>
+    <label style="margin-left:16px;">Date <input id="date-select" type="date"></label>
+    <button class="btn-secondary" onclick="fetchAvailableGames()">Pull games from ESPN</button>
+  </div>
+
+  <div id="available-games"></div>
+
+  <div class="section-label" style="margin-top:20px;">Selected for this week</div>
+  <div id="selected-games" class="note">None yet, check games above to add them.</div>
+
+  <button class="btn-primary" onclick="publishWeek()">Publish week</button>
+  <div id="publish-status" style="margin-top:10px;font-size:13px;"></div>
+
+  <div class="section-label" style="margin-top:36px;">Manual result override</div>
+  <div class="note">Use this if the ESPN pull is down or wrong on game day. Requires the internal game ID shown on the current week list above.</div>
+  <div class="admin-controls">
+    <label>Game ID <input id="override-game-id" type="number" style="width:100px;"></label>
+    <label style="margin-left:16px;">Winning team <input id="override-winner" type="text" placeholder="Exact team name" style="width:220px;"></label>
+    <button class="btn-secondary" onclick="setResult()">Set result</button>
+  </div>
+  <div id="override-status" style="margin-top:10px;font-size:13px;"></div>
+
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>
