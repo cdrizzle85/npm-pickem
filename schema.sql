@@ -1,10 +1,16 @@
 -- NPM Pick 'Em database schema
 -- Run with: wrangler d1 execute npm-pickem-db --remote --file=schema.sql
 
+CREATE TABLE IF NOT EXISTS teams (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL UNIQUE
+);
+
 CREATE TABLE IF NOT EXISTS players (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
+  team_id INTEGER REFERENCES teams(id),
   is_coinflip INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );

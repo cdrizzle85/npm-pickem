@@ -31,6 +31,7 @@
       <p style="color:var(--muted);font-size:14px;">Enter your name and email once, this browser will remember you.</p>
       <input id="identity-name" type="text" placeholder="First and last name">
       <input id="identity-email" type="email" placeholder="Email">
+      <select id="identity-team"><option value="">Select your team&hellip;</option></select>
       <button class="btn-primary" onclick="submitIdentity()">Continue</button>
       <div id="identity-error" style="color:var(--loss);font-size:13px;margin-top:8px;"></div>
     </div>
@@ -51,7 +52,16 @@
     <div class="section-label">How the field picked</div>
     <div id="pickbars"></div>
 
-    <div class="section-label" style="margin-top:36px;">Season standings</div>
+    <div class="section-label" style="margin-top:36px;">Team standings</div>
+    <div id="team-standings"></div>
+
+    <div class="section-label" style="margin-top:36px;">
+      Standings
+      <select id="standings-filter" onchange="renderStandingsView()" style="margin-left:10px;font-size:13px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);font-weight:600;text-transform:none;letter-spacing:normal;">
+        <option value="all">Everyone</option>
+      </select>
+    </div>
+    <div id="my-rank-note" style="font-size:13px;color:var(--muted);margin-bottom:10px;"></div>
     <div class="podium" id="podium"></div>
     <table id="standings-table">
       <tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>

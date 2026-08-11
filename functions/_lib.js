@@ -12,14 +12,22 @@ export function errorJson(message, status = 400) {
   return json({ error: message }, status);
 }
 
-export async function getOrCreatePlayer(db, name, email) {
+export async function getOrCreatePlayer(db, name, email, teamId) {
   const cleanEmail = email.trim().toLowerCase();
   await db
-    .prepare('INSERT OR IGNORE INTO players (name, email) VALUES (?, ?)')
-    .bind(name.trim(), cleanEmail)
+    .prepare('INSERT OR IGNORE INTO players (name, email, team_id) VALUES (?, ?, ?)')
+    .bind(name.trim(), cleanEmail, teamId || null)
     .run();
+  // If they already existed, keep their name/team in sync with whatever they just submitted.
+  if (teamId) {
+    await db.prepare('UPDATE players SET team_id = ? WHERE email = ?').bind(teamId, cleanEmail).run();
+  }
   const row = await db
-    .prepare('SELECT id, name, email FROM players WHERE email = ?')
+    .prepare(
+      `SELECT p.id, p.name, p.email, p.team_id, t.name AS team_name
+       FROM players p LEFT JOIN teams t ON t.id = p.team_id
+       WHERE p.email = ?`
+    )
     .bind(cleanEmail)
     .first();
   return row;

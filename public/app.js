@@ -13,8 +13,9 @@ function getPlayer() {
   return raw ? JSON.parse(raw) : null;
 }
 
-function ensureIdentity() {
+async function ensureIdentity() {
   const player = getPlayer();
+  await loadTeamsIntoDropdown();
   if (!player) {
     document.getElementById('identity-modal').style.display = 'flex';
   } else {
@@ -22,9 +23,26 @@ function ensureIdentity() {
   }
 }
 
+async function loadTeamsIntoDropdown() {
+  try {
+    const res = await fetch('/api/teams');
+    const data = await res.json();
+    const select = document.getElementById('identity-team');
+    data.teams.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t.id;
+      opt.textContent = t.name;
+      select.appendChild(opt);
+    });
+  } catch {
+    // Non-fatal, they can still register without a team showing up here.
+  }
+}
+
 async function submitIdentity() {
   const name = document.getElementById('identity-name').value.trim();
   const email = document.getElementById('identity-email').value.trim();
+  const teamId = document.getElementById('identity-team').value;
   const errorEl = document.getElementById('identity-error');
   errorEl.textContent = '';
 
@@ -37,7 +55,7 @@ async function submitIdentity() {
     const res = await fetch('/api/players', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email, team_id: teamId ? Number(teamId) : null })
     });
     if (!res.ok) throw new Error('Could not save your info, please try again.');
     const player = await res.json();
@@ -138,14 +156,28 @@ async function pick(gameId, pickedTeam, el) {
 }
 
 // ---- Standings ----
+let allStandings = [];
+
 async function loadStandings() {
   try {
     const res = await fetch('/api/standings');
     if (!res.ok) throw new Error();
     const data = await res.json();
-    renderPodiumAndTable(data.standings);
+    allStandings = data.standings;
+    populateStandingsFilter();
+    renderStandingsView();
   } catch {
     document.getElementById('standings-table').innerHTML = '<tr><td class="empty-state">Standings aren\'t available yet.</td></tr>';
+  }
+
+  try {
+    const res = await fetch('/api/standings?teams=1');
+    if (res.ok) {
+      const data = await res.json();
+      renderTeamStandings(data.team_standings);
+    }
+  } catch {
+    // team standings are supplemental, fail quietly
   }
 
   if (currentWeek && currentWeek.week_id) {
@@ -158,6 +190,59 @@ async function loadStandings() {
     } catch {
       // weekly recap is optional, fail quietly
     }
+  }
+}
+
+function populateStandingsFilter() {
+  const select = document.getElementById('standings-filter');
+  const seen = new Set();
+  const teamOptions = allStandings
+    .filter(p => p.team_id && !seen.has(p.team_id) && seen.add(p.team_id))
+    .map(p => `<option value="${p.team_id}">${p.team_name}</option>`)
+    .join('');
+  select.innerHTML = '<option value="all">Everyone</option>' + teamOptions;
+
+  const me = getPlayer();
+  if (me) {
+    const meInStandings = allStandings.find(p => p.player_id === me.id);
+    if (meInStandings && meInStandings.team_id) select.value = String(meInStandings.team_id);
+  }
+}
+
+function renderTeamStandings(teamStandings) {
+  const box = document.getElementById('team-standings');
+  if (!teamStandings.length) {
+    box.innerHTML = '<div class="empty-state">No teams set up yet.</div>';
+    return;
+  }
+  box.innerHTML = teamStandings.map((t, i) => `
+    <div class="team-card">
+      <span class="rank">${i + 1}</span>
+      <span class="name">${t.team_name} <span style="color:var(--muted);font-weight:400;">(${t.member_count} ${t.member_count === 1 ? 'member' : 'members'})</span></span>
+      <span class="record">${t.wins}-${t.losses}</span>
+    </div>`).join('');
+}
+
+function renderStandingsView() {
+  const filter = document.getElementById('standings-filter').value;
+  const filtered = filter === 'all'
+    ? allStandings
+    : allStandings.filter(p => String(p.team_id) === filter);
+
+  renderPodiumAndTable(filtered);
+
+  const note = document.getElementById('my-rank-note');
+  const me = getPlayer();
+  if (me && filter !== 'all') {
+    const idx = filtered.findIndex(p => p.player_id === me.id);
+    if (idx >= 0) {
+      const teamName = filtered[idx].team_name;
+      note.textContent = `You're ranked #${idx + 1} on ${teamName}.`;
+    } else {
+      note.textContent = '';
+    }
+  } else {
+    note.textContent = '';
   }
 }
 

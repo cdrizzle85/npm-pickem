@@ -82,4 +82,14 @@ If NFL flex-schedules a game to a new time later in the season, or a college foo
 - Three different free live-data sources (ESPN, TheSportsDB, Sleeper's undocumented endpoint) all turned out to be unreliable or blocked from Cloudflare's network, or in Sleeper's case, don't cover college football at all. The pre-loaded schedule solves game *selection*, but final scores still need a human, either you clicking the winner each week, or a paid sports data API with a real SLA if this ever needs to run unattended.
 - The admin page has no login wall, per your call, anyone with the URL can publish weeks and set results. Keep the link out of anywhere public.
 - Ties at season end are on you to run: the app tracks who's tied by win percentage, but starting a bonus playoff round is just publishing another week and marking it as a playoff round in the admin form.
-- Still to build: none currently, player management and schedule browsing are both in.
+- Still to build: none currently, player management, team standings, and schedule browsing are all in.
+
+## Teams
+
+Run `migration_003_teams.sql` once to add team support:
+
+```bash
+npx wrangler d1 execute npm-pickem-db --remote --file=migration_003_teams.sql
+```
+
+Then add your teams from the admin panel's **Teams** section before sharing the link, that's what populates the dropdown people see when they register. Standings shows a team leaderboard (ranked by combined total wins) plus a filter so anyone can switch between overall standings and just their own team, with a note showing their rank within that team.

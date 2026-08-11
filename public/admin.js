@@ -249,6 +249,86 @@ async function setResult() {
   }
 }
 
+let allTeams = [];
+
+async function loadTeams() {
+  const box = document.getElementById('teams-list');
+  try {
+    const res = await fetch('/api/admin/teams');
+    const data = await res.json();
+    allTeams = data.teams;
+    if (!allTeams.length) {
+      box.innerHTML = 'No teams yet, add one below.';
+      return;
+    }
+    box.innerHTML = allTeams.map(t => `
+      <div style="margin-bottom:6px;">
+        <strong>${t.name}</strong>
+        <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editTeam(${t.id}, '${escapeQ(t.name)}')">Rename</button>
+        <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteTeam(${t.id}, '${escapeQ(t.name)}')">Remove</button>
+      </div>`).join('');
+  } catch {
+    box.innerHTML = 'Could not load teams.';
+  }
+}
+
+async function addTeam() {
+  const status = document.getElementById('team-status');
+  const name = document.getElementById('new-team-name').value.trim();
+  if (!name) {
+    status.textContent = 'Enter a team name.';
+    status.style.color = 'var(--loss)';
+    return;
+  }
+  try {
+    const res = await fetch('/api/admin/teams', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not add team.');
+    status.textContent = `Added ${name}.`;
+    status.style.color = 'var(--royal)';
+    document.getElementById('new-team-name').value = '';
+    loadTeams();
+  } catch (err) {
+    status.textContent = err.message;
+    status.style.color = 'var(--loss)';
+  }
+}
+
+async function editTeam(id, currentName) {
+  const name = prompt('Team name:', currentName);
+  if (!name) return;
+  try {
+    const res = await fetch(`/api/admin/teams/${id}`, {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not rename team.');
+    loadTeams();
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function deleteTeam(id, name) {
+  if (!confirm(`Remove ${name}? Members keep their picks but lose their team assignment.`)) return;
+  try {
+    const res = await fetch(`/api/admin/teams/${id}`, { method: 'DELETE' });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not remove team.');
+    loadTeams();
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
 async function loadPlayers() {
   const box = document.getElementById('players-list');
   try {
@@ -264,7 +344,7 @@ async function loadPlayers() {
       }
       return `
         <div style="margin-bottom:6px;">
-          <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email}</span>
+          <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email} &middot; ${p.team_name || 'no team'}</span>
           <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editPlayer(${p.id}, '${escapeQ(p.name)}', '${escapeQ(p.email)}')">Edit</button>
           <button class="btn-secondary" style="padding:4px 10px;" onclick="deletePlayer(${p.id}, '${escapeQ(p.name)}')">Remove</button>
         </div>`;
@@ -310,11 +390,15 @@ async function editPlayer(id, currentName, currentEmail) {
   const email = prompt('Email:', currentEmail);
   if (email === null) return;
 
+  const teamMenu = allTeams.map(t => `${t.id}) ${t.name}`).join('\n');
+  const teamChoice = prompt(`Team? Enter the number, or leave blank for no team:\n${teamMenu}`);
+  const team_id = teamChoice && teamChoice.trim() ? Number(teamChoice.trim()) : null;
+
   try {
     const res = await fetch(`/api/admin/players/${id}`, {
       method: 'PATCH',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email, team_id })
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not update player.');
@@ -337,4 +421,5 @@ async function deletePlayer(id, name) {
 }
 
 loadCurrentWeek();
+loadTeams();
 loadPlayers();

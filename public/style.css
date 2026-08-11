@@ -362,3 +362,22 @@
   font-size:14px;
 }
 .available-game .time{color:var(--muted);font-size:12px;}
+
+/* Team standings */
+.team-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:12px 16px;
+  margin-bottom:8px;
+}
+.team-card .rank{
+  font-weight:800;
+  color:var(--navy);
+  width:28px;
+}
+.team-card .name{font-weight:700;flex:1;}
+.team-card .record{font-family:'Consolas','Courier New',monospace;color:var(--muted);}
