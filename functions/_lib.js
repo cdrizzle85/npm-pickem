@@ -33,6 +33,68 @@ export async function getOrCreatePlayer(db, name, email, teamId) {
   return row;
 }
 
+// ---- Passwords ----
+// PBKDF2 with a deliberately modest iteration count: Cloudflare's free Workers
+// tier has tight per-request CPU-time limits, and a heavier hash risks timing
+// out a login request. Still real hashing, never plaintext, just not the
+// heaviest setting possible on this platform.
+const PBKDF2_ITERATIONS = 20000;
+
+function toHex(bytes) {
+  return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+function fromHex(hex) {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+  return bytes;
+}
+
+async function pbkdf2(password, saltBytes) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt: saltBytes, iterations: PBKDF2_ITERATIONS, hash: 'SHA-256' },
+    keyMaterial,
+    256
+  );
+  return new Uint8Array(bits);
+}
+
+export async function hashPassword(password) {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const hash = await pbkdf2(password, salt);
+  return `${toHex(salt)}:${toHex(hash)}`;
+}
+
+export async function verifyPassword(password, stored) {
+  if (!stored || !stored.includes(':')) return false;
+  const [saltHex, hashHex] = stored.split(':');
+  const hash = await pbkdf2(password, fromHex(saltHex));
+  return toHex(hash) === hashHex;
+}
+
+// Creates a new player with a password. Returns null if the email is already taken.
+export async function createPlayer(db, { name, email, teamId, password }) {
+  const cleanEmail = email.trim().toLowerCase();
+  const existing = await db.prepare('SELECT id FROM players WHERE email = ?').bind(cleanEmail).first();
+  if (existing) return null;
+
+  const passwordHash = await hashPassword(password);
+  const result = await db
+    .prepare('INSERT INTO players (name, email, team_id, password_hash) VALUES (?, ?, ?, ?)')
+    .bind(name.trim(), cleanEmail, teamId || null, passwordHash)
+    .run();
+
+  return await db
+    .prepare(
+      `SELECT p.id, p.name, p.email, p.team_id, t.name AS team_name
+       FROM players p LEFT JOIN teams t ON t.id = p.team_id
+       WHERE p.id = ?`
+    )
+    .bind(result.meta.last_row_id)
+    .first();
+}
+
 const ESPN_BASE = 'https://site.api.espn.com/apis/site/v2/sports/football';
 const SPORTSDB_BASE = 'https://www.thesportsdb.com/api/v1/json/123';
 const SPORTSDB_LEAGUE_IDS = {

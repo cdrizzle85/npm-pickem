@@ -84,6 +84,18 @@ If NFL flex-schedules a game to a new time later in the season, or a college foo
 - Ties at season end are on you to run: the app tracks who's tied by win percentage, but starting a bonus playoff round is just publishing another week and marking it as a playoff round in the admin form.
 - Still to build: none currently, player management, team standings, and schedule browsing are all in.
 
+## Accounts and passwords
+
+People now register with name, email, team, and a real password, and log in with email + password on any new device (no more relying on browser storage alone). Run this once to add password support and wipe the test accounts you've been using:
+
+```bash
+npx wrangler d1 execute npm-pickem-db --remote --file=migration_004_add_passwords.sql
+```
+
+**Forgotten passwords:** there's no automated "reset link" email, since this app doesn't send email at all, you do that manually. Use the **Reset password** button next to a player in the admin panel's Players section, it sets a temporary password that you then tell them yourself (text, Slack, however you reach people).
+
+**A security note, plainly stated:** passwords are hashed, never stored as plain text, but I used a lighter hashing setting than typical best practice specifically because Cloudflare's free Workers tier has tight CPU-time limits per request, and a heavier hash risks a login request timing out. This is a reasonable tradeoff for an internal pick'em pool, not something I'd consider acceptable for anything handling sensitive personal or financial data.
+
 ## Teams
 
 Run `migration_003_teams.sql` once to add team support:

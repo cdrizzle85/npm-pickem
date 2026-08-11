@@ -39,15 +39,54 @@ async function loadTeamsIntoDropdown() {
   }
 }
 
+let identityMode = 'register';
+
+function toggleIdentityMode(e) {
+  e.preventDefault();
+  identityMode = identityMode === 'register' ? 'login' : 'register';
+  document.getElementById('identity-error').textContent = '';
+
+  if (identityMode === 'login') {
+    document.getElementById('identity-title').textContent = 'Log in';
+    document.getElementById('identity-subtitle').textContent = 'Logging in from a new device.';
+    document.getElementById('register-fields').style.display = 'none';
+    document.getElementById('identity-password-confirm').style.display = 'none';
+    document.getElementById('identity-submit-btn').textContent = 'Log in';
+    document.getElementById('identity-toggle-link').textContent = "New here? Create an account";
+  } else {
+    document.getElementById('identity-title').textContent = 'Create your account';
+    document.getElementById('identity-subtitle').textContent = 'One account works across all your devices.';
+    document.getElementById('register-fields').style.display = 'block';
+    document.getElementById('identity-password-confirm').style.display = 'block';
+    document.getElementById('identity-submit-btn').textContent = 'Create account';
+    document.getElementById('identity-toggle-link').textContent = 'Already have an account? Log in';
+  }
+}
+
 async function submitIdentity() {
+  if (identityMode === 'login') return submitLogin();
+  return submitRegister();
+}
+
+async function submitRegister() {
   const name = document.getElementById('identity-name').value.trim();
   const email = document.getElementById('identity-email').value.trim();
   const teamId = document.getElementById('identity-team').value;
+  const password = document.getElementById('identity-password').value;
+  const confirm = document.getElementById('identity-password-confirm').value;
   const errorEl = document.getElementById('identity-error');
   errorEl.textContent = '';
 
-  if (!name || !email) {
-    errorEl.textContent = 'Please enter both your name and email.';
+  if (!name || !email || !password) {
+    errorEl.textContent = 'Please fill in your name, email, and password.';
+    return;
+  }
+  if (password.length < 6) {
+    errorEl.textContent = 'Password must be at least 6 characters.';
+    return;
+  }
+  if (password !== confirm) {
+    errorEl.textContent = "Passwords don't match.";
     return;
   }
 
@@ -55,10 +94,37 @@ async function submitIdentity() {
     const res = await fetch('/api/players', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email, team_id: teamId ? Number(teamId) : null })
+      body: JSON.stringify({ name, email, team_id: teamId ? Number(teamId) : null, password })
     });
-    if (!res.ok) throw new Error('Could not save your info, please try again.');
     const player = await res.json();
+    if (!res.ok) throw new Error(player.error || 'Could not create your account.');
+    localStorage.setItem('pickem_player', JSON.stringify(player));
+    document.getElementById('identity-modal').style.display = 'none';
+    loadWeek();
+  } catch (err) {
+    errorEl.textContent = err.message;
+  }
+}
+
+async function submitLogin() {
+  const email = document.getElementById('identity-email').value.trim();
+  const password = document.getElementById('identity-password').value;
+  const errorEl = document.getElementById('identity-error');
+  errorEl.textContent = '';
+
+  if (!email || !password) {
+    errorEl.textContent = 'Please enter your email and password.';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const player = await res.json();
+    if (!res.ok) throw new Error(player.error || 'Could not log in.');
     localStorage.setItem('pickem_player', JSON.stringify(player));
     document.getElementById('identity-modal').style.display = 'none';
     loadWeek();

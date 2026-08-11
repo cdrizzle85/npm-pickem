@@ -346,6 +346,7 @@ async function loadPlayers() {
         <div style="margin-bottom:6px;">
           <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email} &middot; ${p.team_name || 'no team'}</span>
           <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editPlayer(${p.id}, '${escapeQ(p.name)}', '${escapeQ(p.email)}')">Edit</button>
+          <button class="btn-secondary" style="padding:4px 10px;" onclick="resetPassword(${p.id}, '${escapeQ(p.name)}')">Reset password</button>
           <button class="btn-secondary" style="padding:4px 10px;" onclick="deletePlayer(${p.id}, '${escapeQ(p.name)}')">Remove</button>
         </div>`;
     }).join('');
@@ -358,9 +359,15 @@ async function addPlayer() {
   const status = document.getElementById('player-status');
   const name = document.getElementById('new-player-name').value.trim();
   const email = document.getElementById('new-player-email').value.trim();
+  const password = document.getElementById('new-player-password').value;
 
-  if (!name || !email) {
-    status.textContent = 'Enter both a name and email.';
+  if (!name || !email || !password) {
+    status.textContent = 'Enter a name, email, and temporary password.';
+    status.style.color = 'var(--loss)';
+    return;
+  }
+  if (password.length < 6) {
+    status.textContent = 'Password must be at least 6 characters.';
     status.style.color = 'var(--loss)';
     return;
   }
@@ -369,18 +376,41 @@ async function addPlayer() {
     const res = await fetch('/api/admin/players', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email, password })
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not add player.');
-    status.textContent = `Added ${name}.`;
+    status.textContent = `Added ${name}. Tell them their temporary password so they can log in: ${password}`;
     status.style.color = 'var(--royal)';
     document.getElementById('new-player-name').value = '';
     document.getElementById('new-player-email').value = '';
+    document.getElementById('new-player-password').value = '';
     loadPlayers();
   } catch (err) {
     status.textContent = err.message;
     status.style.color = 'var(--loss)';
+  }
+}
+
+async function resetPassword(id, name) {
+  const newPassword = prompt(`New temporary password for ${name} (at least 6 characters):`);
+  if (!newPassword) return;
+  if (newPassword.length < 6) {
+    alert('Password must be at least 6 characters.');
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/admin/players/${id}`, {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ new_password: newPassword })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not reset password.');
+    alert(`Password reset. Tell ${name} their new temporary password: ${newPassword}`);
+  } catch (err) {
+    alert(err.message);
   }
 }
 

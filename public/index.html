@@ -11,7 +11,7 @@
 <header>
   <img src="logo.png" alt="logo">
   <div>
-    <div class="title">CHAMPIONSHIP WEEK PICK 'EM</div>
+    <div class="title">2026 NPM FOOTBALL PICK 'EM</div>
     <div class="subtitle" id="week-subtitle">Pick the Winner of Each Game</div>
   </div>
 </header>
@@ -27,13 +27,22 @@
   <!-- IDENTITY MODAL -->
   <div id="identity-modal" class="modal-overlay" style="display:none;">
     <div class="modal">
-      <h2>Who's picking?</h2>
-      <p style="color:var(--muted);font-size:14px;">Enter your name and email once, this browser will remember you.</p>
-      <input id="identity-name" type="text" placeholder="First and last name">
+      <h2 id="identity-title">Create your account</h2>
+      <p style="color:var(--muted);font-size:14px;" id="identity-subtitle">One account works across all your devices.</p>
+
+      <div id="register-fields">
+        <input id="identity-name" type="text" placeholder="First and last name">
+        <select id="identity-team"><option value="">Select your team&hellip;</option></select>
+      </div>
       <input id="identity-email" type="email" placeholder="Email">
-      <select id="identity-team"><option value="">Select your team&hellip;</option></select>
-      <button class="btn-primary" onclick="submitIdentity()">Continue</button>
+      <input id="identity-password" type="password" placeholder="Password">
+      <input id="identity-password-confirm" type="password" placeholder="Confirm password">
+
+      <button class="btn-primary" onclick="submitIdentity()" id="identity-submit-btn">Create account</button>
       <div id="identity-error" style="color:var(--loss);font-size:13px;margin-top:8px;"></div>
+      <div style="margin-top:14px;font-size:13px;text-align:center;">
+        <a href="#" id="identity-toggle-link" onclick="toggleIdentityMode(event)" style="color:var(--royal);">Already have an account? Log in</a>
+      </div>
     </div>
   </div>
 

@@ -1,11 +1,11 @@
-import { json, errorJson } from '../../../_lib.js';
+import { json, errorJson, hashPassword } from '../../../_lib.js';
 
-// PATCH /api/admin/players/:id -> update name, email, and/or team
+// PATCH /api/admin/players/:id -> update name, email, team, and/or reset password
 export async function onRequestPatch({ request, env, params }) {
   const id = Number(params.id);
   if (id === 1) return errorJson("Can't edit the Coin Flip entry.", 400);
 
-  const { name, email, team_id } = await request.json();
+  const { name, email, team_id, new_password } = await request.json();
   const player = await env.DB.prepare('SELECT * FROM players WHERE id = ?').bind(id).first();
   if (!player) return errorJson('Player not found.', 404);
 
@@ -18,10 +18,19 @@ export async function onRequestPatch({ request, env, params }) {
     if (clash) return errorJson('Another player already uses that email.', 409);
   }
 
-  await env.DB
-    .prepare('UPDATE players SET name = ?, email = ?, team_id = ? WHERE id = ?')
-    .bind(newName, newEmail, newTeamId, id)
-    .run();
+  if (new_password) {
+    if (new_password.length < 6) return errorJson('New password must be at least 6 characters.');
+    const passwordHash = await hashPassword(new_password);
+    await env.DB
+      .prepare('UPDATE players SET name = ?, email = ?, team_id = ?, password_hash = ? WHERE id = ?')
+      .bind(newName, newEmail, newTeamId, passwordHash, id)
+      .run();
+  } else {
+    await env.DB
+      .prepare('UPDATE players SET name = ?, email = ?, team_id = ? WHERE id = ?')
+      .bind(newName, newEmail, newTeamId, id)
+      .run();
+  }
 
   return json({ id, name: newName, email: newEmail, team_id: newTeamId });
 }
