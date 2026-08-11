@@ -32,6 +32,12 @@
   <div class="section-label" style="margin-top:36px;">Players</div>
   <div id="players-list" class="note">Loading&hellip;</div>
   <div class="admin-controls" style="margin-top:10px;">
+    <button class="btn-secondary" style="margin-left:0;" onclick="copyAllEmails()">Copy all emails</button>
+  </div>
+  <textarea id="emails-box" readonly style="width:100%;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:13px;font-family:'Consolas','Courier New',monospace;height:60px;display:none;"></textarea>
+  <div id="emails-status" style="margin-top:6px;font-size:13px;"></div>
+
+  <div class="admin-controls" style="margin-top:16px;">
     <label>Name <input id="new-player-name" type="text" placeholder="First and last name" style="width:200px;"></label>
     <label style="margin-left:16px;">Email <input id="new-player-email" type="email" placeholder="email@example.com" style="width:220px;"></label>
     <label style="margin-left:16px;">Temp password <input id="new-player-password" type="text" placeholder="At least 6 characters" style="width:160px;"></label>

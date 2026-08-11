@@ -329,16 +329,44 @@ async function deleteTeam(id, name) {
   }
 }
 
+function copyAllEmails() {
+  const status = document.getElementById('emails-status');
+  const box = document.getElementById('emails-box');
+  const emails = allPlayers.filter(p => !p.is_coinflip).map(p => p.email);
+
+  if (!emails.length) {
+    status.textContent = 'No player emails yet.';
+    status.style.color = 'var(--muted)';
+    return;
+  }
+
+  const list = emails.join(', ');
+  box.value = list;
+  box.style.display = 'block';
+
+  navigator.clipboard.writeText(list).then(() => {
+    status.textContent = `Copied ${emails.length} email${emails.length === 1 ? '' : 's'} to your clipboard, paste into BCC.`;
+    status.style.color = 'var(--royal)';
+  }).catch(() => {
+    status.textContent = `Couldn't copy automatically, select the text below and copy it manually.`;
+    status.style.color = 'var(--muted)';
+    box.select();
+  });
+}
+
+let allPlayers = [];
+
 async function loadPlayers() {
   const box = document.getElementById('players-list');
   try {
     const res = await fetch('/api/admin/players');
     const data = await res.json();
-    if (!data.players.length) {
+    allPlayers = data.players;
+    if (!allPlayers.length) {
       box.innerHTML = 'No players yet.';
       return;
     }
-    box.innerHTML = data.players.map(p => {
+    box.innerHTML = allPlayers.map(p => {
       if (p.is_coinflip) {
         return `<div style="margin-bottom:6px;"><em>${p.name}</em> <span style="color:var(--muted);">(system entry, can't be edited)</span></div>`;
       }
