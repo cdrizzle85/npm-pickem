@@ -233,19 +233,21 @@ export async function generateCoinFlipPicks(db, weekId) {
   }
 }
 
-// For any game whose kickoff has passed, auto-fill missing picks from Coin Flip's pick.
+// For any week whose deadline (kickoff of its first game) has passed, auto-fill
+// every missing pick from Coin Flip. Since players now submit all-or-nothing,
+// "missing" here effectively means "never submitted at all."
 export async function ensureAutoFillsForWeek(db, weekId) {
   const now = new Date().toISOString();
-  const lockedGames = await db
-    .prepare('SELECT id FROM games WHERE week_id = ? AND kickoff_time <= ?')
-    .bind(weekId, now)
-    .all();
+  const deadlineRow = await db
+    .prepare('SELECT MIN(kickoff_time) AS deadline FROM games WHERE week_id = ?')
+    .bind(weekId)
+    .first();
+  if (!deadlineRow || !deadlineRow.deadline || deadlineRow.deadline > now) return; // not locked yet
 
-  const players = await db
-    .prepare('SELECT id FROM players WHERE is_coinflip = 0')
-    .all();
+  const games = await db.prepare('SELECT id FROM games WHERE week_id = ?').bind(weekId).all();
+  const players = await db.prepare('SELECT id FROM players WHERE is_coinflip = 0').all();
 
-  for (const game of lockedGames.results) {
+  for (const game of games.results) {
     const coinFlipPick = await db
       .prepare('SELECT picked_team FROM picks WHERE player_id = 1 AND game_id = ?')
       .bind(game.id)
@@ -264,6 +266,14 @@ export async function ensureAutoFillsForWeek(db, weekId) {
         .run();
     }
   }
+}
+
+export async function getWeekDeadline(db, weekId) {
+  const row = await db
+    .prepare('SELECT MIN(kickoff_time) AS deadline FROM games WHERE week_id = ?')
+    .bind(weekId)
+    .first();
+  return row ? row.deadline : null;
 }
 
 export function isLocked(kickoffTimeIso) {

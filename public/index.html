@@ -49,8 +49,11 @@
   <!-- PICKS VIEW -->
   <div id="picks" class="view active">
     <div class="section-label" id="picks-heading">Loading this week's games</div>
+    <div id="week-lock-note" style="font-size:13px;color:var(--muted);margin-bottom:14px;"></div>
     <div id="games-list"></div>
-    <div class="note">Games lock individually at kickoff, so you can still submit picks for later games after an earlier one starts. Missed a lock? Coin Flip's pick fills in for you automatically.</div>
+    <button class="btn-primary" id="submit-picks-btn" onclick="submitPicks()" disabled>Submit picks</button>
+    <div id="submit-status" style="margin-top:10px;font-size:13px;"></div>
+    <div class="note" style="margin-top:16px;">All picks for the week lock together, at kickoff of the first game. You can change your picks as many times as you want before then. Didn't submit in time? Coin Flip's picks cover the whole week for you.</div>
   </div>
 
   <!-- STANDINGS VIEW -->
@@ -83,8 +86,8 @@
 
     <div class="rule-item"><div class="num">1</div><div>Each week, pick the winner of seven games, a mix of college and NFL.</div></div>
     <div class="rule-item"><div class="num">2</div><div>After 12 weeks, the person with the most correct picks takes the trophy.</div></div>
-    <div class="rule-item"><div class="num">3</div><div>Picks lock individually, right when each game kicks off, not all at once. You can still pick later games even after an earlier one has started.</div></div>
-    <div class="rule-item"><div class="num">4</div><div>Miss a game? No stress. Any pick you don't get in before kickoff defaults to the Coin Flip entry, a real 50/50 random pick made fresh every week, so you never fully miss out.</div></div>
+    <div class="rule-item"><div class="num">3</div><div>All seven picks for the week lock together, at kickoff of the first game, not one game at a time. You can change your picks as many times as you want before then, but once that first game kicks off, the whole week is locked in.</div></div>
+    <div class="rule-item"><div class="num">4</div><div>Didn't submit before that deadline? No stress. The whole week defaults to the Coin Flip entry, a real 50/50 random pick made fresh every week, so you never fully miss out.</div></div>
 
     <div class="note" style="margin-top:24px;">Want to see how Coin Flip is doing against everyone? It's on the standings board like any other player, a built in baseline for "what if you just guessed."</div>
 

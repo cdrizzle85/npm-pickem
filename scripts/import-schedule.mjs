@@ -11,7 +11,8 @@ const ESPN_BASE = 'https://site.api.espn.com/apis/site/v2/sports/football';
 
 // Adjust these ranges any time the season dates change or you want to pull further ahead.
 const RANGES = [
-  { sport: 'nfl', path: 'nfl', extraParams: '', start: '20260909', end: '20270112' },
+  { sport: 'nfl', path: 'nfl', extraParams: '', start: '20260806', end: '20260908' }, // preseason
+  { sport: 'nfl', path: 'nfl', extraParams: '', start: '20260909', end: '20270112' }, // regular season
   { sport: 'college-football', path: 'college-football', extraParams: '&groups=80', start: '20260820', end: '20261213' }
 ];
 

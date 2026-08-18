@@ -381,3 +381,13 @@
 }
 .team-card .name{font-weight:700;flex:1;}
 .team-card .record{font-family:'Consolas','Courier New',monospace;color:var(--muted);}
+
+#submit-picks-btn{
+  width:100%;
+  margin-top:10px;
+}
+#submit-picks-btn:disabled{
+  background:var(--line);
+  color:var(--muted);
+  cursor:not-allowed;
+}

@@ -135,17 +135,21 @@ async function submitLogin() {
 
 // ---- Picks ----
 let currentWeek = null;
+let mySelections = {}; // gameId -> team, held locally until Submit is clicked
 
 async function loadWeek() {
   const player = getPlayer();
   const heading = document.getElementById('picks-heading');
   const list = document.getElementById('games-list');
+  const lockNote = document.getElementById('week-lock-note');
 
   try {
     const res = await fetch(`/api/week?player_id=${player.id}`);
     if (res.status === 404) {
       heading.textContent = "No games are open for picks right now";
       list.innerHTML = '';
+      lockNote.textContent = '';
+      document.getElementById('submit-picks-btn').style.display = 'none';
       return;
     }
     if (!res.ok) throw new Error('Could not load this week\'s games.');
@@ -158,7 +162,25 @@ async function loadWeek() {
       ? 'Bonus Playoff Pick \'Em'
       : 'Pick the Winner of Each Game';
 
+    // Start from whatever's already saved, so reopening the page shows your last submission.
+    mySelections = {};
+    currentWeek.games.forEach(g => { if (g.my_pick) mySelections[g.id] = g.my_pick; });
+
+    const deadlineLocal = currentWeek.deadline
+      ? new Date(currentWeek.deadline).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' })
+      : null;
+
+    if (currentWeek.locked) {
+      lockNote.innerHTML = `<span style="color:var(--loss);font-weight:700;">Picks are locked</span> for this week, the first game already kicked off.`;
+    } else if (deadlineLocal) {
+      const submittedNote = currentWeek.submitted_at
+        ? ` You submitted these picks already, you can still change them.`
+        : '';
+      lockNote.textContent = `Picks lock at kickoff of the first game, ${deadlineLocal}.${submittedNote}`;
+    }
+
     renderGames(currentWeek.games);
+    updateSubmitButton();
   } catch (err) {
     heading.textContent = err.message;
   }
@@ -171,23 +193,22 @@ function renderGames(games) {
     return;
   }
 
+  const locked = currentWeek && currentWeek.locked;
+
   list.innerHTML = games.map(g => {
     const kickoff = new Date(g.kickoff_time).toLocaleString(undefined, {
       weekday: 'short', hour: 'numeric', minute: '2-digit'
     });
-    const lockLabel = g.locked
-      ? '<span class="lock">Locked, kickoff passed</span>'
-      : '<span class="open">Locks at kickoff</span>';
 
-    const homePicked = g.my_pick === g.home_team;
-    const awayPicked = g.my_pick === g.away_team;
-    const disabledAttr = g.locked ? 'data-disabled="true"' : '';
-    const clickHome = g.locked ? '' : `onclick="pick(${g.id}, '${escapeQuotes(g.home_team)}', this)"`;
-    const clickAway = g.locked ? '' : `onclick="pick(${g.id}, '${escapeQuotes(g.away_team)}', this)"`;
+    const homePicked = mySelections[g.id] === g.home_team;
+    const awayPicked = mySelections[g.id] === g.away_team;
+    const disabledAttr = locked ? 'data-disabled="true"' : '';
+    const clickHome = locked ? '' : `onclick="selectPick(${g.id}, '${escapeQuotes(g.home_team)}')"`;
+    const clickAway = locked ? '' : `onclick="selectPick(${g.id}, '${escapeQuotes(g.away_team)}')"`;
 
     return `
       <div class="game-card">
-        <div class="meta"><span>${g.sport === 'nfl' ? 'NFL' : 'College'} &middot; ${kickoff}</span>${lockLabel}</div>
+        <div class="meta"><span>${g.sport === 'nfl' ? 'NFL' : 'College'} &middot; ${kickoff}</span></div>
         <div class="teams">
           <div class="team-btn ${homePicked ? 'picked' : ''}" ${disabledAttr} ${clickHome}>${g.home_team}</div>
           <div class="team-btn ${awayPicked ? 'picked' : ''}" ${disabledAttr} ${clickAway}>${g.away_team}</div>
@@ -200,24 +221,50 @@ function escapeQuotes(str) {
   return str.replace(/'/g, "\\'");
 }
 
-async function pick(gameId, pickedTeam, el) {
+function selectPick(gameId, pickedTeam) {
+  mySelections[gameId] = pickedTeam;
+  renderGames(currentWeek.games);
+  updateSubmitButton();
+}
+
+function updateSubmitButton() {
+  const btn = document.getElementById('submit-picks-btn');
+  if (!currentWeek || !currentWeek.games.length) {
+    btn.style.display = 'none';
+    return;
+  }
+  btn.style.display = 'inline-block';
+
+  if (currentWeek.locked) {
+    btn.disabled = true;
+    btn.textContent = 'Picks locked';
+    return;
+  }
+
+  const allPicked = currentWeek.games.every(g => mySelections[g.id]);
+  btn.disabled = !allPicked;
+  btn.textContent = currentWeek.submitted_at ? 'Update picks' : 'Submit picks';
+}
+
+async function submitPicks() {
   const player = getPlayer();
-  el.parentElement.querySelectorAll('.team-btn').forEach(b => b.classList.remove('picked'));
-  el.classList.add('picked');
+  const status = document.getElementById('submit-status');
+  const picks = currentWeek.games.map(g => ({ game_id: g.id, picked_team: mySelections[g.id] }));
 
   try {
     const res = await fetch('/api/picks', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ player_id: player.id, game_id: gameId, picked_team: pickedTeam })
+      body: JSON.stringify({ player_id: player.id, week_id: currentWeek.week_id, picks })
     });
-    if (!res.ok) {
-      const body = await res.json();
-      alert(body.error || 'Could not save that pick.');
-      loadWeek(); // reload to reflect true state
-    }
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not submit your picks.');
+    status.textContent = 'Picks submitted!';
+    status.style.color = 'var(--royal)';
+    loadWeek();
   } catch (err) {
-    alert('Could not save that pick, check your connection and try again.');
+    status.textContent = err.message;
+    status.style.color = 'var(--loss)';
   }
 }
 

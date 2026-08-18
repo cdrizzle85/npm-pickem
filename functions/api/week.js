@@ -1,4 +1,4 @@
-import { json, errorJson, ensureAutoFillsForWeek, isLocked } from '../_lib.js';
+import { json, errorJson, ensureAutoFillsForWeek } from '../_lib.js';
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
@@ -17,17 +17,24 @@ export async function onRequestGet({ request, env }) {
     .bind(week.id)
     .all();
 
+  const deadline = games.results.length ? games.results[0].kickoff_time : null;
+  const locked = deadline ? new Date(deadline).getTime() <= Date.now() : false;
+
   let myPicks = {};
+  let submittedAt = null;
   if (playerId) {
     const rows = await env.DB
       .prepare(
-        `SELECT p.game_id, p.picked_team FROM picks p
+        `SELECT p.game_id, p.picked_team, p.submitted_at FROM picks p
          JOIN games g ON g.id = p.game_id
          WHERE p.player_id = ? AND g.week_id = ?`
       )
       .bind(playerId, week.id)
       .all();
-    for (const row of rows.results) myPicks[row.game_id] = row.picked_team;
+    for (const row of rows.results) {
+      myPicks[row.game_id] = row.picked_team;
+      if (!submittedAt || row.submitted_at > submittedAt) submittedAt = row.submitted_at;
+    }
   }
 
   const gamesOut = games.results.map(g => ({
@@ -36,7 +43,6 @@ export async function onRequestGet({ request, env }) {
     home_team: g.home_team,
     away_team: g.away_team,
     kickoff_time: g.kickoff_time,
-    locked: isLocked(g.kickoff_time),
     my_pick: myPicks[g.id] || null
   }));
 
@@ -44,6 +50,9 @@ export async function onRequestGet({ request, env }) {
     week_id: week.id,
     round_number: week.round_number,
     is_playoff: !!week.is_playoff,
+    deadline,
+    locked,
+    submitted_at: submittedAt,
     games: gamesOut
   });
 }
