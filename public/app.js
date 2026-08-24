@@ -7,7 +7,7 @@ function showView(id, btn) {
   if (id === 'standings') loadStandings();
 }
 
-// ---- Player identity (name + email, remembered on this device) ----
+// ---- Player identity: just email, no password ----
 function getPlayer() {
   const raw = localStorage.getItem('pickem_player');
   return raw ? JSON.parse(raw) : null;
@@ -39,54 +39,48 @@ async function loadTeamsIntoDropdown() {
   }
 }
 
-let identityMode = 'register';
-
-function toggleIdentityMode(e) {
-  e.preventDefault();
-  identityMode = identityMode === 'register' ? 'login' : 'register';
-  document.getElementById('identity-error').textContent = '';
-
-  if (identityMode === 'login') {
-    document.getElementById('identity-title').textContent = 'Log in';
-    document.getElementById('identity-subtitle').textContent = 'Logging in from a new device.';
-    document.getElementById('register-fields').style.display = 'none';
-    document.getElementById('identity-password-confirm').style.display = 'none';
-    document.getElementById('identity-submit-btn').textContent = 'Log in';
-    document.getElementById('identity-toggle-link').textContent = "New here? Create an account";
-  } else {
-    document.getElementById('identity-title').textContent = 'Create your account';
-    document.getElementById('identity-subtitle').textContent = 'One account works across all your devices.';
-    document.getElementById('register-fields').style.display = 'block';
-    document.getElementById('identity-password-confirm').style.display = 'block';
-    document.getElementById('identity-submit-btn').textContent = 'Create account';
-    document.getElementById('identity-toggle-link').textContent = 'Already have an account? Log in';
-  }
-}
+let emailChecked = false; // whether we've already confirmed this email is new and shown the extra fields
 
 async function submitIdentity() {
-  if (identityMode === 'login') return submitLogin();
-  return submitRegister();
-}
-
-async function submitRegister() {
-  const name = document.getElementById('identity-name').value.trim();
   const email = document.getElementById('identity-email').value.trim();
-  const teamId = document.getElementById('identity-team').value;
-  const password = document.getElementById('identity-password').value;
-  const confirm = document.getElementById('identity-password-confirm').value;
   const errorEl = document.getElementById('identity-error');
   errorEl.textContent = '';
 
-  if (!name || !email || !password) {
-    errorEl.textContent = 'Please fill in your name, email, and password.';
+  if (!email) {
+    errorEl.textContent = 'Please enter your email.';
     return;
   }
-  if (password.length < 6) {
-    errorEl.textContent = 'Password must be at least 6 characters.';
+
+  // Step 1: not yet confirmed new, check whether this email already has an account.
+  if (!emailChecked) {
+    try {
+      const res = await fetch(`/api/players?email=${encodeURIComponent(email)}`);
+      if (res.ok) {
+        // Existing account, log them straight in.
+        const player = await res.json();
+        localStorage.setItem('pickem_player', JSON.stringify(player));
+        document.getElementById('identity-modal').style.display = 'none';
+        loadWeek();
+        return;
+      }
+      // Not found: reveal the new-account fields and ask them to confirm.
+      emailChecked = true;
+      document.getElementById('new-account-fields').style.display = 'block';
+      document.getElementById('identity-title').textContent = 'Create your account';
+      document.getElementById('identity-subtitle').textContent = 'This email is new to us, tell us a bit more.';
+      document.getElementById('identity-submit-btn').textContent = 'Create account';
+    } catch {
+      errorEl.textContent = 'Could not check that email, please try again.';
+    }
     return;
   }
-  if (password !== confirm) {
-    errorEl.textContent = "Passwords don't match.";
+
+  // Step 2: creating a new account.
+  const name = document.getElementById('identity-name').value.trim();
+  const teamId = document.getElementById('identity-team').value;
+
+  if (!name) {
+    errorEl.textContent = 'Please enter your name.';
     return;
   }
 
@@ -94,37 +88,10 @@ async function submitRegister() {
     const res = await fetch('/api/players', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email, team_id: teamId ? Number(teamId) : null, password })
+      body: JSON.stringify({ name, email, team_id: teamId ? Number(teamId) : null })
     });
     const player = await res.json();
     if (!res.ok) throw new Error(player.error || 'Could not create your account.');
-    localStorage.setItem('pickem_player', JSON.stringify(player));
-    document.getElementById('identity-modal').style.display = 'none';
-    loadWeek();
-  } catch (err) {
-    errorEl.textContent = err.message;
-  }
-}
-
-async function submitLogin() {
-  const email = document.getElementById('identity-email').value.trim();
-  const password = document.getElementById('identity-password').value;
-  const errorEl = document.getElementById('identity-error');
-  errorEl.textContent = '';
-
-  if (!email || !password) {
-    errorEl.textContent = 'Please enter your email and password.';
-    return;
-  }
-
-  try {
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
-    const player = await res.json();
-    if (!res.ok) throw new Error(player.error || 'Could not log in.');
     localStorage.setItem('pickem_player', JSON.stringify(player));
     document.getElementById('identity-modal').style.display = 'none';
     loadWeek();
@@ -162,7 +129,6 @@ async function loadWeek() {
       ? 'Bonus Playoff Pick \'Em'
       : 'Pick the Winner of Each Game';
 
-    // Start from whatever's already saved, so reopening the page shows your last submission.
     mySelections = {};
     currentWeek.games.forEach(g => { if (g.my_pick) mySelections[g.id] = g.my_pick; });
 

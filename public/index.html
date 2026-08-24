@@ -24,25 +24,22 @@
 
 <main>
 
-  <!-- IDENTITY MODAL -->
+  <!-- IDENTITY MODAL: email-first, no password -->
   <div id="identity-modal" class="modal-overlay" style="display:none;">
     <div class="modal">
-      <h2 id="identity-title">Create your account</h2>
-      <p style="color:var(--muted);font-size:14px;" id="identity-subtitle">One account works across all your devices.</p>
+      <h2 id="identity-title">Enter your email</h2>
+      <p style="color:var(--muted);font-size:14px;" id="identity-subtitle">We'll check if you already have an account.</p>
 
-      <div id="register-fields">
+      <input id="identity-email" type="email" placeholder="Email">
+
+      <div id="new-account-fields" style="display:none;">
+        <p style="color:var(--royal);font-size:13px;font-weight:600;margin-top:14px;">Looks like a new account, tell us a bit more:</p>
         <input id="identity-name" type="text" placeholder="First and last name">
         <select id="identity-team"><option value="">Select your team&hellip;</option></select>
       </div>
-      <input id="identity-email" type="email" placeholder="Email">
-      <input id="identity-password" type="password" placeholder="Password">
-      <input id="identity-password-confirm" type="password" placeholder="Confirm password">
 
-      <button class="btn-primary" onclick="submitIdentity()" id="identity-submit-btn">Create account</button>
+      <button class="btn-primary" onclick="submitIdentity()" id="identity-submit-btn">Continue</button>
       <div id="identity-error" style="color:var(--loss);font-size:13px;margin-top:8px;"></div>
-      <div style="margin-top:14px;font-size:13px;text-align:center;">
-        <a href="#" id="identity-toggle-link" onclick="toggleIdentityMode(event)" style="color:var(--royal);">Already have an account? Log in</a>
-      </div>
     </div>
   </div>
 
@@ -92,7 +89,7 @@
     <div class="note" style="margin-top:24px;">Want to see how Coin Flip is doing against everyone? It's on the standings board like any other player, a built in baseline for "what if you just guessed."</div>
 
     <div class="section-label" style="margin-top:32px;">Additional rules</div>
-    <div class="rule-item"><div class="num">5</div><div><strong>Ties.</strong> If teams are tied at the end of the year, they enter a bonus playoff Pick 'Em: additional weeks of picks until a single victor emerges.</div></div>
+    <div class="rule-item"><div class="num">5</div><div><strong>Ties.</strong> A tiebreaker will be determined at the end of the season, if necessary.</div></div>
     <div class="rule-item"><div class="num">6</div><div><strong>Joining late.</strong> Any weeks missed before you join default to the Coin Flip entry's picks.</div></div>
     <div class="rule-item"><div class="num">7</div><div><strong>Postponed or canceled games.</strong> These don't count for anyone that week.</div></div>
   </div>

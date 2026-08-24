@@ -1,6 +1,9 @@
 let availableGames = [];
-let selectedGames = []; // full game objects, from either pull or manual entry
+let selectedGames = []; // full game objects, from either the schedule or manual entry
+let allTeams = [];
+let allPlayers = [];
 
+// ---- Current week ----
 async function loadCurrentWeek() {
   const box = document.getElementById('current-week-box');
   try {
@@ -13,8 +16,8 @@ async function loadCurrentWeek() {
 
     const gamesHtml = data.games.map(g => `
       <div style="margin-bottom:8px;">
-        #${g.id} ${g.away_team} at ${g.home_team}${g.locked ? '' : ' <span style="color:var(--muted);">(not locked yet)</span>'}
-        ${g.locked ? `
+        #${g.id} ${g.away_team} at ${g.home_team}${data.locked ? '' : ' <span style="color:var(--muted);">(not locked yet)</span>'}
+        ${data.locked ? `
           <button class="btn-secondary" style="margin-left:10px;" onclick="setResultInline(${g.id}, '${escapeQ(g.home_team)}')">${g.home_team} won</button>
           <button class="btn-secondary" onclick="setResultInline(${g.id}, '${escapeQ(g.away_team)}')">${g.away_team} won</button>
         ` : ''}
@@ -48,22 +51,6 @@ async function setResultInline(gameId, winnerTeam) {
   }
 }
 
-async function deleteWeek(weekId, roundNumber) {
-  if (!confirm(`Delete week ${roundNumber}? This removes its games and everyone's picks for it. No undo.`)) return;
-  try {
-    const res = await fetch('/api/admin/delete-week', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ week_id: weekId })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not delete week.');
-    loadCurrentWeek();
-  } catch (err) {
-    alert(err.message);
-  }
-}
-
 async function scoreWeek(weekId) {
   try {
     const res = await fetch('/api/admin/score-week', {
@@ -82,6 +69,220 @@ async function scoreWeek(weekId) {
   }
 }
 
+async function deleteWeek(weekId, roundNumber) {
+  if (!confirm(`Delete week ${roundNumber}? This removes its games and everyone's picks for it. No undo.`)) return;
+  try {
+    const res = await fetch('/api/admin/delete-week', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ week_id: weekId })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not delete week.');
+    loadCurrentWeek();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Teams ----
+async function loadTeams() {
+  const box = document.getElementById('teams-list');
+  try {
+    const res = await fetch('/api/admin/teams');
+    const data = await res.json();
+    allTeams = data.teams;
+    if (!allTeams.length) {
+      box.innerHTML = 'No teams yet, add one below.';
+      return;
+    }
+    box.innerHTML = allTeams.map(t => `
+      <div style="margin-bottom:6px;">
+        <strong>${t.name}</strong>
+        <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editTeam(${t.id}, '${escapeQ(t.name)}')">Rename</button>
+        <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteTeam(${t.id}, '${escapeQ(t.name)}')">Remove</button>
+      </div>`).join('');
+  } catch {
+    box.innerHTML = 'Could not load teams.';
+  }
+}
+
+async function addTeam() {
+  const status = document.getElementById('team-status');
+  const name = document.getElementById('new-team-name').value.trim();
+  if (!name) {
+    status.textContent = 'Enter a team name.';
+    status.style.color = 'var(--loss)';
+    return;
+  }
+  try {
+    const res = await fetch('/api/admin/teams', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not add team.');
+    status.textContent = `Added ${name}.`;
+    status.style.color = 'var(--royal)';
+    document.getElementById('new-team-name').value = '';
+    loadTeams();
+  } catch (err) {
+    status.textContent = err.message;
+    status.style.color = 'var(--loss)';
+  }
+}
+
+async function editTeam(id, currentName) {
+  const name = prompt('Team name:', currentName);
+  if (!name) return;
+  try {
+    const res = await fetch(`/api/admin/teams/${id}`, {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not rename team.');
+    loadTeams();
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function deleteTeam(id, name) {
+  if (!confirm(`Remove ${name}? Members keep their picks but lose their team assignment.`)) return;
+  try {
+    const res = await fetch(`/api/admin/teams/${id}`, { method: 'DELETE' });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not remove team.');
+    loadTeams();
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Players ----
+async function loadPlayers() {
+  const box = document.getElementById('players-list');
+  try {
+    const res = await fetch('/api/admin/players');
+    const data = await res.json();
+    allPlayers = data.players;
+    if (!allPlayers.length) {
+      box.innerHTML = 'No players yet.';
+      return;
+    }
+    box.innerHTML = allPlayers.map(p => {
+      if (p.is_coinflip) {
+        return `<div style="margin-bottom:6px;"><em>${p.name}</em> <span style="color:var(--muted);">(system entry, can't be edited)</span></div>`;
+      }
+      return `
+        <div style="margin-bottom:6px;">
+          <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email} &middot; ${p.team_name || 'no team'}</span>
+          <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editPlayer(${p.id}, '${escapeQ(p.name)}', '${escapeQ(p.email)}')">Edit</button>
+          <button class="btn-secondary" style="padding:4px 10px;" onclick="deletePlayer(${p.id}, '${escapeQ(p.name)}')">Remove</button>
+        </div>`;
+    }).join('');
+  } catch {
+    box.innerHTML = 'Could not load players.';
+  }
+}
+
+function copyAllEmails() {
+  const status = document.getElementById('emails-status');
+  const box = document.getElementById('emails-box');
+  const emails = allPlayers.filter(p => !p.is_coinflip).map(p => p.email);
+
+  if (!emails.length) {
+    status.textContent = 'No player emails yet.';
+    status.style.color = 'var(--muted)';
+    return;
+  }
+
+  const list = emails.join(', ');
+  box.value = list;
+  box.style.display = 'block';
+
+  navigator.clipboard.writeText(list).then(() => {
+    status.textContent = `Copied ${emails.length} email${emails.length === 1 ? '' : 's'} to your clipboard, paste into BCC.`;
+    status.style.color = 'var(--royal)';
+  }).catch(() => {
+    status.textContent = `Couldn't copy automatically, select the text below and copy it manually.`;
+    status.style.color = 'var(--muted)';
+    box.select();
+  });
+}
+
+async function addPlayer() {
+  const status = document.getElementById('player-status');
+  const name = document.getElementById('new-player-name').value.trim();
+  const email = document.getElementById('new-player-email').value.trim();
+
+  if (!name || !email) {
+    status.textContent = 'Enter a name and email.';
+    status.style.color = 'var(--loss)';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/admin/players', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not add player.');
+    status.textContent = `Added ${name}.`;
+    status.style.color = 'var(--royal)';
+    document.getElementById('new-player-name').value = '';
+    document.getElementById('new-player-email').value = '';
+    loadPlayers();
+  } catch (err) {
+    status.textContent = err.message;
+    status.style.color = 'var(--loss)';
+  }
+}
+
+async function editPlayer(id, currentName, currentEmail) {
+  const name = prompt('Name:', currentName);
+  if (name === null) return;
+  const email = prompt('Email:', currentEmail);
+  if (email === null) return;
+
+  const teamMenu = allTeams.map(t => `${t.id}) ${t.name}`).join('\n');
+  const teamChoice = prompt(`Team? Enter the number, or leave blank for no team:\n${teamMenu}`);
+  const team_id = teamChoice && teamChoice.trim() ? Number(teamChoice.trim()) : null;
+
+  try {
+    const res = await fetch(`/api/admin/players/${id}`, {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name, email, team_id })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not update player.');
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function deletePlayer(id, name) {
+  if (!confirm(`Remove ${name}? This also deletes all of their past picks.`)) return;
+  try {
+    const res = await fetch(`/api/admin/players/${id}`, { method: 'DELETE' });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not remove player.');
+    loadPlayers();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Schedule browsing ----
 async function fetchAvailableGames() {
   const sport = document.getElementById('sport-select').value;
   const start = document.getElementById('date-start').value;
@@ -246,235 +447,6 @@ async function setResult() {
   } catch (err) {
     status.textContent = err.message;
     status.style.color = 'var(--loss)';
-  }
-}
-
-let allTeams = [];
-
-async function loadTeams() {
-  const box = document.getElementById('teams-list');
-  try {
-    const res = await fetch('/api/admin/teams');
-    const data = await res.json();
-    allTeams = data.teams;
-    if (!allTeams.length) {
-      box.innerHTML = 'No teams yet, add one below.';
-      return;
-    }
-    box.innerHTML = allTeams.map(t => `
-      <div style="margin-bottom:6px;">
-        <strong>${t.name}</strong>
-        <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editTeam(${t.id}, '${escapeQ(t.name)}')">Rename</button>
-        <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteTeam(${t.id}, '${escapeQ(t.name)}')">Remove</button>
-      </div>`).join('');
-  } catch {
-    box.innerHTML = 'Could not load teams.';
-  }
-}
-
-async function addTeam() {
-  const status = document.getElementById('team-status');
-  const name = document.getElementById('new-team-name').value.trim();
-  if (!name) {
-    status.textContent = 'Enter a team name.';
-    status.style.color = 'var(--loss)';
-    return;
-  }
-  try {
-    const res = await fetch('/api/admin/teams', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not add team.');
-    status.textContent = `Added ${name}.`;
-    status.style.color = 'var(--royal)';
-    document.getElementById('new-team-name').value = '';
-    loadTeams();
-  } catch (err) {
-    status.textContent = err.message;
-    status.style.color = 'var(--loss)';
-  }
-}
-
-async function editTeam(id, currentName) {
-  const name = prompt('Team name:', currentName);
-  if (!name) return;
-  try {
-    const res = await fetch(`/api/admin/teams/${id}`, {
-      method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not rename team.');
-    loadTeams();
-    loadPlayers();
-  } catch (err) {
-    alert(err.message);
-  }
-}
-
-async function deleteTeam(id, name) {
-  if (!confirm(`Remove ${name}? Members keep their picks but lose their team assignment.`)) return;
-  try {
-    const res = await fetch(`/api/admin/teams/${id}`, { method: 'DELETE' });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not remove team.');
-    loadTeams();
-    loadPlayers();
-  } catch (err) {
-    alert(err.message);
-  }
-}
-
-function copyAllEmails() {
-  const status = document.getElementById('emails-status');
-  const box = document.getElementById('emails-box');
-  const emails = allPlayers.filter(p => !p.is_coinflip).map(p => p.email);
-
-  if (!emails.length) {
-    status.textContent = 'No player emails yet.';
-    status.style.color = 'var(--muted)';
-    return;
-  }
-
-  const list = emails.join(', ');
-  box.value = list;
-  box.style.display = 'block';
-
-  navigator.clipboard.writeText(list).then(() => {
-    status.textContent = `Copied ${emails.length} email${emails.length === 1 ? '' : 's'} to your clipboard, paste into BCC.`;
-    status.style.color = 'var(--royal)';
-  }).catch(() => {
-    status.textContent = `Couldn't copy automatically, select the text below and copy it manually.`;
-    status.style.color = 'var(--muted)';
-    box.select();
-  });
-}
-
-let allPlayers = [];
-
-async function loadPlayers() {
-  const box = document.getElementById('players-list');
-  try {
-    const res = await fetch('/api/admin/players');
-    const data = await res.json();
-    allPlayers = data.players;
-    if (!allPlayers.length) {
-      box.innerHTML = 'No players yet.';
-      return;
-    }
-    box.innerHTML = allPlayers.map(p => {
-      if (p.is_coinflip) {
-        return `<div style="margin-bottom:6px;"><em>${p.name}</em> <span style="color:var(--muted);">(system entry, can't be edited)</span></div>`;
-      }
-      return `
-        <div style="margin-bottom:6px;">
-          <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email} &middot; ${p.team_name || 'no team'}</span>
-          <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editPlayer(${p.id}, '${escapeQ(p.name)}', '${escapeQ(p.email)}')">Edit</button>
-          <button class="btn-secondary" style="padding:4px 10px;" onclick="resetPassword(${p.id}, '${escapeQ(p.name)}')">Reset password</button>
-          <button class="btn-secondary" style="padding:4px 10px;" onclick="deletePlayer(${p.id}, '${escapeQ(p.name)}')">Remove</button>
-        </div>`;
-    }).join('');
-  } catch {
-    box.innerHTML = 'Could not load players.';
-  }
-}
-
-async function addPlayer() {
-  const status = document.getElementById('player-status');
-  const name = document.getElementById('new-player-name').value.trim();
-  const email = document.getElementById('new-player-email').value.trim();
-  const password = document.getElementById('new-player-password').value;
-
-  if (!name || !email || !password) {
-    status.textContent = 'Enter a name, email, and temporary password.';
-    status.style.color = 'var(--loss)';
-    return;
-  }
-  if (password.length < 6) {
-    status.textContent = 'Password must be at least 6 characters.';
-    status.style.color = 'var(--loss)';
-    return;
-  }
-
-  try {
-    const res = await fetch('/api/admin/players', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email, password })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not add player.');
-    status.textContent = `Added ${name}. Tell them their temporary password so they can log in: ${password}`;
-    status.style.color = 'var(--royal)';
-    document.getElementById('new-player-name').value = '';
-    document.getElementById('new-player-email').value = '';
-    document.getElementById('new-player-password').value = '';
-    loadPlayers();
-  } catch (err) {
-    status.textContent = err.message;
-    status.style.color = 'var(--loss)';
-  }
-}
-
-async function resetPassword(id, name) {
-  const newPassword = prompt(`New temporary password for ${name} (at least 6 characters):`);
-  if (!newPassword) return;
-  if (newPassword.length < 6) {
-    alert('Password must be at least 6 characters.');
-    return;
-  }
-
-  try {
-    const res = await fetch(`/api/admin/players/${id}`, {
-      method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ new_password: newPassword })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not reset password.');
-    alert(`Password reset. Tell ${name} their new temporary password: ${newPassword}`);
-  } catch (err) {
-    alert(err.message);
-  }
-}
-
-async function editPlayer(id, currentName, currentEmail) {
-  const name = prompt('Name:', currentName);
-  if (name === null) return;
-  const email = prompt('Email:', currentEmail);
-  if (email === null) return;
-
-  const teamMenu = allTeams.map(t => `${t.id}) ${t.name}`).join('\n');
-  const teamChoice = prompt(`Team? Enter the number, or leave blank for no team:\n${teamMenu}`);
-  const team_id = teamChoice && teamChoice.trim() ? Number(teamChoice.trim()) : null;
-
-  try {
-    const res = await fetch(`/api/admin/players/${id}`, {
-      method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name, email, team_id })
-    });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not update player.');
-    loadPlayers();
-  } catch (err) {
-    alert(err.message);
-  }
-}
-
-async function deletePlayer(id, name) {
-  if (!confirm(`Remove ${name}? This also deletes all of their past picks.`)) return;
-  try {
-    const res = await fetch(`/api/admin/players/${id}`, { method: 'DELETE' });
-    const body = await res.json();
-    if (!res.ok) throw new Error(body.error || 'Could not remove player.');
-    loadPlayers();
-  } catch (err) {
-    alert(err.message);
   }
 }
 

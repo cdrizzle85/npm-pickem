@@ -1,4 +1,4 @@
-import { json, errorJson, createPlayer, hashPassword } from '../../_lib.js';
+import { json, errorJson } from '../../_lib.js';
 
 // GET /api/admin/players -> list everyone (including Coin Flip, flagged), with their team
 export async function onRequestGet({ env }) {
@@ -14,11 +14,17 @@ export async function onRequestGet({ env }) {
 
 // POST /api/admin/players -> manually add a player (e.g. for someone who won't self-register)
 export async function onRequestPost({ request, env }) {
-  const { name, email, team_id, password } = await request.json();
-  if (!name || !email || !password) return errorJson('name, email, and password are required.');
+  const { name, email, team_id } = await request.json();
+  if (!name || !email) return errorJson('name and email are required.');
 
-  const player = await createPlayer(env.DB, { name, email, teamId: team_id, password });
-  if (!player) return errorJson('A player with that email already exists.', 409);
+  const cleanEmail = email.trim().toLowerCase();
+  const existing = await env.DB.prepare('SELECT id FROM players WHERE email = ?').bind(cleanEmail).first();
+  if (existing) return errorJson('A player with that email already exists.', 409);
 
-  return json(player);
+  const result = await env.DB
+    .prepare('INSERT INTO players (name, email, team_id) VALUES (?, ?, ?)')
+    .bind(name.trim(), cleanEmail, team_id || null)
+    .run();
+
+  return json({ id: result.meta.last_row_id, name: name.trim(), email: cleanEmail, team_id: team_id || null });
 }
