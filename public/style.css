@@ -405,7 +405,7 @@ tr.coinflip td{
 @media (max-width:480px){
   header{padding:16px 20px;}
   .brand-logo{height:32px;}
-  .brand-connector{height:28px;width:15px;}
+  .brand-connector{height:36px;width:19px;}
   header .title{font-size:18px;}
   main{padding:20px;}
 }
