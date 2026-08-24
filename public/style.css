@@ -57,7 +57,7 @@ header .title{
 }
 header .subtitle{
   font-size:12px;
-  color:var(--cyan);
+  color:var(--ember);
   text-transform:uppercase;
   letter-spacing:1.5px;
   margin-top:2px;
@@ -405,6 +405,7 @@ tr.coinflip td{
 @media (max-width:480px){
   header{padding:16px 20px;}
   .brand-logo{height:32px;}
+  .brand-connector{height:28px;width:15px;}
   header .title{font-size:18px;}
   main{padding:20px;}
 }
