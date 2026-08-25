@@ -194,10 +194,6 @@ th{
   text-transform:uppercase;
   letter-spacing:1px;
 }
-tr.coinflip td{
-  color:var(--muted);
-  font-style:italic;
-}
 .pctcol{font-family:'Consolas','Courier New',monospace;}
 
 .stat-row{

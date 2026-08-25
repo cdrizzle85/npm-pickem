@@ -212,31 +212,12 @@ export async function fetchEspnGameResult(sport, espnEventId) {
   };
 }
 
-// Generate a random Coin Flip pick for every game in a week that doesn't have one yet.
-export async function generateCoinFlipPicks(db, weekId) {
-  const games = await db
-    .prepare('SELECT id, home_team, away_team FROM games WHERE week_id = ?')
-    .bind(weekId)
-    .all();
-
-  for (const game of games.results) {
-    const existing = await db
-      .prepare('SELECT id FROM picks WHERE player_id = 1 AND game_id = ?')
-      .bind(game.id)
-      .first();
-    if (existing) continue;
-    const pick = Math.random() < 0.5 ? game.home_team : game.away_team;
-    await db
-      .prepare('INSERT INTO picks (player_id, game_id, picked_team) VALUES (1, ?, ?)')
-      .bind(game.id, pick)
-      .run();
-  }
-}
-
-// For any week whose deadline (kickoff of its first game) has passed, auto-fill
-// every missing pick from Coin Flip. Since players now submit all-or-nothing,
-// "missing" here effectively means "never submitted at all."
-export async function ensureAutoFillsForWeek(db, weekId) {
+// For any week whose deadline (kickoff of its first game) has passed, credit
+// a fixed grace score (2 wins, rest counted as losses) to anyone who never
+// submitted picks at all. This is an unconditional credit, not tied to actual
+// game outcomes, so it's tracked separately from real picks rather than
+// simulated as fake picks.
+export async function applyGraceCredits(db, weekId) {
   const now = new Date().toISOString();
   const deadlineRow = await db
     .prepare('SELECT MIN(kickoff_time) AS deadline FROM games WHERE week_id = ?')
@@ -244,27 +225,38 @@ export async function ensureAutoFillsForWeek(db, weekId) {
     .first();
   if (!deadlineRow || !deadlineRow.deadline || deadlineRow.deadline > now) return; // not locked yet
 
-  const games = await db.prepare('SELECT id FROM games WHERE week_id = ?').bind(weekId).all();
-  const players = await db.prepare('SELECT id FROM players WHERE is_coinflip = 0').all();
+  const gameCountRow = await db.prepare('SELECT COUNT(*) AS c FROM games WHERE week_id = ?').bind(weekId).first();
+  const totalGames = gameCountRow ? gameCountRow.c : 0;
+  if (!totalGames) return;
 
-  for (const game of games.results) {
-    const coinFlipPick = await db
-      .prepare('SELECT picked_team FROM picks WHERE player_id = 1 AND game_id = ?')
-      .bind(game.id)
+  const players = await db.prepare('SELECT id FROM players').all();
+
+  for (const player of players.results) {
+    const hasPicks = await db
+      .prepare(
+        `SELECT p.id FROM picks p JOIN games g ON g.id = p.game_id
+         WHERE p.player_id = ? AND g.week_id = ? LIMIT 1`
+      )
+      .bind(player.id, weekId)
       .first();
-    if (!coinFlipPick) continue; // shouldn't happen if publish-week ran generateCoinFlipPicks
+    if (hasPicks) continue; // they submitted, no grace needed
 
-    for (const player of players.results) {
-      const existing = await db
-        .prepare('SELECT id FROM picks WHERE player_id = ? AND game_id = ?')
-        .bind(player.id, game.id)
-        .first();
-      if (existing) continue;
-      await db
-        .prepare('INSERT INTO picks (player_id, game_id, picked_team, is_auto_fill) VALUES (?, ?, ?, 1)')
-        .bind(player.id, game.id, coinFlipPick.picked_team)
-        .run();
-    }
+    const existing = await db
+      .prepare('SELECT id FROM grace_credits WHERE player_id = ? AND week_id = ?')
+      .bind(player.id, weekId)
+      .first();
+    if (existing) continue; // already credited
+
+    const winsCredited = Math.min(2, totalGames);
+    const lossesCredited = Math.max(totalGames - winsCredited, 0);
+
+    await db
+      .prepare(
+        `INSERT INTO grace_credits (player_id, week_id, wins_credited, losses_credited)
+         VALUES (?, ?, ?, ?)`
+      )
+      .bind(player.id, weekId, winsCredited, lossesCredited)
+      .run();
   }
 }
 

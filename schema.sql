@@ -12,13 +12,8 @@ CREATE TABLE IF NOT EXISTS players (
   email TEXT NOT NULL UNIQUE,
   password_hash TEXT,
   team_id INTEGER REFERENCES teams(id),
-  is_coinflip INTEGER NOT NULL DEFAULT 0,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
-
--- Seed the Coin Flip entry as player id 1
-INSERT OR IGNORE INTO players (id, name, email, is_coinflip)
-VALUES (1, 'Coin Flip', 'coinflip@internal.local', 1);
 
 CREATE TABLE IF NOT EXISTS weeks (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,9 +42,19 @@ CREATE TABLE IF NOT EXISTS picks (
   player_id INTEGER NOT NULL REFERENCES players(id),
   game_id INTEGER NOT NULL REFERENCES games(id),
   picked_team TEXT NOT NULL,
-  is_auto_fill INTEGER NOT NULL DEFAULT 0, -- 1 if copied from Coin Flip after missed deadline
+  is_auto_fill INTEGER NOT NULL DEFAULT 0,
   submitted_at TEXT NOT NULL DEFAULT (datetime('now')),
   UNIQUE(player_id, game_id)
+);
+
+CREATE TABLE IF NOT EXISTS grace_credits (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  player_id INTEGER NOT NULL REFERENCES players(id),
+  week_id INTEGER NOT NULL REFERENCES weeks(id),
+  wins_credited INTEGER NOT NULL,
+  losses_credited INTEGER NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE(player_id, week_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_games_week ON games(week_id);

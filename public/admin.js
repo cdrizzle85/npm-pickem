@@ -176,9 +176,6 @@ async function loadPlayers() {
       return;
     }
     box.innerHTML = allPlayers.map(p => {
-      if (p.is_coinflip) {
-        return `<div style="margin-bottom:6px;"><em>${p.name}</em> <span style="color:var(--muted);">(system entry, can't be edited)</span></div>`;
-      }
       return `
         <div style="margin-bottom:6px;">
           <strong>${p.name}</strong> <span style="color:var(--muted);">${p.email} &middot; ${p.team_name || 'no team'}</span>
@@ -194,7 +191,7 @@ async function loadPlayers() {
 function copyAllEmails() {
   const status = document.getElementById('emails-status');
   const box = document.getElementById('emails-box');
-  const emails = allPlayers.filter(p => !p.is_coinflip).map(p => p.email);
+  const emails = allPlayers.map(p => p.email);
 
   if (!emails.length) {
     status.textContent = 'No player emails yet.';

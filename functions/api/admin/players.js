@@ -1,12 +1,12 @@
 import { json, errorJson } from '../../_lib.js';
 
-// GET /api/admin/players -> list everyone (including Coin Flip, flagged), with their team
+// GET /api/admin/players -> list every player, with their team
 export async function onRequestGet({ env }) {
   const rows = await env.DB
     .prepare(
-      `SELECT p.id, p.name, p.email, p.is_coinflip, p.team_id, t.name AS team_name
+      `SELECT p.id, p.name, p.email, p.team_id, t.name AS team_name
        FROM players p LEFT JOIN teams t ON t.id = p.team_id
-       ORDER BY p.is_coinflip ASC, p.name ASC`
+       ORDER BY p.name ASC`
     )
     .all();
   return json({ players: rows.results });

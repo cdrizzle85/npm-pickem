@@ -343,7 +343,7 @@ function renderPodiumAndTable(standings) {
 
   table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
     rest.map((p, i) => `
-      <tr class="${p.is_coinflip ? 'coinflip' : ''}">
+      <tr>
         <td>${i + 4}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
         <td class="pctcol">${p.win_pct.toFixed(3)}</td>
       </tr>`).join('');

@@ -1,4 +1,4 @@
-import { json, errorJson, generateCoinFlipPicks } from '../../_lib.js';
+import { json, errorJson } from '../../_lib.js';
 
 // POST /api/admin/publish-week
 // body: { round_number, is_playoff, games: [{espn_event_id, sport, home_team, away_team, kickoff_time}] }
@@ -25,8 +25,6 @@ export async function onRequestPost({ request, env }) {
       .bind(weekId, g.espn_event_id, g.source || 'manual', g.sport, g.home_team, g.away_team, g.kickoff_time)
       .run();
   }
-
-  await generateCoinFlipPicks(env.DB, weekId);
 
   return json({ ok: true, week_id: weekId });
 }

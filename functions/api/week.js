@@ -1,4 +1,4 @@
-import { json, errorJson, ensureAutoFillsForWeek } from '../_lib.js';
+import { json, errorJson, applyGraceCredits } from '../_lib.js';
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
@@ -10,7 +10,7 @@ export async function onRequestGet({ request, env }) {
 
   if (!week) return errorJson('No open week right now.', 404);
 
-  await ensureAutoFillsForWeek(env.DB, week.id);
+  await applyGraceCredits(env.DB, week.id);
 
   const games = await env.DB
     .prepare('SELECT * FROM games WHERE week_id = ? ORDER BY kickoff_time ASC')

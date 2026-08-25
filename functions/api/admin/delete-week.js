@@ -14,6 +14,7 @@ export async function onRequestPost({ request, env }) {
     .prepare('DELETE FROM picks WHERE game_id IN (SELECT id FROM games WHERE week_id = ?)')
     .bind(week_id)
     .run();
+  await env.DB.prepare('DELETE FROM grace_credits WHERE week_id = ?').bind(week_id).run();
   await env.DB.prepare('DELETE FROM games WHERE week_id = ?').bind(week_id).run();
   await env.DB.prepare('DELETE FROM weeks WHERE id = ?').bind(week_id).run();
 

@@ -3,7 +3,6 @@ import { json, errorJson } from '../../../_lib.js';
 // PATCH /api/admin/players/:id -> update name, email, and/or team
 export async function onRequestPatch({ request, env, params }) {
   const id = Number(params.id);
-  if (id === 1) return errorJson("Can't edit the Coin Flip entry.", 400);
 
   const { name, email, team_id } = await request.json();
   const player = await env.DB.prepare('SELECT * FROM players WHERE id = ?').bind(id).first();
@@ -29,7 +28,6 @@ export async function onRequestPatch({ request, env, params }) {
 // DELETE /api/admin/players/:id -> remove a player and their picks
 export async function onRequestDelete({ env, params }) {
   const id = Number(params.id);
-  if (id === 1) return errorJson("Can't delete the Coin Flip entry.", 400);
 
   const player = await env.DB.prepare('SELECT id FROM players WHERE id = ?').bind(id).first();
   if (!player) return errorJson('Player not found.', 404);

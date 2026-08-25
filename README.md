@@ -1,6 +1,6 @@
 # NPM Pick 'Em
 
-Straight up picks, 7 games a week, 12 week season, Coin Flip covers anyone who misses a deadline.
+Straight up picks, 7 games a week, 12 week season, missing a week costs 2 grace points instead of a real score.
 
 ## What's in here
 
@@ -74,14 +74,16 @@ If NFL flex-schedules a game to a new time later in the season, or a college foo
 1. Open `/admin.html` (not linked anywhere public, bookmark it)
 2. **Option 1: Browse the pre-loaded schedule** — pick a sport and date range, check the games you want. Fix any wrong or TBD kickoff times with **Edit time** first.
 3. **Option 2: Add a game manually** — for anything not in the pre-loaded schedule (FCS opponents, etc.), just type it in.
-4. Set the round number, hit **Publish week**. Coin Flip's picks for the week are generated automatically.
+4. Set the round number, hit **Publish week**.
 5. After games finish, click the **team that won** next to each game, that's it. There's no reliable automatic scoring source right now (see below), so this is the real, supported way to score a week.
+6. Once a week's deadline (kickoff of its first game) passes, anyone who never submitted automatically gets credited 2 wins and the rest as losses for that week, no action needed on your end.
 
 ## A couple of things to keep an eye on
 
 - Three different free live-data sources (ESPN, TheSportsDB, Sleeper's undocumented endpoint) all turned out to be unreliable or blocked from Cloudflare's network, or in Sleeper's case, don't cover college football at all. The pre-loaded schedule solves game *selection*, but final scores still need a human, either you clicking the winner each week, or a paid sports data API with a real SLA if this ever needs to run unattended.
 - The admin page has no login wall, per your call, anyone with the URL can publish weeks and set results. Keep the link out of anywhere public.
 - Ties at season end are on you to run: the app tracks who's tied by win percentage, but starting a bonus playoff round is just publishing another week and marking it as a playoff round in the admin form.
+- Run `migration_005_grace_credits.sql` once to add grace credit support and remove the old Coin Flip test account.
 - Still to build: none currently, player management, team standings, and schedule browsing are all in.
 
 ## Accounts and passwords

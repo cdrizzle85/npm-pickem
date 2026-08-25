@@ -1,4 +1,4 @@
-import { json, errorJson, ensureAutoFillsForWeek } from '../../_lib.js';
+import { json, errorJson, applyGraceCredits } from '../../_lib.js';
 
 // POST /api/admin/set-result
 // body: { game_id, winner_team }
@@ -18,7 +18,7 @@ export async function onRequestPost({ request, env }) {
     .bind(winner_team, game_id)
     .run();
 
-  await ensureAutoFillsForWeek(env.DB, game.week_id);
+  await applyGraceCredits(env.DB, game.week_id);
 
   return json({ ok: true });
 }

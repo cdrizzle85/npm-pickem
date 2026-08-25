@@ -1,10 +1,11 @@
-import { json, errorJson, fetchEspnGameResult, fetchSportsDbResult, ensureAutoFillsForWeek } from '../../_lib.js';
+import { json, errorJson, fetchEspnGameResult, fetchSportsDbResult, applyGraceCredits } from '../../_lib.js';
 
 // POST /api/admin/score-week
 // body: { week_id }
 // Pulls live results for every game in the week (from whichever source it came from),
-// updates winners, auto-fills any missed picks from Coin Flip, and marks the week scored
-// once every game is final. Manually-entered games are skipped here, use set-result for those.
+// updates winners, applies grace credits for anyone who never submitted, and marks
+// the week scored once every game is final. Manually-entered games are skipped here,
+// use set-result for those.
 export async function onRequestPost({ request, env }) {
   const { week_id } = await request.json();
   if (!week_id) return errorJson('week_id is required.');
@@ -42,7 +43,7 @@ export async function onRequestPost({ request, env }) {
     }
   }
 
-  await ensureAutoFillsForWeek(env.DB, week_id);
+  await applyGraceCredits(env.DB, week_id);
 
   if (allFinal) {
     await env.DB
