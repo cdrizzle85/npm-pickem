@@ -298,12 +298,6 @@ function populateStandingsFilter() {
     '<option value="org:NPM">NPM &middot; All teams</option>' +
     '<option value="org:NPCC">NPCC &middot; All teams</option>' +
     teamOptions;
-
-  const me = getPlayer();
-  if (me) {
-    const meInStandings = allStandings.find(p => p.player_id === me.id);
-    if (meInStandings && meInStandings.team_id) select.value = String(meInStandings.team_id);
-  }
 }
 
 function renderTeamStandings(teamStandings) {
