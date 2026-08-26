@@ -293,7 +293,11 @@ function populateStandingsFilter() {
     .filter(p => p.team_id && !seen.has(p.team_id) && seen.add(p.team_id))
     .map(p => `<option value="${p.team_id}">${p.team_org} &middot; ${p.team_name}</option>`)
     .join('');
-  select.innerHTML = '<option value="all">Everyone</option>' + teamOptions;
+  select.innerHTML =
+    '<option value="all">Everyone</option>' +
+    '<option value="org:NPM">NPM &middot; All teams</option>' +
+    '<option value="org:NPCC">NPCC &middot; All teams</option>' +
+    teamOptions;
 
   const me = getPlayer();
   if (me) {
@@ -318,9 +322,20 @@ function renderTeamStandings(teamStandings) {
 
 function renderStandingsView() {
   const filter = document.getElementById('standings-filter').value;
-  const filtered = filter === 'all'
-    ? allStandings
-    : allStandings.filter(p => String(p.team_id) === filter);
+  let filtered;
+  let scopeLabel;
+
+  if (filter === 'all') {
+    filtered = allStandings;
+    scopeLabel = null;
+  } else if (filter === 'org:NPM' || filter === 'org:NPCC') {
+    const org = filter.split(':')[1];
+    filtered = allStandings.filter(p => p.team_org === org);
+    scopeLabel = org;
+  } else {
+    filtered = allStandings.filter(p => String(p.team_id) === filter);
+    scopeLabel = null; // team-specific note below already includes org + team name
+  }
 
   renderPodiumAndTable(filtered);
 
@@ -329,7 +344,8 @@ function renderStandingsView() {
   if (me && filter !== 'all') {
     const idx = filtered.findIndex(p => p.player_id === me.id);
     if (idx >= 0) {
-      note.textContent = `You're ranked #${idx + 1} on ${filtered[idx].team_org} \u00b7 ${filtered[idx].team_name}.`;
+      const label = scopeLabel ? scopeLabel : `${filtered[idx].team_org} \u00b7 ${filtered[idx].team_name}`;
+      note.textContent = `You're ranked #${idx + 1} within ${label}.`;
     } else {
       note.textContent = '';
     }
