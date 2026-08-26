@@ -31,7 +31,13 @@
   <div class="section-label" style="margin-top:36px;">Teams</div>
   <div id="teams-list" class="note">Loading&hellip;</div>
   <div class="admin-controls" style="margin-top:10px;">
-    <label>Team name <input id="new-team-name" type="text" placeholder="e.g. ICN" style="width:200px;"></label>
+    <label>Org
+      <select id="new-team-org">
+        <option value="NPM">NPM</option>
+        <option value="NPCC">NPCC</option>
+      </select>
+    </label>
+    <label style="margin-left:16px;">Team name <input id="new-team-name" type="text" placeholder="e.g. ICN" style="width:200px;"></label>
     <button class="btn-secondary" onclick="addTeam()">Add team</button>
   </div>
   <div id="team-status" style="margin-top:8px;font-size:13px;"></div>

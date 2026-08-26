@@ -96,12 +96,16 @@ async function loadTeams() {
       box.innerHTML = 'No teams yet, add one below.';
       return;
     }
-    box.innerHTML = allTeams.map(t => `
-      <div style="margin-bottom:6px;">
-        <strong>${t.name}</strong>
-        <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editTeam(${t.id}, '${escapeQ(t.name)}')">Rename</button>
-        <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteTeam(${t.id}, '${escapeQ(t.name)}')">Remove</button>
-      </div>`).join('');
+    const groups = { NPM: allTeams.filter(t => t.org === 'NPM'), NPCC: allTeams.filter(t => t.org === 'NPCC') };
+    box.innerHTML = ['NPM', 'NPCC'].map(org => `
+      <div style="font-weight:800;color:var(--navy);margin:10px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:1px;">${org}</div>
+      ${groups[org].length ? groups[org].map(t => `
+        <div style="margin-bottom:6px;">
+          <strong>${t.name}</strong>
+          <button class="btn-secondary" style="margin-left:10px;padding:4px 10px;" onclick="editTeam(${t.id}, '${escapeQ(t.name)}', '${t.org}')">Rename</button>
+          <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteTeam(${t.id}, '${escapeQ(t.name)}')">Remove</button>
+        </div>`).join('') : '<div style="color:var(--muted);">No teams yet.</div>'}
+    `).join('');
   } catch {
     box.innerHTML = 'Could not load teams.';
   }
@@ -109,6 +113,7 @@ async function loadTeams() {
 
 async function addTeam() {
   const status = document.getElementById('team-status');
+  const org = document.getElementById('new-team-org').value;
   const name = document.getElementById('new-team-name').value.trim();
   if (!name) {
     status.textContent = 'Enter a team name.';
@@ -119,11 +124,11 @@ async function addTeam() {
     const res = await fetch('/api/admin/teams', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name })
+      body: JSON.stringify({ org, name })
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not add team.');
-    status.textContent = `Added ${name}.`;
+    status.textContent = `Added ${org} \u00b7 ${name}.`;
     status.style.color = 'var(--royal)';
     document.getElementById('new-team-name').value = '';
     loadTeams();
@@ -133,14 +138,19 @@ async function addTeam() {
   }
 }
 
-async function editTeam(id, currentName) {
+async function editTeam(id, currentName, currentOrg) {
   const name = prompt('Team name:', currentName);
   if (!name) return;
+  const org = prompt('Org (NPM or NPCC):', currentOrg);
+  if (!org || (org !== 'NPM' && org !== 'NPCC')) {
+    alert("Org must be exactly 'NPM' or 'NPCC', rename cancelled.");
+    return;
+  }
   try {
     const res = await fetch(`/api/admin/teams/${id}`, {
       method: 'PATCH',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ name })
+      body: JSON.stringify({ name, org })
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not rename team.');
@@ -249,7 +259,12 @@ async function editPlayer(id, currentName, currentEmail) {
   const email = prompt('Email:', currentEmail);
   if (email === null) return;
 
-  const teamMenu = allTeams.map(t => `${t.id}) ${t.name}`).join('\n');
+  const npmTeams = allTeams.filter(t => t.org === 'NPM');
+  const npccTeams = allTeams.filter(t => t.org === 'NPCC');
+  const teamMenu = [
+    '-- NPM --', ...npmTeams.map(t => `${t.id}) ${t.name}`),
+    '-- NPCC --', ...npccTeams.map(t => `${t.id}) ${t.name}`)
+  ].join('\n');
   const teamChoice = prompt(`Team? Enter the number, or leave blank for no team:\n${teamMenu}`);
   const team_id = teamChoice && teamChoice.trim() ? Number(teamChoice.trim()) : null;
 

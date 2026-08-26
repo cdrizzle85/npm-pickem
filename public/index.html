@@ -42,7 +42,12 @@
       <div id="new-account-fields" style="display:none;">
         <p style="color:var(--royal);font-size:13px;font-weight:600;margin-top:14px;">Looks like a new account, tell us a bit more:</p>
         <input id="identity-name" type="text" placeholder="First and last name">
-        <select id="identity-team"><option value="">Select your team&hellip;</option></select>
+        <select id="identity-org" onchange="onOrgChange()">
+          <option value="">Select your organization&hellip;</option>
+          <option value="NPM">NPM</option>
+          <option value="NPCC">NPCC</option>
+        </select>
+        <select id="identity-team" disabled><option value="">Select your organization first&hellip;</option></select>
       </div>
 
       <button class="btn-primary" onclick="submitIdentity()" id="identity-submit-btn">Continue</button>

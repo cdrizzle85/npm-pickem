@@ -18,6 +18,7 @@ async function seasonStandings(db) {
          pl.name,
          pl.team_id,
          t.name AS team_name,
+         t.org AS team_org,
          COALESCE(SUM(CASE WHEN p.picked_team = g.winner_team THEN 1 ELSE 0 END), 0) AS pick_wins,
          COALESCE(SUM(CASE WHEN g.winner_team IS NOT NULL AND p.picked_team != g.winner_team THEN 1 ELSE 0 END), 0) AS pick_losses,
          COALESCE(gc.grace_wins, 0) AS grace_wins,
@@ -45,6 +46,7 @@ async function seasonStandings(db) {
       name: r.name,
       team_id: r.team_id,
       team_name: r.team_name,
+      team_org: r.team_org,
       wins,
       losses,
       win_pct: total > 0 ? Number((wins / total).toFixed(3)) : 0
@@ -60,6 +62,7 @@ async function teamStandings(db) {
       `SELECT
          t.id AS team_id,
          t.name AS team_name,
+         t.org AS team_org,
          COUNT(DISTINCT pl.id) AS member_count,
          COALESCE(SUM(CASE WHEN p.picked_team = g.winner_team THEN 1 ELSE 0 END), 0) AS pick_wins,
          COALESCE(SUM(CASE WHEN g.winner_team IS NOT NULL AND p.picked_team != g.winner_team THEN 1 ELSE 0 END), 0) AS pick_losses,
@@ -78,6 +81,7 @@ async function teamStandings(db) {
   const standings = rows.results.map(r => ({
     team_id: r.team_id,
     team_name: r.team_name,
+    team_org: r.team_org,
     member_count: r.member_count,
     wins: (r.pick_wins || 0) + (r.grace_wins || 0),
     losses: (r.pick_losses || 0) + (r.grace_losses || 0)

@@ -15,7 +15,6 @@ function getPlayer() {
 
 async function ensureIdentity() {
   const player = getPlayer();
-  await loadTeamsIntoDropdown();
   if (!player) {
     document.getElementById('identity-modal').style.display = 'flex';
   } else {
@@ -23,11 +22,21 @@ async function ensureIdentity() {
   }
 }
 
-async function loadTeamsIntoDropdown() {
+async function onOrgChange() {
+  const org = document.getElementById('identity-org').value;
+  const select = document.getElementById('identity-team');
+
+  if (!org) {
+    select.innerHTML = '<option value="">Select your organization first&hellip;</option>';
+    select.disabled = true;
+    return;
+  }
+
+  select.disabled = false;
+  select.innerHTML = '<option value="">Select your team&hellip;</option>';
   try {
-    const res = await fetch('/api/teams');
+    const res = await fetch(`/api/teams?org=${org}`);
     const data = await res.json();
-    const select = document.getElementById('identity-team');
     data.teams.forEach(t => {
       const opt = document.createElement('option');
       opt.value = t.id;
@@ -77,10 +86,15 @@ async function submitIdentity() {
 
   // Step 2: creating a new account.
   const name = document.getElementById('identity-name').value.trim();
+  const org = document.getElementById('identity-org').value;
   const teamId = document.getElementById('identity-team').value;
 
   if (!name) {
     errorEl.textContent = 'Please enter your name.';
+    return;
+  }
+  if (!org) {
+    errorEl.textContent = 'Please select your organization.';
     return;
   }
 
@@ -277,7 +291,7 @@ function populateStandingsFilter() {
   const seen = new Set();
   const teamOptions = allStandings
     .filter(p => p.team_id && !seen.has(p.team_id) && seen.add(p.team_id))
-    .map(p => `<option value="${p.team_id}">${p.team_name}</option>`)
+    .map(p => `<option value="${p.team_id}">${p.team_org} &middot; ${p.team_name}</option>`)
     .join('');
   select.innerHTML = '<option value="all">Everyone</option>' + teamOptions;
 
@@ -297,7 +311,7 @@ function renderTeamStandings(teamStandings) {
   box.innerHTML = teamStandings.map((t, i) => `
     <div class="team-card">
       <span class="rank">${i + 1}</span>
-      <span class="name">${t.team_name} <span style="color:var(--muted);font-weight:400;">(${t.member_count} ${t.member_count === 1 ? 'member' : 'members'})</span></span>
+      <span class="name">${t.team_org} &middot; ${t.team_name} <span style="color:var(--muted);font-weight:400;">(${t.member_count} ${t.member_count === 1 ? 'member' : 'members'})</span></span>
       <span class="record">${t.wins}-${t.losses}</span>
     </div>`).join('');
 }
@@ -315,8 +329,7 @@ function renderStandingsView() {
   if (me && filter !== 'all') {
     const idx = filtered.findIndex(p => p.player_id === me.id);
     if (idx >= 0) {
-      const teamName = filtered[idx].team_name;
-      note.textContent = `You're ranked #${idx + 1} on ${teamName}.`;
+      note.textContent = `You're ranked #${idx + 1} on ${filtered[idx].team_org} \u00b7 ${filtered[idx].team_name}.`;
     } else {
       note.textContent = '';
     }
