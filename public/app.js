@@ -363,12 +363,15 @@ function renderPodiumAndTable(standings) {
 
   const stepClass = { 0: 'p1', 1: 'p2', 2: 'p3' };
   const rankLabel = { 0: '1st', 1: '2nd', 2: '3rd' };
-  podium.innerHTML = top3.map((p, i) => `
-    <div class="step ${stepClass[i]}">
+  podium.innerHTML = top3.map((p, i) => {
+    const orgClass = p.team_org === 'NPM' ? 'org-npm' : p.team_org === 'NPCC' ? 'org-npcc' : '';
+    return `
+    <div class="step ${stepClass[i]} ${orgClass}">
       <div class="rank">${rankLabel[i]}</div>
       <div class="name">${p.name}</div>
       <div class="pct">${p.win_pct.toFixed(3)}</div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 
   table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
     rest.map((p, i) => `

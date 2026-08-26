@@ -169,9 +169,11 @@ main{
 }
 .podium .step .name{font-size:16px;font-weight:800;margin:4px 0;}
 .podium .step .pct{font-size:13px;color:#C9D3F5;}
-.podium .p1{height:150px; background:linear-gradient(180deg, var(--royal), var(--navy)); order:2; border-top:4px solid var(--ember);}
+.podium .p1{height:150px; order:2;}
 .podium .p2{height:120px; order:1;}
 .podium .p3{height:100px; order:3;}
+.podium .step.org-npm{background:linear-gradient(180deg, var(--royal), var(--navy));}
+.podium .step.org-npcc{background:linear-gradient(180deg, var(--ember), var(--navy));}
 
 table{
   width:100%;
