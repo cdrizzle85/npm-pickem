@@ -74,18 +74,25 @@ async function teamStandings(db) {
        LEFT JOIN games g ON g.id = p.game_id AND g.winner_team IS NOT NULL
        LEFT JOIN grace_credits gc ON gc.player_id = pl.id
        GROUP BY t.id
-       ORDER BY (pick_wins + grace_wins) DESC`
+       ORDER BY (CAST((pick_wins + grace_wins) AS REAL) / NULLIF(pick_wins + pick_losses + grace_wins + grace_losses, 0)) DESC,
+                (pick_wins + grace_wins) DESC`
     )
     .all();
 
-  const standings = rows.results.map(r => ({
-    team_id: r.team_id,
-    team_name: r.team_name,
-    team_org: r.team_org,
-    member_count: r.member_count,
-    wins: (r.pick_wins || 0) + (r.grace_wins || 0),
-    losses: (r.pick_losses || 0) + (r.grace_losses || 0)
-  }));
+  const standings = rows.results.map(r => {
+    const wins = (r.pick_wins || 0) + (r.grace_wins || 0);
+    const losses = (r.pick_losses || 0) + (r.grace_losses || 0);
+    const total = wins + losses;
+    return {
+      team_id: r.team_id,
+      team_name: r.team_name,
+      team_org: r.team_org,
+      member_count: r.member_count,
+      wins,
+      losses,
+      win_pct: total > 0 ? Number((wins / total).toFixed(3)) : 0
+    };
+  });
 
   return json({ team_standings: standings });
 }

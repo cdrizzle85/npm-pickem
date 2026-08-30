@@ -310,7 +310,7 @@ function renderTeamStandings(teamStandings) {
     <div class="team-card">
       <span class="rank">${i + 1}</span>
       <span class="name">${t.team_org} &middot; ${t.team_name} <span style="color:var(--muted);font-weight:400;">(${t.member_count} ${t.member_count === 1 ? 'member' : 'members'})</span></span>
-      <span class="record">${t.wins}-${t.losses}</span>
+      <span class="record">${t.wins}-${t.losses} <span style="color:var(--muted);font-weight:400;">(${t.win_pct.toFixed(3)})</span></span>
     </div>`).join('');
 }
 
