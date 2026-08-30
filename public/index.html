@@ -67,26 +67,25 @@
 
   <!-- STANDINGS VIEW -->
   <div id="standings" class="view">
-    <div class="section-label">This week's recap</div>
-    <div class="stat-row" id="stat-row"></div>
-
-    <div class="section-label">How the field picked</div>
-    <div id="pickbars"></div>
-
-    <div class="section-label" style="margin-top:36px;">Team standings</div>
-    <div id="team-standings"></div>
-
-    <div class="section-label" style="margin-top:36px;">
-      Standings
+    <div class="section-label">
+      Everyone standings
       <select id="standings-filter" onchange="renderStandingsView()" style="margin-left:10px;font-size:13px;padding:4px 8px;border-radius:6px;border:1px solid var(--line);font-weight:600;text-transform:none;letter-spacing:normal;">
         <option value="all">Everyone</option>
       </select>
     </div>
     <div id="my-rank-note" style="font-size:13px;color:var(--muted);margin-bottom:10px;"></div>
-    <div class="podium" id="podium"></div>
     <table id="standings-table">
       <tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>
     </table>
+
+    <div class="section-label" style="margin-top:36px;">How the field picked</div>
+    <div id="pickbars"></div>
+
+    <div class="section-label" style="margin-top:36px;">This week's recap</div>
+    <div class="stat-row" id="stat-row"></div>
+
+    <div class="section-label" style="margin-top:36px;">Team standings</div>
+    <div id="team-standings"></div>
   </div>
 
   <!-- RULES VIEW -->

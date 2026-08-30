@@ -349,28 +349,12 @@ function renderStandingsView() {
 }
 
 function renderPodiumAndTable(standings) {
-  const podium = document.getElementById('podium');
   const table = document.getElementById('standings-table');
 
-  const top3 = standings.slice(0, 3);
-  const rest = standings.slice(3);
-
-  const stepClass = { 0: 'p1', 1: 'p2', 2: 'p3' };
-  const rankLabel = { 0: '1st', 1: '2nd', 2: '3rd' };
-  podium.innerHTML = top3.map((p, i) => {
-    const orgClass = p.team_org === 'NPM' ? 'org-npm' : p.team_org === 'NPCC' ? 'org-npcc' : '';
-    return `
-    <div class="step ${stepClass[i]} ${orgClass}">
-      <div class="rank">${rankLabel[i]}</div>
-      <div class="name">${p.name}</div>
-      <div class="pct">${p.win_pct.toFixed(3)}</div>
-    </div>`;
-  }).join('');
-
   table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
-    rest.map((p, i) => `
+    standings.map((p, i) => `
       <tr>
-        <td>${i + 4}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
+        <td>${i + 1}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
         <td class="pctcol">${p.win_pct.toFixed(3)}</td>
       </tr>`).join('');
 }
