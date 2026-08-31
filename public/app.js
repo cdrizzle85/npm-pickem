@@ -364,7 +364,13 @@ function renderRecap(recap) {
     <div class="stat-card"><div class="num">${recap.average_wins}</div><div class="label">Avg wins this week</div></div>
     <div class="stat-card"><div class="num">${recap.player_count}</div><div class="label">Players this week</div></div>`;
 
-  document.getElementById('pickbars').innerHTML = recap.games.map(g => `
+  const pickbarsBox = document.getElementById('pickbars');
+  if (!currentWeek || !currentWeek.locked) {
+    pickbarsBox.innerHTML = '<div class="empty-state">Pick percentages reveal once the first game of the week kicks off.</div>';
+    return;
+  }
+
+  pickbarsBox.innerHTML = recap.games.map(g => `
     <div class="pickbar-row">
       <div class="labels"><span>${g.home_team} ${g.home_pct}%</span><span>${g.away_team} ${g.away_pct}%</span></div>
       <div class="pickbar">
