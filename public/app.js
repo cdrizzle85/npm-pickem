@@ -5,6 +5,7 @@ function showView(id, btn) {
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   if (id === 'standings') loadStandings();
+  if (id === 'smacktalk') loadComments();
 }
 
 // ---- Player identity: just email, no password ----
@@ -378,6 +379,79 @@ function renderRecap(recap) {
         <div class="fillB" style="width:${g.away_pct}%"></div>
       </div>
     </div>`).join('');
+}
+
+// ---- Smack Talk ----
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+async function loadComments() {
+  const box = document.getElementById('comments-list');
+  try {
+    const res = await fetch('/api/comments');
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    renderComments(data.comments);
+  } catch {
+    box.innerHTML = '<div class="empty-state">Could not load Smack Talk right now.</div>';
+  }
+}
+
+function renderComments(comments) {
+  const box = document.getElementById('comments-list');
+  if (!comments.length) {
+    box.innerHTML = '<div class="empty-state">No smack talk yet, be the first.</div>';
+    return;
+  }
+  box.innerHTML = comments.map(c => {
+    const team = c.team_name ? `<span class="team">${escapeHtml(c.team_org)} \u00b7 ${escapeHtml(c.team_name)}</span>` : '';
+    const time = new Date(c.created_at + 'Z').toLocaleString(undefined, {
+      month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+    });
+    return `
+      <div class="comment-card">
+        <div class="meta">
+          <span class="author">${escapeHtml(c.name)}${team}</span>
+          <span class="time">${time}</span>
+        </div>
+        <div class="body">${escapeHtml(c.body)}</div>
+      </div>`;
+  }).join('');
+}
+
+async function submitComment() {
+  const player = getPlayer();
+  const input = document.getElementById('comment-input');
+  const status = document.getElementById('comment-status');
+  const body = input.value.trim();
+
+  if (!body) {
+    status.textContent = 'Type something first.';
+    status.style.color = 'var(--loss)';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/comments', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ player_id: player.id, body })
+    });
+    const created = await res.json();
+    if (!res.ok) throw new Error(created.error || 'Could not post that.');
+    input.value = '';
+    status.textContent = '';
+    loadComments();
+  } catch (err) {
+    status.textContent = err.message;
+    status.style.color = 'var(--loss)';
+  }
 }
 
 // ---- Boot ----

@@ -400,6 +400,43 @@ th{
 }
 .modal .btn-primary{width:100%;margin-top:16px;}
 
+/* Smack Talk */
+.comment-box{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:20px;
+}
+.comment-box textarea{
+  width:100%;
+  min-height:70px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  font-size:14px;
+  font-family:inherit;
+  resize:vertical;
+  box-sizing:border-box;
+}
+.comment-card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.comment-card .meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+.comment-card .author{font-weight:700;font-size:14px;}
+.comment-card .author .team{color:var(--muted);font-weight:400;font-size:12px;margin-left:6px;}
+.comment-card .time{font-size:11px;color:var(--muted);}
+.comment-card .body{font-size:14px;line-height:1.5;white-space:pre-wrap;word-break:break-word;}
+
 @media (max-width:480px){
   header{padding:16px 20px;}
   .brand-logo{height:32px;}

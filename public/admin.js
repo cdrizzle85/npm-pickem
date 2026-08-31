@@ -36,6 +36,15 @@ function escapeQ(str) {
   return str.replace(/'/g, "\\'");
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 async function setResultInline(gameId, winnerTeam) {
   try {
     const res = await fetch('/api/admin/set-result', {
@@ -462,6 +471,45 @@ async function setResult() {
   }
 }
 
+async function loadCommentsAdmin() {
+  const box = document.getElementById('comments-admin-list');
+  try {
+    const res = await fetch('/api/comments');
+    const data = await res.json();
+    if (!data.comments.length) {
+      box.innerHTML = 'No comments yet.';
+      return;
+    }
+    box.innerHTML = data.comments.map(c => {
+      const time = new Date(c.created_at + 'Z').toLocaleString(undefined, {
+        month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+      });
+      const team = c.team_name ? ` (${c.team_org} \u00b7 ${c.team_name})` : '';
+      return `
+        <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line);">
+          <div style="font-size:13px;color:var(--muted);">${escapeHtml(c.name)}${escapeHtml(team)} &middot; ${time}</div>
+          <div style="margin:4px 0;">${escapeHtml(c.body)}</div>
+          <button class="btn-secondary" style="padding:4px 10px;" onclick="deleteComment(${c.id})">Delete</button>
+        </div>`;
+    }).join('');
+  } catch {
+    box.innerHTML = 'Could not load comments.';
+  }
+}
+
+async function deleteComment(id) {
+  if (!confirm('Delete this comment? No undo.')) return;
+  try {
+    const res = await fetch(`/api/admin/comments/${id}`, { method: 'DELETE' });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not delete comment.');
+    loadCommentsAdmin();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
 loadCurrentWeek();
 loadTeams();
 loadPlayers();
+loadCommentsAdmin();

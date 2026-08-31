@@ -59,6 +59,14 @@ CREATE TABLE IF NOT EXISTS grace_credits (
   UNIQUE(player_id, week_id)
 );
 
+CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  player_id INTEGER NOT NULL REFERENCES players(id),
+  body TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_games_week ON games(week_id);
 CREATE INDEX IF NOT EXISTS idx_picks_game ON picks(game_id);
 CREATE INDEX IF NOT EXISTS idx_picks_player ON picks(player_id);
+CREATE INDEX IF NOT EXISTS idx_comments_created ON comments(created_at);

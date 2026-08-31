@@ -26,6 +26,7 @@
 <nav>
   <button class="active" onclick="showView('picks', this)">Make picks</button>
   <button onclick="showView('standings', this)">Standings</button>
+  <button onclick="showView('smacktalk', this)">Smack Talk</button>
   <button onclick="showView('rules', this)">Rules</button>
 </nav>
 
@@ -86,6 +87,17 @@
 
     <div class="section-label" style="margin-top:36px;">Team standings</div>
     <div id="team-standings"></div>
+  </div>
+
+  <!-- SMACK TALK VIEW -->
+  <div id="smacktalk" class="view">
+    <div class="section-label">Smack Talk</div>
+    <div class="comment-box">
+      <textarea id="comment-input" placeholder="Talk your talk..." maxlength="2000"></textarea>
+      <button class="btn-primary" style="width:100%;" onclick="submitComment()">Post</button>
+      <div id="comment-status" style="margin-top:8px;font-size:13px;"></div>
+    </div>
+    <div id="comments-list"></div>
   </div>
 
   <!-- RULES VIEW -->
