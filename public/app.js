@@ -14,6 +14,11 @@ function getPlayer() {
   return raw ? JSON.parse(raw) : null;
 }
 
+function logout() {
+  localStorage.removeItem('pickem_player');
+  location.reload();
+}
+
 async function ensureIdentity() {
   const player = getPlayer();
   if (!player) {
@@ -191,8 +196,8 @@ function renderGames(games) {
       <div class="game-card">
         <div class="meta"><span>${g.sport === 'nfl' ? 'NFL' : 'College'} &middot; ${kickoff}</span></div>
         <div class="teams">
-          <div class="team-btn ${homePicked ? 'picked' : ''}" ${disabledAttr} ${clickHome}>${g.home_team}</div>
           <div class="team-btn ${awayPicked ? 'picked' : ''}" ${disabledAttr} ${clickAway}>${g.away_team}</div>
+          <div class="team-btn ${homePicked ? 'picked' : ''}" ${disabledAttr} ${clickHome}>${g.home_team}</div>
         </div>
       </div>`;
   }).join('');
