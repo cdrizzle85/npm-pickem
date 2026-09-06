@@ -249,6 +249,16 @@ th{
 }
 .pick-names span{flex:1;}
 .pick-names strong{color:var(--ink);}
+.pick-names-toggle{margin-top:6px;}
+.pick-names-toggle summary{
+  font-size:12px;
+  color:var(--royal);
+  cursor:pointer;
+  font-weight:600;
+  list-style:none;
+}
+.pick-names-toggle summary::-webkit-details-marker{display:none;}
+.pick-names-toggle[open] summary{margin-bottom:4px;}
 
 /* Team standings */
 .team-card{
