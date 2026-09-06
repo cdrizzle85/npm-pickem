@@ -115,12 +115,19 @@ async function weeklyRecap(db, weekId) {
 
   for (const game of games.results) {
     const picks = await db
-      .prepare('SELECT picked_team FROM picks WHERE game_id = ?')
+      .prepare(
+        `SELECT p.picked_team, pl.name
+         FROM picks p JOIN players pl ON pl.id = p.player_id
+         WHERE p.game_id = ?
+         ORDER BY pl.name ASC`
+      )
       .bind(game.id)
       .all();
     const total = picks.results.length;
-    const homeCount = picks.results.filter(p => p.picked_team === game.home_team).length;
-    const awayCount = total - homeCount;
+    const homeNames = picks.results.filter(p => p.picked_team === game.home_team).map(p => p.name);
+    const awayNames = picks.results.filter(p => p.picked_team === game.away_team).map(p => p.name);
+    const homeCount = homeNames.length;
+    const awayCount = awayNames.length;
 
     perGame.push({
       game_id: game.id,
@@ -128,6 +135,8 @@ async function weeklyRecap(db, weekId) {
       away_team: game.away_team,
       home_pct: total ? Math.round((homeCount / total) * 100) : 0,
       away_pct: total ? Math.round((awayCount / total) * 100) : 0,
+      home_names: homeNames,
+      away_names: awayNames,
       winner_team: game.winner_team
     });
   }

@@ -403,6 +403,10 @@ function renderRecap(recap) {
         <div class="fillA" style="width:${g.home_pct}%"></div>
         <div class="fillB" style="width:${g.away_pct}%"></div>
       </div>
+      <div class="pick-names">
+        <span><strong>${escapeHtml(g.home_team)}:</strong> ${g.home_names.length ? g.home_names.map(escapeHtml).join(', ') : '<em>nobody</em>'}</span>
+        <span><strong>${escapeHtml(g.away_team)}:</strong> ${g.away_names.length ? g.away_names.map(escapeHtml).join(', ') : '<em>nobody</em>'}</span>
+      </div>
     </div>`).join('');
 }
 
