@@ -43,7 +43,8 @@ export async function onRequestGet({ request, env }) {
     home_team: g.home_team,
     away_team: g.away_team,
     kickoff_time: g.kickoff_time,
-    my_pick: myPicks[g.id] || null
+    my_pick: myPicks[g.id] || null,
+    winner_team: g.winner_team
   }));
 
   return json({

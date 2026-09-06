@@ -14,14 +14,24 @@ async function loadCurrentWeek() {
     }
     const data = await res.json();
 
-    const gamesHtml = data.games.map(g => `
+    const gamesHtml = data.games.map(g => {
+      const lockNote = data.locked ? '' : ' <span style="color:var(--muted);">(not locked yet)</span>';
+      if (g.winner_team) {
+        return `
       <div style="margin-bottom:8px;">
-        #${g.id} ${g.away_team} at ${g.home_team}${data.locked ? '' : ' <span style="color:var(--muted);">(not locked yet)</span>'}
+        #${g.id} ${g.away_team} at ${g.home_team} &mdash; <strong>${g.winner_team} won</strong>
+        <button class="btn-secondary" style="margin-left:10px;color:var(--loss);border-color:var(--loss);" onclick="clearResult(${g.id})">Clear result</button>
+      </div>`;
+      }
+      return `
+      <div style="margin-bottom:8px;">
+        #${g.id} ${g.away_team} at ${g.home_team}${lockNote}
         ${data.locked ? `
           <button class="btn-secondary" style="margin-left:10px;" onclick="setResultInline(${g.id}, '${escapeQ(g.home_team)}')">${g.home_team} won</button>
           <button class="btn-secondary" onclick="setResultInline(${g.id}, '${escapeQ(g.away_team)}')">${g.away_team} won</button>
         ` : ''}
-      </div>`).join('');
+      </div>`;
+    }).join('');
 
     box.innerHTML = `<strong>Week ${data.round_number}${data.is_playoff ? ' (playoff)' : ''}</strong>, week id ${data.week_id}<br><br>` +
       gamesHtml +
@@ -54,6 +64,22 @@ async function setResultInline(gameId, winnerTeam) {
     });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not set result.');
+    loadCurrentWeek();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function clearResult(gameId) {
+  if (!confirm('Clear this result? The game goes back to no winner set.')) return;
+  try {
+    const res = await fetch('/api/admin/clear-result', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ game_id: gameId })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not clear result.');
     loadCurrentWeek();
   } catch (err) {
     alert(err.message);
