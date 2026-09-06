@@ -312,9 +312,10 @@ function renderTeamStandings(teamStandings) {
     box.innerHTML = '<div class="empty-state">No teams set up yet.</div>';
     return;
   }
+  const rankLabels = computeRankLabels(teamStandings);
   box.innerHTML = teamStandings.map((t, i) => `
     <div class="team-card">
-      <span class="rank">${i + 1}</span>
+      <span class="rank">${rankLabels[i]}</span>
       <span class="name">${t.team_org} &middot; ${t.team_name} <span style="color:var(--muted);font-weight:400;">(${t.member_count} ${t.member_count === 1 ? 'member' : 'members'})</span></span>
       <span class="record">${t.wins}-${t.losses} <span style="color:var(--muted);font-weight:400;">(${t.win_pct.toFixed(3)})</span></span>
     </div>`).join('');
@@ -354,13 +355,32 @@ function renderStandingsView() {
   }
 }
 
+// Standard "competition ranking": ties share the same rank number (prefixed
+// "T-"), and the next distinct entry's rank skips ahead by the tie count.
+// A tie means an identical wins/losses record, not just the same percentage.
+function computeRankLabels(list) {
+  const ranks = [];
+  let currentRank = 1;
+  for (let i = 0; i < list.length; i++) {
+    if (i > 0 && list[i].wins === list[i - 1].wins && list[i].losses === list[i - 1].losses) {
+      ranks.push(ranks[i - 1]);
+    } else {
+      ranks.push(i + 1);
+    }
+  }
+  const counts = {};
+  ranks.forEach(r => { counts[r] = (counts[r] || 0) + 1; });
+  return ranks.map(r => (counts[r] > 1 ? `T-${r}` : `${r}`));
+}
+
 function renderPodiumAndTable(standings) {
   const table = document.getElementById('standings-table');
+  const rankLabels = computeRankLabels(standings);
 
   table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
     standings.map((p, i) => `
       <tr>
-        <td>${i + 1}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
+        <td>${rankLabels[i]}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
         <td class="pctcol">${p.win_pct.toFixed(3)}</td>
       </tr>`).join('');
 }
@@ -461,3 +481,10 @@ async function submitComment() {
 
 // ---- Boot ----
 ensureIdentity();
+
+// Keep standings fresh while that tab is open, since results can come in
+// mid-week and the page otherwise only fetches once when you switch to it.
+setInterval(() => {
+  const view = document.getElementById('standings');
+  if (view && view.classList.contains('active')) loadStandings();
+}, 30000);
