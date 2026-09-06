@@ -396,9 +396,15 @@ function renderRecap(recap) {
     return;
   }
 
-  pickbarsBox.innerHTML = recap.games.map(g => `
+  pickbarsBox.innerHTML = recap.games.map(g => {
+    const homeWon = g.winner_team && g.winner_team === g.home_team;
+    const awayWon = g.winner_team && g.winner_team === g.away_team;
+    return `
     <div class="pickbar-row">
-      <div class="labels"><span>${g.home_team} ${g.home_pct}%</span><span>${g.away_team} ${g.away_pct}%</span></div>
+      <div class="labels">
+        <span class="${homeWon ? 'winner' : ''}">${homeWon ? '\u2713 ' : ''}${g.home_team} ${g.home_pct}%</span>
+        <span class="${awayWon ? 'winner' : ''}">${awayWon ? '\u2713 ' : ''}${g.away_team} ${g.away_pct}%</span>
+      </div>
       <div class="pickbar">
         <div class="fillA" style="width:${g.home_pct}%"></div>
         <div class="fillB" style="width:${g.away_pct}%"></div>
@@ -410,7 +416,8 @@ function renderRecap(recap) {
           <span><strong>${escapeHtml(g.away_team)}:</strong> ${g.away_names.length ? g.away_names.map(escapeHtml).join(', ') : '<em>nobody</em>'}</span>
         </div>
       </details>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 // ---- Smack Talk ----
