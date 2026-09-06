@@ -31,9 +31,7 @@ async function seasonStandings(db) {
          SELECT player_id, SUM(wins_credited) AS grace_wins, SUM(losses_credited) AS grace_losses
          FROM grace_credits GROUP BY player_id
        ) gc ON gc.player_id = pl.id
-       GROUP BY pl.id
-       ORDER BY (CAST((pick_wins + grace_wins) AS REAL) / NULLIF(pick_wins + pick_losses + grace_wins + grace_losses, 0)) DESC,
-                (pick_wins + grace_wins) DESC`
+       GROUP BY pl.id`
     )
     .all();
 
@@ -52,6 +50,10 @@ async function seasonStandings(db) {
       win_pct: total > 0 ? Number((wins / total).toFixed(3)) : 0
     };
   });
+
+  // Sorted here in JS, not via SQL ORDER BY, this is deliberate: ranked by
+  // raw win count first, win percentage only as a tiebreaker for equal wins.
+  standings.sort((a, b) => b.wins - a.wins || b.win_pct - a.win_pct || a.name.localeCompare(b.name));
 
   return json({ standings });
 }
@@ -73,9 +75,7 @@ async function teamStandings(db) {
        LEFT JOIN picks p ON p.player_id = pl.id
        LEFT JOIN games g ON g.id = p.game_id AND g.winner_team IS NOT NULL
        LEFT JOIN grace_credits gc ON gc.player_id = pl.id
-       GROUP BY t.id
-       ORDER BY (CAST((pick_wins + grace_wins) AS REAL) / NULLIF(pick_wins + pick_losses + grace_wins + grace_losses, 0)) DESC,
-                (pick_wins + grace_wins) DESC`
+       GROUP BY t.id`
     )
     .all();
 
@@ -93,6 +93,11 @@ async function teamStandings(db) {
       win_pct: total > 0 ? Number((wins / total).toFixed(3)) : 0
     };
   });
+
+  // Sorted in JS, same reason as season standings above: ranked by win
+  // percentage (your call, for fairness across different team sizes),
+  // raw wins only as a tiebreaker for equal percentages.
+  standings.sort((a, b) => b.win_pct - a.win_pct || b.wins - a.wins || a.team_name.localeCompare(b.team_name));
 
   return json({ team_standings: standings });
 }
