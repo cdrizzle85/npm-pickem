@@ -217,6 +217,12 @@ export async function fetchEspnGameResult(sport, espnEventId) {
 // submitted picks at all. This is an unconditional credit, not tied to actual
 // game outcomes, so it's tracked separately from real picks rather than
 // simulated as fake picks.
+//
+// Deliberately written to use a small, constant number of database calls
+// regardless of how many players there are. An earlier version looped over
+// every player with its own queries, which worked fine with a handful of
+// test accounts but blew past Cloudflare's per-request subrequest limit
+// once real signups piled up, causing the whole page to fail with a 500.
 export async function applyGraceCredits(db, weekId) {
   const now = new Date().toISOString();
   const deadlineRow = await db
@@ -229,35 +235,30 @@ export async function applyGraceCredits(db, weekId) {
   const totalGames = gameCountRow ? gameCountRow.c : 0;
   if (!totalGames) return;
 
-  const players = await db.prepare('SELECT id FROM players').all();
+  const [allPlayers, withPicks, alreadyCredited] = await Promise.all([
+    db.prepare('SELECT id FROM players').all(),
+    db.prepare(
+      `SELECT DISTINCT p.player_id AS id FROM picks p
+       JOIN games g ON g.id = p.game_id
+       WHERE g.week_id = ?`
+    ).bind(weekId).all(),
+    db.prepare('SELECT player_id AS id FROM grace_credits WHERE week_id = ?').bind(weekId).all()
+  ]);
 
-  for (const player of players.results) {
-    const hasPicks = await db
-      .prepare(
-        `SELECT p.id FROM picks p JOIN games g ON g.id = p.game_id
-         WHERE p.player_id = ? AND g.week_id = ? LIMIT 1`
-      )
-      .bind(player.id, weekId)
-      .first();
-    if (hasPicks) continue; // they submitted, no grace needed
+  const exclude = new Set([
+    ...withPicks.results.map(r => r.id),
+    ...alreadyCredited.results.map(r => r.id)
+  ]);
+  const needsGrace = allPlayers.results.filter(p => !exclude.has(p.id));
+  if (!needsGrace.length) return;
 
-    const existing = await db
-      .prepare('SELECT id FROM grace_credits WHERE player_id = ? AND week_id = ?')
-      .bind(player.id, weekId)
-      .first();
-    if (existing) continue; // already credited
+  const winsCredited = Math.min(2, totalGames);
+  const lossesCredited = Math.max(totalGames - winsCredited, 0);
+  const insertStmt = db.prepare(
+    'INSERT INTO grace_credits (player_id, week_id, wins_credited, losses_credited) VALUES (?, ?, ?, ?)'
+  );
 
-    const winsCredited = Math.min(2, totalGames);
-    const lossesCredited = Math.max(totalGames - winsCredited, 0);
-
-    await db
-      .prepare(
-        `INSERT INTO grace_credits (player_id, week_id, wins_credited, losses_credited)
-         VALUES (?, ?, ?, ?)`
-      )
-      .bind(player.id, weekId, winsCredited, lossesCredited)
-      .run();
-  }
+  await db.batch(needsGrace.map(p => insertStmt.bind(p.id, weekId, winsCredited, lossesCredited)));
 }
 
 export async function getWeekDeadline(db, weekId) {
