@@ -498,7 +498,11 @@ ensureIdentity();
 
 // Keep standings fresh while that tab is open, since results can come in
 // mid-week and the page otherwise only fetches once when you switch to it.
+// Set to 3 minutes rather than 30 seconds: with real Week 1 traffic and
+// people leaving this tab open all day, a 30-second refresh multiplied
+// across everyone's open tabs was a meaningful contributor to hitting D1's
+// daily read limit.
 setInterval(() => {
   const view = document.getElementById('standings');
   if (view && view.classList.contains('active')) loadStandings();
-}, 30000);
+}, 180000);
