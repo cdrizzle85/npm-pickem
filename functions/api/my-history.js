@@ -1,14 +1,21 @@
 import { json, errorJson } from '../_lib.js';
 
-// GET /api/my-history?player_id=X
+// GET /api/my-history?player_id=X&viewer_id=Y
 // Every week the player has been part of, with their pick for each game,
 // the actual winner (once known), and whether that pick was right. Weeks
 // they missed entirely show their grace credit instead. Purely read-only,
 // doesn't touch scoring, submission, or standings in any way.
+//
+// Privacy: if the current (still-unlocked) week is being viewed and the
+// viewer isn't the account owner, that week's picks are hidden entirely,
+// same rule "How the Field Picked" already follows. viewer_id defaults to
+// "not the owner" if omitted, so this fails safe rather than open.
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   const playerId = url.searchParams.get('player_id');
+  const viewerId = url.searchParams.get('viewer_id');
   if (!playerId) return errorJson('player_id is required.');
+  const isOwner = viewerId && String(viewerId) === String(playerId);
 
   const weeks = await env.DB
     .prepare('SELECT id, round_number, is_playoff, status FROM weeks ORDER BY round_number DESC')
@@ -35,7 +42,27 @@ export async function onRequestGet({ request, env }) {
 
   const weeksOut = weeks.results.map(w => {
     const grace = graceByWeek.get(w.id);
-    const weekGames = (gamesByWeek.get(w.id) || []).map(g => {
+    const weekGamesRaw = gamesByWeek.get(w.id) || [];
+
+    const deadline = weekGamesRaw.length
+      ? weekGamesRaw.map(g => g.kickoff_time).sort()[0]
+      : null;
+    const locked = deadline ? new Date(deadline).getTime() <= Date.now() : true; // no games at all: nothing to hide
+
+    if (!locked && !isOwner) {
+      return {
+        week_id: w.id,
+        round_number: w.round_number,
+        is_playoff: !!w.is_playoff,
+        hidden: true,
+        graced: false,
+        grace_wins: null,
+        grace_losses: null,
+        games: []
+      };
+    }
+
+    const weekGames = weekGamesRaw.map(g => {
       const myPick = picksByGame.get(g.id) || null;
       let result = 'pending';
       if (g.winner_team && myPick) result = myPick === g.winner_team ? 'win' : 'loss';
@@ -55,6 +82,7 @@ export async function onRequestGet({ request, env }) {
       week_id: w.id,
       round_number: w.round_number,
       is_playoff: !!w.is_playoff,
+      hidden: false,
       graced: !!grace,
       grace_wins: grace ? grace.wins_credited : null,
       grace_losses: grace ? grace.losses_credited : null,

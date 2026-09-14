@@ -522,7 +522,7 @@ async function loadHistory() {
   box.innerHTML = 'Loading&hellip;';
 
   try {
-    const res = await fetch(`/api/my-history?player_id=${target.id}`);
+    const res = await fetch(`/api/my-history?player_id=${target.id}&viewer_id=${me.id}`);
     if (!res.ok) throw new Error();
     const data = await res.json();
     renderHistory(data.weeks);
@@ -533,7 +533,7 @@ async function loadHistory() {
 
 function renderHistory(weeks) {
   const box = document.getElementById('history-list');
-  const playedWeeks = weeks.filter(w => w.graced || w.games.some(g => g.my_pick || g.winner_team));
+  const playedWeeks = weeks.filter(w => w.hidden || w.graced || w.games.some(g => g.my_pick || g.winner_team));
 
   if (!playedWeeks.length) {
     box.innerHTML = '<div class="empty-state">No picks yet, nothing to show here.</div>';
@@ -542,6 +542,14 @@ function renderHistory(weeks) {
 
   box.innerHTML = playedWeeks.map(w => {
     const label = w.is_playoff ? `Playoff round ${w.round_number}` : `Week ${w.round_number}`;
+
+    if (w.hidden) {
+      return `
+        <details class="history-week">
+          <summary>${label}</summary>
+          <div class="empty-state" style="padding:14px 0;">This week hasn't locked yet, picks aren't visible until then.</div>
+        </details>`;
+    }
 
     if (w.graced) {
       return `
