@@ -266,6 +266,45 @@ th{
 .pick-names-toggle summary::-webkit-details-marker{display:none;}
 .pick-names-toggle[open] summary{margin-bottom:4px;}
 
+/* My History */
+.history-week{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.history-week summary{
+  cursor:pointer;
+  font-weight:700;
+  list-style:none;
+}
+.history-week summary::-webkit-details-marker{display:none;}
+.history-record{
+  font-family:'Consolas','Courier New',monospace;
+  color:var(--muted);
+  font-weight:400;
+  margin-left:8px;
+}
+.history-game{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13px;
+  padding:8px 0;
+  border-top:1px solid var(--line);
+}
+.history-game:first-of-type{margin-top:10px;}
+.history-result{
+  font-weight:700;
+  margin-left:6px;
+  padding:1px 7px;
+  border-radius:5px;
+  font-size:11px;
+}
+.history-result.win{color:#0F8A3D;background:#E4F7EA;}
+.history-result.loss{color:var(--loss);background:#FBEAEA;}
+
 /* Team standings */
 .team-card{
   display:flex;

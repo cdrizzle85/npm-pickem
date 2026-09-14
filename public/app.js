@@ -6,6 +6,7 @@ function showView(id, btn) {
   btn.classList.add('active');
   if (id === 'standings') loadStandings();
   if (id === 'smacktalk') loadComments();
+  if (id === 'history') loadHistory();
 }
 
 // ---- Player identity: just email, no password ----
@@ -491,6 +492,67 @@ async function submitComment() {
     status.textContent = err.message;
     status.style.color = 'var(--loss)';
   }
+}
+
+// ---- My History ----
+async function loadHistory() {
+  const player = getPlayer();
+  const box = document.getElementById('history-list');
+  box.innerHTML = 'Loading&hellip;';
+
+  try {
+    const res = await fetch(`/api/my-history?player_id=${player.id}`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    renderHistory(data.weeks);
+  } catch {
+    box.innerHTML = '<div class="empty-state">Could not load your history right now.</div>';
+  }
+}
+
+function renderHistory(weeks) {
+  const box = document.getElementById('history-list');
+  const playedWeeks = weeks.filter(w => w.graced || w.games.some(g => g.my_pick || g.winner_team));
+
+  if (!playedWeeks.length) {
+    box.innerHTML = '<div class="empty-state">No picks yet, nothing to show here.</div>';
+    return;
+  }
+
+  box.innerHTML = playedWeeks.map(w => {
+    const label = w.is_playoff ? `Playoff round ${w.round_number}` : `Week ${w.round_number}`;
+
+    if (w.graced) {
+      return `
+        <details class="history-week">
+          <summary>${label} <span class="history-record">${w.grace_wins}-${w.grace_losses}</span></summary>
+          <div class="empty-state" style="padding:14px 0;">You missed this week, credited ${w.grace_wins}-${w.grace_losses} automatically.</div>
+        </details>`;
+    }
+
+    const wins = w.games.filter(g => g.result === 'win').length;
+    const losses = w.games.filter(g => g.result === 'loss' || g.result === 'no_pick').length;
+    const recordText = (wins || losses) ? `${wins}-${losses}` : '';
+
+    const gamesHtml = w.games.map(g => {
+      let resultBadge = '';
+      if (g.result === 'win') resultBadge = '<span class="history-result win">Correct</span>';
+      else if (g.result === 'loss') resultBadge = '<span class="history-result loss">Wrong</span>';
+      else if (g.result === 'no_pick') resultBadge = '<span class="history-result loss">No pick</span>';
+      const pickText = g.my_pick ? escapeHtml(g.my_pick) : '<em>no pick made</em>';
+      return `
+        <div class="history-game">
+          <span>${escapeHtml(g.away_team)} at ${escapeHtml(g.home_team)}</span>
+          <span>You picked: <strong>${pickText}</strong> ${resultBadge}</span>
+        </div>`;
+    }).join('');
+
+    return `
+      <details class="history-week">
+        <summary>${label} ${recordText ? `<span class="history-record">${recordText}</span>` : ''}</summary>
+        ${gamesHtml}
+      </details>`;
+  }).join('');
 }
 
 // ---- Boot ----

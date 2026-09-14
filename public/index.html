@@ -27,6 +27,7 @@
 <nav>
   <button class="active" onclick="showView('picks', this)">Make picks</button>
   <button onclick="showView('standings', this)">Standings</button>
+  <button onclick="showView('history', this)">My History</button>
   <button onclick="showView('smacktalk', this)">Smack Talk</button>
   <button onclick="showView('rules', this)">Rules</button>
 </nav>
@@ -88,6 +89,12 @@
 
     <div class="section-label" style="margin-top:36px;">Team standings</div>
     <div id="team-standings"></div>
+  </div>
+
+  <!-- HISTORY VIEW -->
+  <div id="history" class="view">
+    <div class="section-label">My History</div>
+    <div id="history-list"></div>
   </div>
 
   <!-- SMACK TALK VIEW -->
