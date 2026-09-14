@@ -304,6 +304,8 @@ th{
 }
 .history-result.win{color:#0F8A3D;background:#E4F7EA;}
 .history-result.loss{color:var(--loss);background:#FBEAEA;}
+.player-link{color:var(--royal);text-decoration:none;font-weight:600;}
+.player-link:hover{text-decoration:underline;}
 
 /* Team standings */
 .team-card{

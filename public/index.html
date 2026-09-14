@@ -27,7 +27,7 @@
 <nav>
   <button class="active" onclick="showView('picks', this)">Make picks</button>
   <button onclick="showView('standings', this)">Standings</button>
-  <button onclick="showView('history', this)">My History</button>
+  <button id="nav-history-btn" onclick="viewedHistoryPlayer = null; showView('history', this)">My History</button>
   <button onclick="showView('smacktalk', this)">Smack Talk</button>
   <button onclick="showView('rules', this)">Rules</button>
 </nav>
@@ -93,7 +93,10 @@
 
   <!-- HISTORY VIEW -->
   <div id="history" class="view">
-    <div class="section-label">My History</div>
+    <div class="section-label" id="history-heading">My History</div>
+    <div id="history-back-link" style="display:none;margin-bottom:14px;">
+      <a href="#" onclick="goToMyHistory(event)" style="color:var(--royal);font-size:13px;text-decoration:none;">&larr; Back to my history</a>
+    </div>
     <div id="history-list"></div>
   </div>
 

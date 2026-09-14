@@ -381,7 +381,9 @@ function renderPodiumAndTable(standings) {
   table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
     standings.map((p, i) => `
       <tr>
-        <td>${rankLabels[i]}</td><td>${p.name}</td><td>${p.wins}</td><td>${p.losses}</td>
+        <td>${rankLabels[i]}</td>
+        <td><a href="#" class="player-link" onclick="event.preventDefault(); viewHistory(${p.player_id}, '${escapeQuotes(p.name)}')">${escapeHtml(p.name)}</a></td>
+        <td>${p.wins}</td><td>${p.losses}</td>
         <td class="pctcol">${p.win_pct.toFixed(3)}</td>
       </tr>`).join('');
 }
@@ -495,18 +497,37 @@ async function submitComment() {
 }
 
 // ---- My History ----
+let viewedHistoryPlayer = null; // {id, name} of whoever's history is shown; null means "me"
+
+function goToMyHistory(event) {
+  event.preventDefault();
+  viewedHistoryPlayer = null;
+  loadHistory();
+}
+
+function viewHistory(playerId, playerName) {
+  viewedHistoryPlayer = { id: playerId, name: playerName };
+  showView('history', document.getElementById('nav-history-btn'));
+}
+
 async function loadHistory() {
-  const player = getPlayer();
+  const me = getPlayer();
+  const target = viewedHistoryPlayer || { id: me.id, name: me.name };
   const box = document.getElementById('history-list');
+  const heading = document.getElementById('history-heading');
+  const backLink = document.getElementById('history-back-link');
+
+  heading.textContent = viewedHistoryPlayer ? `${target.name}'s History` : 'My History';
+  backLink.style.display = viewedHistoryPlayer ? 'block' : 'none';
   box.innerHTML = 'Loading&hellip;';
 
   try {
-    const res = await fetch(`/api/my-history?player_id=${player.id}`);
+    const res = await fetch(`/api/my-history?player_id=${target.id}`);
     if (!res.ok) throw new Error();
     const data = await res.json();
     renderHistory(data.weeks);
   } catch {
-    box.innerHTML = '<div class="empty-state">Could not load your history right now.</div>';
+    box.innerHTML = '<div class="empty-state">Could not load history right now.</div>';
   }
 }
 
