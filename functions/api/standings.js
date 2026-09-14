@@ -66,15 +66,24 @@ async function teamStandings(db) {
          t.name AS team_name,
          t.org AS team_org,
          COUNT(DISTINCT pl.id) AS member_count,
-         COALESCE(SUM(CASE WHEN p.picked_team = g.winner_team THEN 1 ELSE 0 END), 0) AS pick_wins,
-         COALESCE(SUM(CASE WHEN g.winner_team IS NOT NULL AND p.picked_team != g.winner_team THEN 1 ELSE 0 END), 0) AS pick_losses,
-         COALESCE(SUM(gc.wins_credited), 0) AS grace_wins,
-         COALESCE(SUM(gc.losses_credited), 0) AS grace_losses
+         COALESCE(SUM(pw.wins), 0) AS pick_wins,
+         COALESCE(SUM(pw.losses), 0) AS pick_losses,
+         COALESCE(SUM(gc.grace_wins), 0) AS grace_wins,
+         COALESCE(SUM(gc.grace_losses), 0) AS grace_losses
        FROM teams t
        JOIN players pl ON pl.team_id = t.id
-       LEFT JOIN picks p ON p.player_id = pl.id
-       LEFT JOIN games g ON g.id = p.game_id AND g.winner_team IS NOT NULL
-       LEFT JOIN grace_credits gc ON gc.player_id = pl.id
+       LEFT JOIN (
+         SELECT p.player_id,
+                SUM(CASE WHEN p.picked_team = g.winner_team THEN 1 ELSE 0 END) AS wins,
+                SUM(CASE WHEN g.winner_team IS NOT NULL AND p.picked_team != g.winner_team THEN 1 ELSE 0 END) AS losses
+         FROM picks p
+         JOIN games g ON g.id = p.game_id AND g.winner_team IS NOT NULL
+         GROUP BY p.player_id
+       ) pw ON pw.player_id = pl.id
+       LEFT JOIN (
+         SELECT player_id, SUM(wins_credited) AS grace_wins, SUM(losses_credited) AS grace_losses
+         FROM grace_credits GROUP BY player_id
+       ) gc ON gc.player_id = pl.id
        GROUP BY t.id`
     )
     .all();
