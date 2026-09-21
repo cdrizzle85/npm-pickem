@@ -10,6 +10,17 @@ export async function onRequestPost({ request, env }) {
     return errorJson('round_number and a non-empty games array are required.');
   }
 
+  const existing = await env.DB
+    .prepare('SELECT id FROM weeks WHERE round_number = ? AND is_playoff = ?')
+    .bind(round_number, is_playoff ? 1 : 0)
+    .first();
+  if (existing) {
+    return errorJson(
+      `${is_playoff ? 'Playoff round' : 'Week'} ${round_number} already exists (id ${existing.id}). Pick a different round number, or delete that week first if this was a mistake.`,
+      409
+    );
+  }
+
   const weekInsert = await env.DB
     .prepare('INSERT INTO weeks (round_number, is_playoff) VALUES (?, ?)')
     .bind(round_number, is_playoff ? 1 : 0)

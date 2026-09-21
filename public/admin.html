@@ -60,9 +60,10 @@
   <div class="section-label" style="margin-top:28px;">Build a new week</div>
 
   <div class="admin-controls">
-    <label>Round number <input id="round-number" type="number" min="1" value="1" style="width:80px;"></label>
-    <label style="margin-left:16px;"><input id="is-playoff" type="checkbox"> Bonus playoff round</label>
+    <label>Round number <input id="round-number" type="number" min="1" value="1" style="width:80px;" onchange="checkRoundNumberHint()"></label>
+    <label style="margin-left:16px;"><input id="is-playoff" type="checkbox" onchange="suggestNextRoundNumber()"> Bonus playoff round</label>
   </div>
+  <div id="round-number-hint" style="font-size:12px;color:var(--muted);margin-top:6px;"></div>
 
   <div class="section-label" style="margin-top:28px;">Option 1: Browse the pre-loaded schedule</div>
   <div class="note">Real matchups and dates, loaded once from the actual season schedule. If a kickoff time shown here is wrong or was TBD, fix it with the "Edit time" button before adding it to your week.</div>

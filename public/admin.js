@@ -115,6 +115,7 @@ async function deleteWeek(weekId, roundNumber) {
     const body = await res.json();
     if (!res.ok) throw new Error(body.error || 'Could not delete week.');
     loadCurrentWeek();
+    loadWeeksForSuggestion();
   } catch (err) {
     alert(err.message);
   }
@@ -469,6 +470,7 @@ async function publishWeek() {
     selectedGames = [];
     renderSelected();
     loadCurrentWeek();
+    loadWeeksForSuggestion();
   } catch (err) {
     status.textContent = err.message;
     status.style.color = 'var(--loss)';
@@ -535,7 +537,43 @@ async function deleteComment(id) {
   }
 }
 
+let allWeeks = [];
+
+async function loadWeeksForSuggestion() {
+  try {
+    const res = await fetch('/api/admin/weeks');
+    const data = await res.json();
+    allWeeks = data.weeks;
+    suggestNextRoundNumber();
+  } catch {
+    // Non-fatal, the round number field just keeps its default.
+  }
+}
+
+function suggestNextRoundNumber() {
+  const isPlayoff = document.getElementById('is-playoff').checked;
+  const relevant = allWeeks.filter(w => !!w.is_playoff === isPlayoff);
+  const maxRound = relevant.reduce((max, w) => Math.max(max, w.round_number), 0);
+  document.getElementById('round-number').value = maxRound + 1;
+  checkRoundNumberHint();
+}
+
+function checkRoundNumberHint() {
+  const hint = document.getElementById('round-number-hint');
+  const roundNumber = Number(document.getElementById('round-number').value);
+  const isPlayoff = document.getElementById('is-playoff').checked;
+  const clash = allWeeks.find(w => w.round_number === roundNumber && !!w.is_playoff === isPlayoff);
+
+  if (clash) {
+    hint.innerHTML = `<span style="color:var(--loss);font-weight:700;">Heads up, ${isPlayoff ? 'playoff round' : 'week'} ${roundNumber} already exists (id ${clash.id}). Publishing will be blocked.</span>`;
+  } else {
+    const existingList = allWeeks.filter(w => !!w.is_playoff === isPlayoff).map(w => w.round_number).sort((a, b) => a - b).join(', ');
+    hint.textContent = existingList ? `Existing ${isPlayoff ? 'playoff rounds' : 'weeks'}: ${existingList}` : '';
+  }
+}
+
 loadCurrentWeek();
 loadTeams();
 loadPlayers();
 loadCommentsAdmin();
+loadWeeksForSuggestion();
