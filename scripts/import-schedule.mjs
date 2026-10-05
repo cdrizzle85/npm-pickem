@@ -61,7 +61,23 @@ async function fetchMonth({ sport, path, extraParams }, yyyymm) {
     const home = comp.competitors.find(c => c.homeAway === 'home');
     const away = comp.competitors.find(c => c.homeAway === 'away');
     const weekLabel = ev.week ? `Week ${ev.week.number}` : null;
-    const tbd = comp.status?.isTBDFlex ? 1 : 0;
+    // ESPN sends a placeholder time (midnight Eastern, 04:00Z or 05:00Z) for games
+    // whose real kickoff hasn't been announced. Flag those as TBD so they can't
+    // slip into a published week looking like real kickoffs. Checks several
+    // signals since the field names aren't documented; the midnight check is
+    // the backstop (no real game kicks off at exactly midnight Eastern).
+    const status = comp.status || ev.status;
+    const detailText = `${status?.type?.detail || ''} ${status?.type?.shortDetail || ''}`;
+    const kickoffDate = new Date(ev.date);
+    const looksLikePlaceholder =
+      [4, 5].includes(kickoffDate.getUTCHours()) && kickoffDate.getUTCMinutes() === 0;
+    const tbd = (
+      status?.isTBDFlex ||
+      comp.timeValid === false ||
+      ev.timeValid === false ||
+      /TBD|TBA/i.test(detailText) ||
+      looksLikePlaceholder
+    ) ? 1 : 0;
     return {
       source_event_id: ev.id,
       sport,
@@ -82,7 +98,8 @@ async function fetchRange(range) {
     try {
       const monthGames = await fetchMonth(range, yyyymm);
       const warn = monthGames.length >= 500 ? '  \u26a0 hit the 500-event ceiling, this month may be truncated, worth double-checking' : '';
-      console.log(`  ${yyyymm} -> got ${monthGames.length} events${warn}`);
+      const tbdCount = monthGames.filter(g => g.time_tbd).length;
+      console.log(`  ${yyyymm} -> got ${monthGames.length} events (${tbdCount} with no confirmed time)${warn}`);
       games = games.concat(monthGames);
       await sleep(300); // be polite, this endpoint is unofficial and rate-sensitive
     } catch (err) {

@@ -35,7 +35,8 @@ async function loadCurrentWeek() {
 
     box.innerHTML = `<strong>Week ${data.round_number}${data.is_playoff ? ' (playoff)' : ''}</strong>, week id ${data.week_id}<br><br>` +
       gamesHtml +
-      `<button class="btn-secondary" style="margin-left:0;margin-top:10px;" onclick="scoreWeek(${data.week_id})">Try pulling results automatically</button>` +
+      `<button class="btn-secondary" style="margin-left:0;margin-top:10px;" onclick="syncWeekTimes(${data.week_id})">Sync kickoff times from schedule</button>` +
+      `<button class="btn-secondary" style="margin-top:10px;" onclick="scoreWeek(${data.week_id})">Try pulling results automatically</button>` +
       `<button class="btn-secondary" style="margin-top:10px;color:var(--loss);border-color:var(--loss);" onclick="deleteWeek(${data.week_id}, ${data.round_number})">Delete this week</button>`;
   } catch {
     box.textContent = 'Could not load the current week.';
@@ -361,7 +362,7 @@ async function fetchAvailableGames() {
       });
       return `
         <label class="available-game">
-          <span><input type="checkbox" onchange="toggleGame(${i}, this.checked)"> ${g.away_team} at ${g.home_team}</span>
+          <span><input type="checkbox" onchange="toggleGame(${i}, this.checked, this)"> ${g.away_team} at ${g.home_team}</span>
           <span class="time">
             ${g.time_tbd ? '<span style="color:var(--loss);">TBD</span> ' : ''}${kickoff}
             <button class="btn-secondary" style="padding:3px 8px;font-size:11px;margin-left:8px;" onclick="editScheduleTime(${g.id}, ${i})">Edit time</button>
@@ -393,8 +394,41 @@ async function editScheduleTime(scheduleId, index) {
   }
 }
 
-function toggleGame(index, checked) {
+async function syncWeekTimes(weekId) {
+  try {
+    const res = await fetch('/api/admin/sync-week-times', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ week_id: weekId })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not sync times.');
+
+    const fmt = iso => new Date(iso).toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+    const lines = [];
+    lines.push(body.updated.length ? `Updated ${body.updated.length}:` : 'No times needed updating.');
+    body.updated.forEach(u => lines.push(`  ${u.label}: ${fmt(u.from)} -> ${fmt(u.to)}`));
+    if (body.still_tbd.length) {
+      lines.push('', 'Still TBD in the schedule (fix with Edit time, or re-run the importer once ESPN has them):');
+      body.still_tbd.forEach(l => lines.push(`  ${l}`));
+    }
+    if (body.not_found.length) {
+      lines.push('', 'Not found in the schedule table:');
+      body.not_found.forEach(l => lines.push(`  ${l}`));
+    }
+    alert(lines.join('\n'));
+    loadCurrentWeek();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+function toggleGame(index, checked, el) {
   const g = availableGames[index];
+  if (checked && g.time_tbd && !confirm(`${g.away_team} at ${g.home_team} has no confirmed kickoff time yet (TBD). If you add it now, the week's pick deadline could be wrong. Add it anyway?`)) {
+    if (el) el.checked = false;
+    return;
+  }
   const normalized = {
     espn_event_id: g.source_event_id,
     source: 'schedule',
