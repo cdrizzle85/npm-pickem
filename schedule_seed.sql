@@ -341,7 +341,336 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872656', 'nfl', 'Seattle Seahawks', 'New England Patriots', '2026-09-10T00:20Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872657', 'nfl', 'Los Angeles Rams', 'San Francisco 49ers', '2026-09-11T00:35Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872925', 'nfl', 'Cincinnati Bengals', 'Tampa Bay Buccaneers', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872923', 'nfl', 'Detroit Lions', 'New Orleans Saints', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872924', 'nfl', 'Tennessee Titans', 'New York Jets', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872659', 'nfl', 'Indianapolis Colts', 'Baltimore Ravens', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872658', 'nfl', 'Pittsburgh Steelers', 'Atlanta Falcons', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872661', 'nfl', 'Carolina Panthers', 'Chicago Bears', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872922', 'nfl', 'Jacksonville Jaguars', 'Cleveland Browns', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872660', 'nfl', 'Houston Texans', 'Buffalo Bills', '2026-09-13T17:00Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872928', 'nfl', 'Las Vegas Raiders', 'Miami Dolphins', '2026-09-13T20:25Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872927', 'nfl', 'Minnesota Vikings', 'Green Bay Packers', '2026-09-13T20:25Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872929', 'nfl', 'Philadelphia Eagles', 'Washington Commanders', '2026-09-13T20:25Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872926', 'nfl', 'Los Angeles Chargers', 'Arizona Cardinals', '2026-09-13T20:25Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872930', 'nfl', 'New York Giants', 'Dallas Cowboys', '2026-09-14T00:20Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872931', 'nfl', 'Kansas City Chiefs', 'Denver Broncos', '2026-09-15T00:15Z', 0, 'Week 1')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872932', 'nfl', 'Buffalo Bills', 'Detroit Lions', '2026-09-18T00:15Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872933', 'nfl', 'Atlanta Falcons', 'Carolina Panthers', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872937', 'nfl', 'Chicago Bears', 'Minnesota Vikings', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872939', 'nfl', 'Tennessee Titans', 'Philadelphia Eagles', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872946', 'nfl', 'New England Patriots', 'Pittsburgh Steelers', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872936', 'nfl', 'New York Jets', 'Green Bay Packers', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872935', 'nfl', 'Tampa Bay Buccaneers', 'Cleveland Browns', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872938', 'nfl', 'Baltimore Ravens', 'New Orleans Saints', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872934', 'nfl', 'Houston Texans', 'Cincinnati Bengals', '2026-09-20T17:00Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872940', 'nfl', 'Denver Broncos', 'Jacksonville Jaguars', '2026-09-20T20:05Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872941', 'nfl', 'Los Angeles Chargers', 'Las Vegas Raiders', '2026-09-20T20:05Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872944', 'nfl', 'Dallas Cowboys', 'Washington Commanders', '2026-09-20T20:25Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872943', 'nfl', 'Arizona Cardinals', 'Seattle Seahawks', '2026-09-20T20:25Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872942', 'nfl', 'San Francisco 49ers', 'Miami Dolphins', '2026-09-20T20:25Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872945', 'nfl', 'Kansas City Chiefs', 'Indianapolis Colts', '2026-09-21T00:20Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872947', 'nfl', 'Los Angeles Rams', 'New York Giants', '2026-09-22T00:15Z', 0, 'Week 2')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872948', 'nfl', 'Green Bay Packers', 'Atlanta Falcons', '2026-09-25T00:15Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872953', 'nfl', 'Buffalo Bills', 'Los Angeles Chargers', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872949', 'nfl', 'Cleveland Browns', 'Carolina Panthers', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872954', 'nfl', 'Detroit Lions', 'New York Jets', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872951', 'nfl', 'Indianapolis Colts', 'Houston Texans', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872952', 'nfl', 'Miami Dolphins', 'Kansas City Chiefs', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872956', 'nfl', 'New York Giants', 'Tennessee Titans', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872950', 'nfl', 'Pittsburgh Steelers', 'Cincinnati Bengals', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872955', 'nfl', 'Washington Commanders', 'Seattle Seahawks', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872957', 'nfl', 'Jacksonville Jaguars', 'New England Patriots', '2026-09-27T17:00Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872958', 'nfl', 'San Francisco 49ers', 'Arizona Cardinals', '2026-09-27T20:05Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872959', 'nfl', 'Tampa Bay Buccaneers', 'Minnesota Vikings', '2026-09-27T20:05Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872960', 'nfl', 'Dallas Cowboys', 'Baltimore Ravens', '2026-09-27T20:25Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872961', 'nfl', 'New Orleans Saints', 'Las Vegas Raiders', '2026-09-27T20:25Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872962', 'nfl', 'Denver Broncos', 'Los Angeles Rams', '2026-09-28T00:20Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872963', 'nfl', 'Chicago Bears', 'Philadelphia Eagles', '2026-09-29T00:15Z', 0, 'Week 3')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -565,118 +894,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872948', 'nfl', 'Green Bay Packers', 'Atlanta Falcons', '2026-09-25T00:15Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872953', 'nfl', 'Buffalo Bills', 'Los Angeles Chargers', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872949', 'nfl', 'Cleveland Browns', 'Carolina Panthers', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872954', 'nfl', 'Detroit Lions', 'New York Jets', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872951', 'nfl', 'Indianapolis Colts', 'Houston Texans', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872952', 'nfl', 'Miami Dolphins', 'Kansas City Chiefs', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872956', 'nfl', 'New York Giants', 'Tennessee Titans', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872950', 'nfl', 'Pittsburgh Steelers', 'Cincinnati Bengals', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872955', 'nfl', 'Washington Commanders', 'Seattle Seahawks', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872957', 'nfl', 'Jacksonville Jaguars', 'New England Patriots', '2026-09-27T17:00Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872958', 'nfl', 'San Francisco 49ers', 'Arizona Cardinals', '2026-09-27T20:05Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872959', 'nfl', 'Tampa Bay Buccaneers', 'Minnesota Vikings', '2026-09-27T20:05Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872960', 'nfl', 'Dallas Cowboys', 'Baltimore Ravens', '2026-09-27T20:25Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872961', 'nfl', 'New Orleans Saints', 'Las Vegas Raiders', '2026-09-27T20:25Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872962', 'nfl', 'Denver Broncos', 'Los Angeles Rams', '2026-09-28T00:20Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872963', 'nfl', 'Chicago Bears', 'Philadelphia Eagles', '2026-09-29T00:15Z', 0, 'Week 3')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872947', 'nfl', 'Los Angeles Rams', 'New York Giants', '2026-09-22T00:15Z', 0, 'Week 2')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -684,223 +901,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872656', 'nfl', 'Seattle Seahawks', 'New England Patriots', '2026-09-10T00:20Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872657', 'nfl', 'Los Angeles Rams', 'San Francisco 49ers', '2026-09-11T00:35Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872925', 'nfl', 'Cincinnati Bengals', 'Tampa Bay Buccaneers', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872923', 'nfl', 'Detroit Lions', 'New Orleans Saints', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872924', 'nfl', 'Tennessee Titans', 'New York Jets', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872659', 'nfl', 'Indianapolis Colts', 'Baltimore Ravens', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872658', 'nfl', 'Pittsburgh Steelers', 'Atlanta Falcons', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872661', 'nfl', 'Carolina Panthers', 'Chicago Bears', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872922', 'nfl', 'Jacksonville Jaguars', 'Cleveland Browns', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872660', 'nfl', 'Houston Texans', 'Buffalo Bills', '2026-09-13T17:00Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872928', 'nfl', 'Las Vegas Raiders', 'Miami Dolphins', '2026-09-13T20:25Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872927', 'nfl', 'Minnesota Vikings', 'Green Bay Packers', '2026-09-13T20:25Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872929', 'nfl', 'Philadelphia Eagles', 'Washington Commanders', '2026-09-13T20:25Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872926', 'nfl', 'Los Angeles Chargers', 'Arizona Cardinals', '2026-09-13T20:25Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872930', 'nfl', 'New York Giants', 'Dallas Cowboys', '2026-09-14T00:20Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872931', 'nfl', 'Kansas City Chiefs', 'Denver Broncos', '2026-09-15T00:15Z', 0, 'Week 1')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872932', 'nfl', 'Buffalo Bills', 'Detroit Lions', '2026-09-18T00:15Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872933', 'nfl', 'Atlanta Falcons', 'Carolina Panthers', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872937', 'nfl', 'Chicago Bears', 'Minnesota Vikings', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872939', 'nfl', 'Tennessee Titans', 'Philadelphia Eagles', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872946', 'nfl', 'New England Patriots', 'Pittsburgh Steelers', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872936', 'nfl', 'New York Jets', 'Green Bay Packers', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872935', 'nfl', 'Tampa Bay Buccaneers', 'Cleveland Browns', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872938', 'nfl', 'Baltimore Ravens', 'New Orleans Saints', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872934', 'nfl', 'Houston Texans', 'Cincinnati Bengals', '2026-09-20T17:00Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872940', 'nfl', 'Denver Broncos', 'Jacksonville Jaguars', '2026-09-20T20:05Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872941', 'nfl', 'Los Angeles Chargers', 'Las Vegas Raiders', '2026-09-20T20:05Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872944', 'nfl', 'Dallas Cowboys', 'Washington Commanders', '2026-09-20T20:25Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872943', 'nfl', 'Arizona Cardinals', 'Seattle Seahawks', '2026-09-20T20:25Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872942', 'nfl', 'San Francisco 49ers', 'Miami Dolphins', '2026-09-20T20:25Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872945', 'nfl', 'Kansas City Chiefs', 'Indianapolis Colts', '2026-09-21T00:20Z', 0, 'Week 2')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872948', 'nfl', 'Green Bay Packers', 'Atlanta Falcons', '2026-09-25T00:15Z', 0, 'Week 3')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -1007,6 +1007,13 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872963', 'nfl', 'Chicago Bears', 'Philadelphia Eagles', '2026-09-29T00:15Z', 0, 'Week 3')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872979', 'nfl', 'New Orleans Saints', 'Atlanta Falcons', '2026-10-06T00:15Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -1118,13 +1125,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872979', 'nfl', 'New Orleans Saints', 'Atlanta Falcons', '2026-10-06T00:15Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872980', 'nfl', 'Dallas Cowboys', 'Tampa Bay Buccaneers', '2026-10-09T00:15Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -1133,6 +1133,13 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872981', 'nfl', 'Jacksonville Jaguars', 'Philadelphia Eagles', '2026-10-11T13:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872990', 'nfl', 'Green Bay Packers', 'Chicago Bears', '2026-10-11T17:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -1189,13 +1196,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872989', 'nfl', 'Los Angeles Chargers', 'Denver Broncos', '2026-10-11T20:05Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872990', 'nfl', 'Green Bay Packers', 'Chicago Bears', '2026-10-11T20:25Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -2581,84 +2581,84 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872910', 'nfl', 'TBD', 'TBD', '2027-01-16T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872910', 'nfl', 'TBD', 'TBD', '2027-01-16T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872911', 'nfl', 'TBD', 'TBD', '2027-01-16T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872911', 'nfl', 'TBD', 'TBD', '2027-01-16T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872912', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872912', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872913', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872913', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872914', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872914', 'nfl', 'TBD', 'TBD', '2027-01-17T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872915', 'nfl', 'TBD', 'TBD', '2027-01-18T05:00Z', 0, 'Week 1')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872915', 'nfl', 'TBD', 'TBD', '2027-01-18T05:00Z', 1, 'Week 1')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872916', 'nfl', 'TBD', 'TBD', '2027-01-23T05:00Z', 0, 'Week 2')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872916', 'nfl', 'TBD', 'TBD', '2027-01-23T05:00Z', 1, 'Week 2')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872917', 'nfl', 'TBD', 'TBD', '2027-01-23T05:00Z', 0, 'Week 2')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872917', 'nfl', 'TBD', 'TBD', '2027-01-23T05:00Z', 1, 'Week 2')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872918', 'nfl', 'TBD', 'TBD', '2027-01-24T05:00Z', 0, 'Week 2')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872918', 'nfl', 'TBD', 'TBD', '2027-01-24T05:00Z', 1, 'Week 2')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872919', 'nfl', 'TBD', 'TBD', '2027-01-24T05:00Z', 0, 'Week 2')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872919', 'nfl', 'TBD', 'TBD', '2027-01-24T05:00Z', 1, 'Week 2')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872920', 'nfl', 'TBD', 'TBD', '2027-01-31T05:00Z', 0, 'Week 3')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872920', 'nfl', 'TBD', 'TBD', '2027-01-31T05:00Z', 1, 'Week 3')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872921', 'nfl', 'TBD', 'TBD', '2027-01-31T05:00Z', 0, 'Week 3')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401872921', 'nfl', 'TBD', 'TBD', '2027-01-31T05:00Z', 1, 'Week 3')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4492,6 +4492,13 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858461', 'college-football', 'Indiana Hoosiers', 'Northwestern Wildcats', '2026-09-26T00:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862779', 'college-football', 'Temple Owls', 'Army Black Knights', '2026-09-25T20:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4513,13 +4520,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858461', 'college-football', 'Indiana Hoosiers', 'Northwestern Wildcats', '2026-09-26T00:00Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858234', 'college-football', 'California Golden Bears', 'Clemson Tigers', '2026-09-26T02:30Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4534,7 +4534,49 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856700', 'college-football', 'Georgia Bulldogs', 'Oklahoma Sooners', '2026-09-26T19:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858467', 'college-football', 'Purdue Boilermakers', 'Notre Dame Fighting Irish', '2026-09-26T18:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856699', 'college-football', 'Florida Gators', 'Ole Miss Rebels', '2026-09-26T19:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858238', 'college-football', 'Miami Hurricanes', 'Central Michigan Chippewas', '2026-09-26T22:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858465', 'college-football', 'Ohio State Buckeyes', 'Illinois Fighting Illini', '2026-09-26T16:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856696', 'college-football', 'Alabama Crimson Tide', 'South Carolina Gamecocks', '2026-09-26T23:10Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856702', 'college-football', 'LSU Tigers', 'Texas A&M Aggies', '2026-09-26T23:30Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4548,7 +4590,56 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858469', 'college-football', 'USC Trojans', 'Oregon Ducks', '2026-09-26T23:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858466', 'college-football', 'Penn State Nittany Lions', 'Wisconsin Badgers', '2026-09-26T21:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856816', 'college-football', 'Iowa State Cyclones', 'Utah Utes', '2026-09-26T19:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858243', 'college-football', 'Louisville Cardinals', 'Wake Forest Demon Deacons', '2026-09-26T16:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858463', 'college-football', 'Michigan Wolverines', 'Iowa Hawkeyes', '2026-09-26T19:30Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856703', 'college-football', 'Mississippi State Bulldogs', 'Missouri Tigers', '2026-09-26T23:45Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858241', 'college-football', 'SMU Mustangs', 'Missouri State Bears', '2026-09-27T01:00Z', 0, 'Week 4')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856806', 'college-football', 'Georgia Southern Eagles', 'Houston Cougars', '2026-09-26T20:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4625,13 +4716,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858467', 'college-football', 'Purdue Boilermakers', 'Notre Dame Fighting Irish', '2026-09-26T18:00Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864511', 'college-football', 'Georgia State Panthers', 'Northern Illinois Huskies', '2026-09-26T18:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4647,34 +4731,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864510', 'college-football', 'Wyoming Cowboys', 'Hawai''i Rainbow Warriors', '2026-09-26T19:00Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856700', 'college-football', 'Georgia Bulldogs', 'Oklahoma Sooners', '2026-09-26T19:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856699', 'college-football', 'Florida Gators', 'Ole Miss Rebels', '2026-09-26T19:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856816', 'college-football', 'Iowa State Cyclones', 'Utah Utes', '2026-09-26T19:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858463', 'college-football', 'Michigan Wolverines', 'Iowa Hawkeyes', '2026-09-26T19:30Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4737,13 +4793,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856806', 'college-football', 'Georgia Southern Eagles', 'Houston Cougars', '2026-09-26T20:00Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862781', 'college-football', 'East Carolina Pirates', 'North Carolina Central Eagles', '2026-09-26T20:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4752,13 +4801,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856698', 'college-football', 'Auburn Tigers', 'Vanderbilt Commodores', '2026-09-26T20:15Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858466', 'college-football', 'Penn State Nittany Lions', 'Wisconsin Badgers', '2026-09-26T21:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4807,21 +4849,7 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858238', 'college-football', 'Miami Hurricanes', 'Central Michigan Chippewas', '2026-09-26T22:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862780', 'college-football', 'Charlotte 49ers', 'Louisiana Ragin'' Cajuns', '2026-09-26T22:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856696', 'college-football', 'Alabama Crimson Tide', 'South Carolina Gamecocks', '2026-09-26T23:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -4870,20 +4898,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856702', 'college-football', 'LSU Tigers', 'Texas A&M Aggies', '2026-09-26T23:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858469', 'college-football', 'USC Trojans', 'Oregon Ducks', '2026-09-26T23:30Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856804', 'college-football', 'Washington State Cougars', 'Arizona Wildcats', '2026-09-26T23:30Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4912,13 +4926,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856703', 'college-football', 'Mississippi State Bulldogs', 'Missouri Tigers', '2026-09-26T23:45Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856697', 'college-football', 'Arkansas Razorbacks', 'Tulsa Golden Hurricane', '2026-09-27T00:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -4927,13 +4934,6 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862782', 'college-football', 'UL Monroe Warhawks', 'Florida Atlantic Owls', '2026-09-27T00:00Z', 0, 'Week 4')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858241', 'college-football', 'SMU Mustangs', 'Missouri State Bears', '2026-09-27T01:00Z', 0, 'Week 4')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5017,287 +5017,140 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856705', 'college-football', 'Georgia Bulldogs', 'Vanderbilt Commodores', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856705', 'college-football', 'Georgia Bulldogs', 'Vanderbilt Commodores', '2026-10-03T16:45Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858250', 'college-football', 'North Carolina Tar Heels', 'Notre Dame Fighting Irish', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858250', 'college-football', 'North Carolina Tar Heels', 'Notre Dame Fighting Irish', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858249', 'college-football', 'Clemson Tigers', 'Miami Hurricanes', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858249', 'college-football', 'Clemson Tigers', 'Miami Hurricanes', '2026-10-03T23:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858473', 'college-football', 'Iowa Hawkeyes', 'Ohio State Buckeyes', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858473', 'college-football', 'Iowa Hawkeyes', 'Ohio State Buckeyes', '2026-10-03T19:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856707', 'college-football', 'Mississippi State Bulldogs', 'Alabama Crimson Tide', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858477', 'college-football', 'Rutgers Scarlet Knights', 'Indiana Hoosiers', '2026-10-04T00:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856818', 'college-football', 'TCU Horned Frogs', 'BYU Cougars', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856707', 'college-football', 'Mississippi State Bulldogs', 'Alabama Crimson Tide', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856821', 'college-football', 'Colorado Buffaloes', 'Texas Tech Red Raiders', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856708', 'college-football', 'Missouri Tigers', 'Florida Gators', '2026-10-03T19:50Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858478', 'college-football', 'USC Trojans', 'Washington Huskies', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856818', 'college-football', 'TCU Horned Frogs', 'BYU Cougars', '2026-10-03T23:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856710', 'college-football', 'Tennessee Volunteers', 'Auburn Tigers', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856706', 'college-football', 'LSU Tigers', 'McNeese Cowboys', '2026-10-03T23:45Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858248', 'college-football', 'NC State Wolfpack', 'Louisville Cardinals', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856821', 'college-football', 'Colorado Buffaloes', 'Texas Tech Red Raiders', '2026-10-03T23:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858474', 'college-football', 'Minnesota Golden Gophers', 'Michigan Wolverines', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856710', 'college-football', 'Tennessee Volunteers', 'Auburn Tigers', '2026-10-03T19:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856708', 'college-football', 'Missouri Tigers', 'Florida Gators', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858478', 'college-football', 'USC Trojans', 'Washington Huskies', '2026-10-03T23:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858246', 'college-football', 'SMU Mustangs', 'Boston College Eagles', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856819', 'college-football', 'Houston Cougars', 'UCF Knights', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856711', 'college-football', 'Texas A&M Aggies', 'Arkansas Razorbacks', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858246', 'college-football', 'SMU Mustangs', 'Boston College Eagles', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856819', 'college-football', 'Houston Cougars', 'UCF Knights', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860898', 'college-football', 'Boise State Broncos', 'Utah State Aggies', '2026-10-03T23:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856709', 'college-football', 'South Carolina Gamecocks', 'Kentucky Wildcats', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856709', 'college-football', 'South Carolina Gamecocks', 'Kentucky Wildcats', '2026-10-03T20:15Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856807', 'college-football', 'Kansas Jayhawks', 'Middle Tennessee Blue Raiders', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862787', 'college-football', 'Charlotte 49ers', 'Memphis Tigers', '2026-10-03T15:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856817', 'college-football', 'Arizona State Sun Devils', 'Baylor Bears', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856807', 'college-football', 'Kansas Jayhawks', 'Middle Tennessee Blue Raiders', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856820', 'college-football', 'Arizona Wildcats', 'Cincinnati Bearcats', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856822', 'college-football', 'Iowa State Cyclones', 'West Virginia Mountaineers', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856822', 'college-football', 'Iowa State Cyclones', 'West Virginia Mountaineers', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858251', 'college-football', 'Wake Forest Demon Deacons', 'Stanford Cardinal', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858253', 'college-football', 'Florida State Seminoles', 'Virginia Cavaliers', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858472', 'college-football', 'Illinois Fighting Illini', 'Purdue Boilermakers', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858475', 'college-football', 'Nebraska Cornhuskers', 'Maryland Terrapins', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858479', 'college-football', 'Wisconsin Badgers', 'Michigan State Spartans', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862787', 'college-football', 'Charlotte 49ers', 'Memphis Tigers', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862788', 'college-football', 'Rice Owls', 'UTSA Roadrunners', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862792', 'college-football', 'South Florida Bulls', 'Temple Owls', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864514', 'college-football', 'New Mexico Lobos', 'UTEP Miners', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866430', 'college-football', 'Central Michigan Chippewas', 'Akron Zips', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866431', 'college-football', 'Ball State Cardinals', 'Toledo Rockets', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866432', 'college-football', 'Buffalo Bulls', 'Western Michigan Broncos', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866433', 'college-football', 'Massachusetts Minutemen', 'Eastern Michigan Eagles', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866434', 'college-football', 'Kent State Golden Flashes', 'Ohio Bobcats', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866477', 'college-football', 'Miami (OH) RedHawks', 'Bowling Green Falcons', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869842', 'college-football', 'Louisiana Tech Bulldogs', 'Army Black Knights', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869932', 'college-football', 'Louisiana Ragin'' Cajuns', 'Arkansas State Red Wolves', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869942', 'college-football', 'Coastal Carolina Chanticleers', 'Georgia Southern Eagles', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869956', 'college-football', 'Georgia State Panthers', 'Old Dominion Monarchs', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869962', 'college-football', 'James Madison Dukes', 'Marshall Thundering Herd', '2026-10-03T04:00Z', 0, 'Week 5')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871089', 'college-football', 'South Alabama Jaguars', 'UL Monroe Warhawks', '2026-10-03T04:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858251', 'college-football', 'Wake Forest Demon Deacons', 'Stanford Cardinal', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5311,6 +5164,13 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858474', 'college-football', 'Minnesota Golden Gophers', 'Michigan Wolverines', '2026-10-03T16:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862791', 'college-football', 'Air Force Falcons', 'Navy Midshipmen', '2026-10-03T16:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -5318,7 +5178,42 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858479', 'college-football', 'Wisconsin Badgers', 'Michigan State Spartans', '2026-10-03T16:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866432', 'college-football', 'Buffalo Bulls', 'Western Michigan Broncos', '2026-10-03T17:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866431', 'college-football', 'Ball State Cardinals', 'Toledo Rockets', '2026-10-03T18:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858247', 'college-football', 'UNLV Rebels', 'California Golden Bears', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858248', 'college-football', 'NC State Wolfpack', 'Louisville Cardinals', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858253', 'college-football', 'Florida State Seminoles', 'Virginia Cavaliers', '2026-10-03T19:30Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5339,6 +5234,69 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866430', 'college-football', 'Central Michigan Chippewas', 'Akron Zips', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866433', 'college-football', 'Massachusetts Minutemen', 'Eastern Michigan Eagles', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866434', 'college-football', 'Kent State Golden Flashes', 'Ohio Bobcats', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866477', 'college-football', 'Miami (OH) RedHawks', 'Bowling Green Falcons', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869956', 'college-football', 'Georgia State Panthers', 'Old Dominion Monarchs', '2026-10-03T19:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869962', 'college-football', 'James Madison Dukes', 'Marshall Thundering Herd', '2026-10-03T19:45Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858475', 'college-football', 'Nebraska Cornhuskers', 'Maryland Terrapins', '2026-10-03T20:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864514', 'college-football', 'New Mexico Lobos', 'UTEP Miners', '2026-10-03T20:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858472', 'college-football', 'Illinois Fighting Illini', 'Purdue Boilermakers', '2026-10-03T20:15Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860899', 'college-football', 'Colorado State Rams', 'Oregon State Beavers', '2026-10-03T22:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -5353,21 +5311,49 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860898', 'college-football', 'Boise State Broncos', 'Utah State Aggies', '2026-10-03T23:30Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856711', 'college-football', 'Texas A&M Aggies', 'Arkansas Razorbacks', '2026-10-03T23:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856706', 'college-football', 'LSU Tigers', 'McNeese Cowboys', '2026-10-03T23:45Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862788', 'college-football', 'Rice Owls', 'UTSA Roadrunners', '2026-10-03T23:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858477', 'college-football', 'Rutgers Scarlet Knights', 'Indiana Hoosiers', '2026-10-04T00:00Z', 0, 'Week 5')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869942', 'college-football', 'Coastal Carolina Chanticleers', 'Georgia Southern Eagles', '2026-10-03T23:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871089', 'college-football', 'South Alabama Jaguars', 'UL Monroe Warhawks', '2026-10-03T23:00Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862792', 'college-football', 'South Florida Bulls', 'Temple Owls', '2026-10-03T23:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869842', 'college-football', 'Louisiana Tech Bulldogs', 'Army Black Knights', '2026-10-03T23:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869932', 'college-football', 'Louisiana Ragin'' Cajuns', 'Arkansas State Red Wolves', '2026-10-04T00:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5381,7 +5367,21 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856817', 'college-football', 'Arizona State Sun Devils', 'Baylor Bears', '2026-10-04T02:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860900', 'college-football', 'San Diego State Aztecs', 'Texas State Bobcats', '2026-10-04T02:30Z', 0, 'Week 5')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856820', 'college-football', 'Arizona Wildcats', 'Cincinnati Bearcats', '2026-10-04T03:00Z', 0, 'Week 5')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5479,259 +5479,42 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856712', 'college-football', 'Alabama Crimson Tide', 'Georgia Bulldogs', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858481', 'college-football', 'Nebraska Cornhuskers', 'Indiana Hoosiers', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856718', 'college-football', 'Vanderbilt Commodores', 'Ole Miss Rebels', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856716', 'college-football', 'Missouri Tigers', 'Texas A&M Aggies', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858481', 'college-football', 'Nebraska Cornhuskers', 'Indiana Hoosiers', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856824', 'college-football', 'Oklahoma State Cowboys', 'UCF Knights', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858483', 'college-football', 'Ohio State Buckeyes', 'Maryland Terrapins', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858256', 'college-football', 'Pittsburgh Panthers', 'North Carolina Tar Heels', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856715', 'college-football', 'Kentucky Wildcats', 'LSU Tigers', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856823', 'college-football', 'West Virginia Mountaineers', 'Arizona Wildcats', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858485', 'college-football', 'Penn State Nittany Lions', 'USC Trojans', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856713', 'college-football', 'Arkansas Razorbacks', 'Tennessee Volunteers', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856827', 'college-football', 'Utah Utes', 'Kansas Jayhawks', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856716', 'college-football', 'Missouri Tigers', 'Texas A&M Aggies', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858484', 'college-football', 'Oregon Ducks', 'UCLA Bruins', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856714', 'college-football', 'Florida Gators', 'South Carolina Gamecocks', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856825', 'college-football', 'Kansas State Wildcats', 'Houston Cougars', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856808', 'college-football', 'Arizona State Sun Devils', 'Hawai''i Rainbow Warriors', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856823', 'college-football', 'West Virginia Mountaineers', 'Arizona Wildcats', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856824', 'college-football', 'Oklahoma State Cowboys', 'UCF Knights', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858255', 'college-football', 'Georgia Tech Yellow Jackets', 'Duke Blue Devils', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858256', 'college-football', 'Pittsburgh Panthers', 'North Carolina Tar Heels', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858258', 'college-football', 'Virginia Cavaliers', 'Syracuse Orange', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858259', 'college-football', 'California Golden Bears', 'Virginia Tech Hokies', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858260', 'college-football', 'NC State Wolfpack', 'Wake Forest Demon Deacons', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858480', 'college-football', 'Michigan State Spartans', 'Illinois Fighting Illini', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858482', 'college-football', 'Northwestern Wildcats', 'Ball State Cardinals', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858486', 'college-football', 'Purdue Boilermakers', 'Minnesota Golden Gophers', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401861964', 'college-football', 'Temple Owls', 'UConn Huskies', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862796', 'college-football', 'North Texas Mean Green', 'Charlotte 49ers', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862797', 'college-football', 'East Carolina Pirates', 'Rice Owls', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862798', 'college-football', 'Memphis Tigers', 'UAB Blazers', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864517', 'college-football', 'UTEP Miners', 'Nevada Wolf Pack', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866436', 'college-football', 'Bowling Green Falcons', 'Sacramento State Hornets', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866437', 'college-football', 'Toledo Rockets', 'Buffalo Bulls', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866438', 'college-football', 'Ohio Bobcats', 'Central Michigan Chippewas', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866439', 'college-football', 'Western Michigan Broncos', 'Kent State Golden Flashes', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866440', 'college-football', 'Massachusetts Minutemen', 'Miami (OH) RedHawks', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869843', 'college-football', 'App State Mountaineers', 'Old Dominion Monarchs', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869943', 'college-football', 'Marshall Thundering Herd', 'Coastal Carolina Chanticleers', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869949', 'college-football', 'Georgia Southern Eagles', 'James Madison Dukes', '2026-10-10T04:00Z', 0, 'Week 6')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869965', 'college-football', 'Louisiana Tech Bulldogs', 'Louisiana Ragin'' Cajuns', '2026-10-10T04:00Z', 0, 'Week 6')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858260', 'college-football', 'NC State Wolfpack', 'Wake Forest Demon Deacons', '2026-10-10T16:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5739,6 +5522,41 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862795', 'college-football', 'Army Black Knights', 'Tulane Green Wave', '2026-10-10T16:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866436', 'college-football', 'Bowling Green Falcons', 'Sacramento State Hornets', '2026-10-10T16:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858482', 'college-football', 'Northwestern Wildcats', 'Ball State Cardinals', '2026-10-10T16:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856714', 'college-football', 'Florida Gators', 'South Carolina Gamecocks', '2026-10-10T16:45Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869843', 'college-football', 'App State Mountaineers', 'Old Dominion Monarchs', '2026-10-10T17:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866440', 'college-football', 'Massachusetts Minutemen', 'Miami (OH) RedHawks', '2026-10-10T18:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5759,6 +5577,55 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856718', 'college-football', 'Vanderbilt Commodores', 'Ole Miss Rebels', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858484', 'college-football', 'Oregon Ducks', 'UCLA Bruins', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856825', 'college-football', 'Kansas State Wildcats', 'Houston Cougars', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858255', 'college-football', 'Georgia Tech Yellow Jackets', 'Duke Blue Devils', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858259', 'college-football', 'California Golden Bears', 'Virginia Tech Hokies', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858480', 'college-football', 'Michigan State Spartans', 'Illinois Fighting Illini', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862796', 'college-football', 'North Texas Mean Green', 'Charlotte 49ers', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862799', 'college-football', 'Navy Midshipmen', 'Tulsa Golden Hurricane', '2026-10-10T19:30Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
@@ -5773,7 +5640,77 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866437', 'college-football', 'Toledo Rockets', 'Buffalo Bulls', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866438', 'college-football', 'Ohio Bobcats', 'Central Michigan Chippewas', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866439', 'college-football', 'Western Michigan Broncos', 'Kent State Golden Flashes', '2026-10-10T19:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401861964', 'college-football', 'Temple Owls', 'UConn Huskies', '2026-10-10T19:45Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862797', 'college-football', 'East Carolina Pirates', 'Rice Owls', '2026-10-10T20:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858483', 'college-football', 'Ohio State Buckeyes', 'Maryland Terrapins', '2026-10-10T20:15Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856713', 'college-football', 'Arkansas Razorbacks', 'Tennessee Volunteers', '2026-10-10T20:15Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860902', 'college-football', 'Oregon State Beavers', 'San Diego State Aztecs', '2026-10-10T22:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856715', 'college-football', 'Kentucky Wildcats', 'LSU Tigers', '2026-10-10T23:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862798', 'college-football', 'Memphis Tigers', 'UAB Blazers', '2026-10-10T23:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864517', 'college-football', 'UTEP Miners', 'Nevada Wolf Pack', '2026-10-10T23:00Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5787,7 +5724,70 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869943', 'college-football', 'Marshall Thundering Herd', 'Coastal Carolina Chanticleers', '2026-10-10T23:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856712', 'college-football', 'Alabama Crimson Tide', 'Georgia Bulldogs', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858485', 'college-football', 'Penn State Nittany Lions', 'USC Trojans', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858258', 'college-football', 'Virginia Cavaliers', 'Syracuse Orange', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864516', 'college-football', 'Northern Illinois Huskies', 'Air Force Falcons', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869949', 'college-football', 'Georgia Southern Eagles', 'James Madison Dukes', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869965', 'college-football', 'Louisiana Tech Bulldogs', 'Louisiana Ragin'' Cajuns', '2026-10-10T23:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858486', 'college-football', 'Purdue Boilermakers', 'Minnesota Golden Gophers', '2026-10-11T00:00Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856808', 'college-football', 'Arizona State Sun Devils', 'Hawai''i Rainbow Warriors', '2026-10-11T01:30Z', 0, 'Week 6')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856827', 'college-football', 'Utah Utes', 'Kansas Jayhawks', '2026-10-11T02:15Z', 0, 'Week 6')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -5871,301 +5871,259 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856724', 'college-football', 'Texas Longhorns', 'Florida Gators', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856724', 'college-football', 'Texas Longhorns', 'Florida Gators', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856719', 'college-football', 'Georgia Bulldogs', 'Auburn Tigers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856719', 'college-football', 'Georgia Bulldogs', 'Auburn Tigers', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856809', 'college-football', 'BYU Cougars', 'Notre Dame Fighting Irish', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856809', 'college-football', 'BYU Cougars', 'Notre Dame Fighting Irish', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856721', 'college-football', 'Ole Miss Rebels', 'Missouri Tigers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858488', 'college-football', 'Indiana Hoosiers', 'Ohio State Buckeyes', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858488', 'college-football', 'Indiana Hoosiers', 'Ohio State Buckeyes', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856723', 'college-football', 'Tennessee Volunteers', 'Alabama Crimson Tide', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858263', 'college-football', 'Miami Hurricanes', 'Florida State Seminoles', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856721', 'college-football', 'Ole Miss Rebels', 'Missouri Tigers', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856723', 'college-football', 'Tennessee Volunteers', 'Alabama Crimson Tide', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856720', 'college-football', 'LSU Tigers', 'Mississippi State Bulldogs', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856720', 'college-football', 'LSU Tigers', 'Mississippi State Bulldogs', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856828', 'college-football', 'Texas Tech Red Raiders', 'Arizona State Sun Devils', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856828', 'college-football', 'Texas Tech Red Raiders', 'Arizona State Sun Devils', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856833', 'college-football', 'Colorado Buffaloes', 'Utah Utes', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858490', 'college-football', 'Michigan Wolverines', 'Penn State Nittany Lions', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858492', 'college-football', 'Oregon Ducks', 'Nebraska Cornhuskers', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856833', 'college-football', 'Colorado Buffaloes', 'Utah Utes', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856831', 'college-football', 'Houston Cougars', 'Oklahoma State Cowboys', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858265', 'college-football', 'Syracuse Orange', 'Louisville Cardinals', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858494', 'college-football', 'UCLA Bruins', 'Wisconsin Badgers', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858492', 'college-football', 'Oregon Ducks', 'Nebraska Cornhuskers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856722', 'college-football', 'Oklahoma Sooners', 'Kentucky Wildcats', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858268', 'college-football', 'SMU Mustangs', 'Virginia Cavaliers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856726', 'college-football', 'Vanderbilt Commodores', 'Arkansas Razorbacks', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856831', 'college-football', 'Houston Cougars', 'Oklahoma State Cowboys', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856829', 'college-football', 'West Virginia Mountaineers', 'Cincinnati Bearcats', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856722', 'college-football', 'Oklahoma Sooners', 'Kentucky Wildcats', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856830', 'college-football', 'Kansas State Wildcats', 'Kansas Jayhawks', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856726', 'college-football', 'Vanderbilt Commodores', 'Arkansas Razorbacks', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856832', 'college-football', 'Baylor Bears', 'TCU Horned Frogs', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856829', 'college-football', 'West Virginia Mountaineers', 'Cincinnati Bearcats', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858490', 'college-football', 'Michigan Wolverines', 'Penn State Nittany Lions', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856830', 'college-football', 'Kansas State Wildcats', 'Kansas Jayhawks', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858491', 'college-football', 'Michigan State Spartans', 'Northwestern Wildcats', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856832', 'college-football', 'Baylor Bears', 'TCU Horned Frogs', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862803', 'college-football', 'Temple Owls', 'Charlotte 49ers', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858261', 'college-football', 'Clemson Tigers', 'Charleston Southern Buccaneers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862804', 'college-football', 'UTSA Roadrunners', 'Navy Midshipmen', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858264', 'college-football', 'Virginia Tech Hokies', 'Georgia Tech Yellow Jackets', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862805', 'college-football', 'Rice Owls', 'Tulsa Golden Hurricane', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858266', 'college-football', 'Duke Blue Devils', 'North Carolina Tar Heels', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862806', 'college-football', 'South Florida Bulls', 'Kent State Golden Flashes', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858267', 'college-football', 'Boston College Eagles', 'Pittsburgh Panthers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864521', 'college-football', 'Hawai''i Rainbow Warriors', 'New Mexico Lobos', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858269', 'college-football', 'California Golden Bears', 'Wake Forest Demon Deacons', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866441', 'college-football', 'Bowling Green Falcons', 'Ball State Cardinals', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858489', 'college-football', 'Maryland Terrapins', 'Rutgers Scarlet Knights', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866442', 'college-football', 'Buffalo Bulls', 'Massachusetts Minutemen', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858491', 'college-football', 'Michigan State Spartans', 'Northwestern Wildcats', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866443', 'college-football', 'Central Michigan Chippewas', 'Western Michigan Broncos', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858494', 'college-football', 'UCLA Bruins', 'Wisconsin Badgers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866444', 'college-football', 'Eastern Michigan Eagles', 'Toledo Rockets', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862803', 'college-football', 'Temple Owls', 'Charlotte 49ers', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866445', 'college-football', 'Sacramento State Hornets', 'Ohio Bobcats', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862804', 'college-football', 'UTSA Roadrunners', 'Navy Midshipmen', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866478', 'college-football', 'Miami (OH) RedHawks', 'Akron Zips', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862805', 'college-football', 'Rice Owls', 'Tulsa Golden Hurricane', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869934', 'college-football', 'Southern Miss Golden Eagles', 'Arkansas State Red Wolves', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862806', 'college-football', 'South Florida Bulls', 'Kent State Golden Flashes', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869966', 'college-football', 'Louisiana Ragin'' Cajuns', 'Troy Trojans', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864521', 'college-football', 'Hawai''i Rainbow Warriors', 'New Mexico Lobos', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871091', 'college-football', 'UL Monroe Warhawks', 'Louisiana Tech Bulldogs', '2026-10-17T04:00Z', 1, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866441', 'college-football', 'Bowling Green Falcons', 'Ball State Cardinals', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858268', 'college-football', 'SMU Mustangs', 'Virginia Cavaliers', '2026-10-17T16:00Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866442', 'college-football', 'Buffalo Bulls', 'Massachusetts Minutemen', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858267', 'college-football', 'Boston College Eagles', 'Pittsburgh Panthers', '2026-10-17T16:00Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866443', 'college-football', 'Central Michigan Chippewas', 'Western Michigan Broncos', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858261', 'college-football', 'Clemson Tigers', 'Charleston Southern Buccaneers', '2026-10-17T16:00Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866444', 'college-football', 'Eastern Michigan Eagles', 'Toledo Rockets', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866445', 'college-football', 'Sacramento State Hornets', 'Ohio Bobcats', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866478', 'college-football', 'Miami (OH) RedHawks', 'Akron Zips', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869934', 'college-football', 'Southern Miss Golden Eagles', 'Arkansas State Red Wolves', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869957', 'college-football', 'James Madison Dukes', 'Georgia State Panthers', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869966', 'college-football', 'Louisiana Ragin'' Cajuns', 'Troy Trojans', '2026-10-17T04:00Z', 0, 'Week 7')
-ON CONFLICT(sport, source_event_id) DO UPDATE SET
-  home_team = excluded.home_team,
-  away_team = excluded.away_team,
-  kickoff_time = excluded.kickoff_time,
-  time_tbd = excluded.time_tbd,
-  week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871091', 'college-football', 'UL Monroe Warhawks', 'Louisiana Tech Bulldogs', '2026-10-17T04:00Z', 0, 'Week 7')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869957', 'college-football', 'James Madison Dukes', 'Georgia State Panthers', '2026-10-17T16:00Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -6179,7 +6137,28 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858489', 'college-football', 'Maryland Terrapins', 'Rutgers Scarlet Knights', '2026-10-17T16:30Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856725', 'college-football', 'Texas A&M Aggies', 'The Citadel Bulldogs', '2026-10-17T17:00Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858264', 'college-football', 'Virginia Tech Hokies', 'Georgia Tech Yellow Jackets', '2026-10-17T19:30Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858266', 'college-football', 'Duke Blue Devils', 'North Carolina Tar Heels', '2026-10-17T19:30Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -6207,7 +6186,21 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858263', 'college-football', 'Miami Hurricanes', 'Florida State Seminoles', '2026-10-17T23:00Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864520', 'college-football', 'North Dakota State Bison', 'Nevada Wolf Pack', '2026-10-17T23:00Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858265', 'college-football', 'Syracuse Orange', 'Louisville Cardinals', '2026-10-17T23:30Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -6222,6 +6215,13 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
 INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864523', 'college-football', 'UTEP Miners', 'San José State Spartans', '2026-10-18T01:00Z', 0, 'Week 7')
+ON CONFLICT(sport, source_event_id) DO UPDATE SET
+  home_team = excluded.home_team,
+  away_team = excluded.away_team,
+  kickoff_time = excluded.kickoff_time,
+  time_tbd = excluded.time_tbd,
+  week_label = excluded.week_label;
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858269', 'college-football', 'California Golden Bears', 'Wake Forest Demon Deacons', '2026-10-18T02:30Z', 0, 'Week 7')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -6319,252 +6319,252 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856732', 'college-football', 'Texas Longhorns', 'Ole Miss Rebels', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856732', 'college-football', 'Texas Longhorns', 'Ole Miss Rebels', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858496', 'college-football', 'Michigan Wolverines', 'Indiana Hoosiers', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858274', 'college-football', 'Miami Hurricanes', 'Pittsburgh Panthers', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858274', 'college-football', 'Miami Hurricanes', 'Pittsburgh Panthers', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856727', 'college-football', 'Alabama Crimson Tide', 'Texas A&M Aggies', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856727', 'college-football', 'Alabama Crimson Tide', 'Texas A&M Aggies', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858496', 'college-football', 'Michigan Wolverines', 'Indiana Hoosiers', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856835', 'college-football', 'UCF Knights', 'BYU Cougars', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856835', 'college-football', 'UCF Knights', 'BYU Cougars', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856840', 'college-football', 'Cincinnati Bearcats', 'Texas Tech Red Raiders', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856840', 'college-football', 'Cincinnati Bearcats', 'Texas Tech Red Raiders', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858500', 'college-football', 'Wisconsin Badgers', 'USC Trojans', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856837', 'college-football', 'Utah Utes', 'Houston Cougars', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856731', 'college-football', 'South Carolina Gamecocks', 'Tennessee Volunteers', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858495', 'college-football', 'Illinois Fighting Illini', 'Oregon Ducks', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856837', 'college-football', 'Utah Utes', 'Houston Cougars', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856731', 'college-football', 'South Carolina Gamecocks', 'Tennessee Volunteers', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858497', 'college-football', 'Minnesota Golden Gophers', 'Iowa Hawkeyes', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856730', 'college-football', 'Mississippi State Bulldogs', 'Oklahoma Sooners', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858495', 'college-football', 'Illinois Fighting Illini', 'Oregon Ducks', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856836', 'college-football', 'Oklahoma State Cowboys', 'Colorado Buffaloes', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858270', 'college-football', 'SMU Mustangs', 'California Golden Bears', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858500', 'college-football', 'Wisconsin Badgers', 'USC Trojans', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856730', 'college-football', 'Mississippi State Bulldogs', 'Oklahoma Sooners', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858497', 'college-football', 'Minnesota Golden Gophers', 'Iowa Hawkeyes', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856729', 'college-football', 'Kentucky Wildcats', 'Vanderbilt Commodores', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858499', 'college-football', 'UCLA Bruins', 'Michigan State Spartans', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856834', 'college-football', 'Kansas Jayhawks', 'Baylor Bears', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858270', 'college-football', 'SMU Mustangs', 'California Golden Bears', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856836', 'college-football', 'Oklahoma State Cowboys', 'Colorado Buffaloes', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856729', 'college-football', 'Kentucky Wildcats', 'Vanderbilt Commodores', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856838', 'college-football', 'Arizona Wildcats', 'Iowa State Cyclones', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856834', 'college-football', 'Kansas Jayhawks', 'Baylor Bears', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856839', 'college-football', 'Arizona State Sun Devils', 'Kansas State Wildcats', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856838', 'college-football', 'Arizona Wildcats', 'Iowa State Cyclones', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856841', 'college-football', 'TCU Horned Frogs', 'West Virginia Mountaineers', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856839', 'college-football', 'Arizona State Sun Devils', 'Kansas State Wildcats', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858273', 'college-football', 'Georgia Tech Yellow Jackets', 'Boston College Eagles', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856841', 'college-football', 'TCU Horned Frogs', 'West Virginia Mountaineers', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858275', 'college-football', 'North Carolina Tar Heels', 'Syracuse Orange', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858273', 'college-football', 'Georgia Tech Yellow Jackets', 'Boston College Eagles', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858276', 'college-football', 'Clemson Tigers', 'Virginia Tech Hokies', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858275', 'college-football', 'North Carolina Tar Heels', 'Syracuse Orange', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858498', 'college-football', 'Northwestern Wildcats', 'Rutgers Scarlet Knights', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858276', 'college-football', 'Clemson Tigers', 'Virginia Tech Hokies', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858499', 'college-football', 'UCLA Bruins', 'Michigan State Spartans', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858498', 'college-football', 'Northwestern Wildcats', 'Rutgers Scarlet Knights', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862809', 'college-football', 'Florida Atlantic Owls', 'Rice Owls', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862809', 'college-football', 'Florida Atlantic Owls', 'Rice Owls', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862811', 'college-football', 'Tulane Green Wave', 'UTSA Roadrunners', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862811', 'college-football', 'Tulane Green Wave', 'UTSA Roadrunners', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864526', 'college-football', 'Northern Illinois Huskies', 'Hawai''i Rainbow Warriors', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864526', 'college-football', 'Northern Illinois Huskies', 'Hawai''i Rainbow Warriors', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866446', 'college-football', 'Kent State Golden Flashes', 'Akron Zips', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866446', 'college-football', 'Kent State Golden Flashes', 'Akron Zips', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866447', 'college-football', 'Ball State Cardinals', 'Sacramento State Hornets', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866447', 'college-football', 'Ball State Cardinals', 'Sacramento State Hornets', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866448', 'college-football', 'Buffalo Bulls', 'Bowling Green Falcons', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866448', 'college-football', 'Buffalo Bulls', 'Bowling Green Falcons', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866449', 'college-football', 'Ohio Bobcats', 'Eastern Michigan Eagles', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866449', 'college-football', 'Ohio Bobcats', 'Eastern Michigan Eagles', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866450', 'college-football', 'Toledo Rockets', 'Western Michigan Broncos', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866450', 'college-football', 'Toledo Rockets', 'Western Michigan Broncos', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866476', 'college-football', 'Central Michigan Chippewas', 'Miami (OH) RedHawks', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866476', 'college-football', 'Central Michigan Chippewas', 'Miami (OH) RedHawks', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869967', 'college-football', 'Southern Miss Golden Eagles', 'Louisiana Ragin'' Cajuns', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869967', 'college-football', 'Southern Miss Golden Eagles', 'Louisiana Ragin'' Cajuns', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871093', 'college-football', 'Louisiana Tech Bulldogs', 'Old Dominion Monarchs', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871093', 'college-football', 'Louisiana Tech Bulldogs', 'Old Dominion Monarchs', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871094', 'college-football', 'Troy Trojans', 'UL Monroe Warhawks', '2026-10-24T04:00Z', 0, 'Week 8')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871094', 'college-football', 'Troy Trojans', 'UL Monroe Warhawks', '2026-10-24T04:00Z', 1, 'Week 8')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -6690,259 +6690,259 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856737', 'college-football', 'Texas Longhorns', 'Mississippi State Bulldogs', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856737', 'college-football', 'Texas Longhorns', 'Mississippi State Bulldogs', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856735', 'college-football', 'Ole Miss Rebels', 'Auburn Tigers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858282', 'college-football', 'North Carolina Tar Heels', 'Miami Hurricanes', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858501', 'college-football', 'Indiana Hoosiers', 'Minnesota Golden Gophers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858509', 'college-football', 'USC Trojans', 'Ohio State Buckeyes', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858282', 'college-football', 'North Carolina Tar Heels', 'Miami Hurricanes', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858501', 'college-football', 'Indiana Hoosiers', 'Minnesota Golden Gophers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858509', 'college-football', 'USC Trojans', 'Ohio State Buckeyes', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856843', 'college-football', 'BYU Cougars', 'Arizona State Sun Devils', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856843', 'college-football', 'BYU Cougars', 'Arizona State Sun Devils', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856735', 'college-football', 'Ole Miss Rebels', 'Auburn Tigers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856842', 'college-football', 'Texas Tech Red Raiders', 'Arizona Wildcats', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856842', 'college-football', 'Texas Tech Red Raiders', 'Arizona Wildcats', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858506', 'college-football', 'Penn State Nittany Lions', 'Purdue Boilermakers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856848', 'college-football', 'Cincinnati Bearcats', 'Utah Utes', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856848', 'college-football', 'Cincinnati Bearcats', 'Utah Utes', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858505', 'college-football', 'Oregon Ducks', 'Northwestern Wildcats', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858283', 'college-football', 'Louisville Cardinals', 'Stanford Cardinal', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856733', 'college-football', 'Arkansas Razorbacks', 'Missouri Tigers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858502', 'college-football', 'Iowa Hawkeyes', 'Wisconsin Badgers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856847', 'college-football', 'Iowa State Cyclones', 'Oklahoma State Cowboys', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858507', 'college-football', 'Rutgers Scarlet Knights', 'Michigan Wolverines', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858502', 'college-football', 'Iowa Hawkeyes', 'Wisconsin Badgers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856733', 'college-football', 'Arkansas Razorbacks', 'Missouri Tigers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858508', 'college-football', 'UCLA Bruins', 'Nevada Wolf Pack', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858505', 'college-football', 'Oregon Ducks', 'Northwestern Wildcats', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858278', 'college-football', 'Syracuse Orange', 'SMU Mustangs', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858278', 'college-football', 'Syracuse Orange', 'SMU Mustangs', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858281', 'college-football', 'Pittsburgh Panthers', 'Georgia Tech Yellow Jackets', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856736', 'college-football', 'Oklahoma Sooners', 'South Carolina Gamecocks', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856736', 'college-football', 'Oklahoma Sooners', 'South Carolina Gamecocks', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856845', 'college-football', 'TCU Horned Frogs', 'Kansas Jayhawks', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856845', 'college-football', 'TCU Horned Frogs', 'Kansas Jayhawks', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856846', 'college-football', 'Colorado Buffaloes', 'Kansas State Wildcats', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856846', 'college-football', 'Colorado Buffaloes', 'Kansas State Wildcats', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856847', 'college-football', 'Iowa State Cyclones', 'Oklahoma State Cowboys', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858277', 'college-football', 'NC State Wolfpack', 'California Golden Bears', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858277', 'college-football', 'NC State Wolfpack', 'California Golden Bears', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858279', 'college-football', 'Duke Blue Devils', 'Boston College Eagles', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858279', 'college-football', 'Duke Blue Devils', 'Boston College Eagles', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858280', 'college-football', 'Florida State Seminoles', 'Clemson Tigers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858280', 'college-football', 'Florida State Seminoles', 'Clemson Tigers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858283', 'college-football', 'Louisville Cardinals', 'Stanford Cardinal', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858281', 'college-football', 'Pittsburgh Panthers', 'Georgia Tech Yellow Jackets', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858284', 'college-football', 'Wake Forest Demon Deacons', 'Virginia Cavaliers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858284', 'college-football', 'Wake Forest Demon Deacons', 'Virginia Cavaliers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858503', 'college-football', 'Maryland Terrapins', 'Illinois Fighting Illini', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858503', 'college-football', 'Maryland Terrapins', 'Illinois Fighting Illini', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858504', 'college-football', 'Nebraska Cornhuskers', 'Washington Huskies', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858504', 'college-football', 'Nebraska Cornhuskers', 'Washington Huskies', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858506', 'college-football', 'Penn State Nittany Lions', 'Purdue Boilermakers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858508', 'college-football', 'UCLA Bruins', 'Nevada Wolf Pack', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858507', 'college-football', 'Rutgers Scarlet Knights', 'Michigan Wolverines', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860924', 'college-football', 'Fresno State Bulldogs', 'Oregon State Beavers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860924', 'college-football', 'Fresno State Bulldogs', 'Oregon State Beavers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862814', 'college-football', 'Memphis Tigers', 'Army Black Knights', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862814', 'college-football', 'Memphis Tigers', 'Army Black Knights', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862815', 'college-football', 'East Carolina Pirates', 'Temple Owls', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862815', 'college-football', 'East Carolina Pirates', 'Temple Owls', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862816', 'college-football', 'South Florida Bulls', 'UAB Blazers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862816', 'college-football', 'South Florida Bulls', 'UAB Blazers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864529', 'college-football', 'San José State Spartans', 'New Mexico Lobos', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864529', 'college-football', 'San José State Spartans', 'New Mexico Lobos', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869846', 'college-football', 'Georgia Southern Eagles', 'App State Mountaineers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869846', 'college-football', 'Georgia Southern Eagles', 'App State Mountaineers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869944', 'college-football', 'Georgia State Panthers', 'Coastal Carolina Chanticleers', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869944', 'college-football', 'Georgia State Panthers', 'Coastal Carolina Chanticleers', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871095', 'college-football', 'UL Monroe Warhawks', 'Southern Miss Golden Eagles', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871095', 'college-football', 'UL Monroe Warhawks', 'Southern Miss Golden Eagles', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871096', 'college-football', 'Old Dominion Monarchs', 'Marshall Thundering Herd', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871096', 'college-football', 'Old Dominion Monarchs', 'Marshall Thundering Herd', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871097', 'college-football', 'South Alabama Jaguars', 'Louisiana Tech Bulldogs', '2026-10-31T04:00Z', 0, 'Week 9')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871097', 'college-football', 'South Alabama Jaguars', 'Louisiana Tech Bulldogs', '2026-10-31T04:00Z', 1, 'Week 9')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -7033,21 +7033,21 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866455', 'college-football', 'Massachusetts Minutemen', 'Ball State Cardinals', '2026-11-04T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866455', 'college-football', 'Massachusetts Minutemen', 'Ball State Cardinals', '2026-11-04T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866456', 'college-football', 'Eastern Michigan Eagles', 'Central Michigan Chippewas', '2026-11-04T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866456', 'college-football', 'Eastern Michigan Eagles', 'Central Michigan Chippewas', '2026-11-04T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866457', 'college-football', 'Sacramento State Hornets', 'Toledo Rockets', '2026-11-04T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866457', 'college-football', 'Sacramento State Hornets', 'Toledo Rockets', '2026-11-04T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -7103,259 +7103,259 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856743', 'college-football', 'Missouri Tigers', 'Texas Longhorns', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856743', 'college-football', 'Missouri Tigers', 'Texas Longhorns', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856741', 'college-football', 'Ole Miss Rebels', 'Georgia Bulldogs', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856741', 'college-football', 'Ole Miss Rebels', 'Georgia Bulldogs', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858514', 'college-football', 'Ohio State Buckeyes', 'Oregon Ducks', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858514', 'college-football', 'Ohio State Buckeyes', 'Oregon Ducks', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856740', 'college-football', 'LSU Tigers', 'Alabama Crimson Tide', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856740', 'college-football', 'LSU Tigers', 'Alabama Crimson Tide', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856849', 'college-football', 'Utah Utes', 'BYU Cougars', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856849', 'college-football', 'Utah Utes', 'BYU Cougars', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856856', 'college-football', 'Texas Tech Red Raiders', 'West Virginia Mountaineers', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856856', 'college-football', 'Texas Tech Red Raiders', 'West Virginia Mountaineers', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858516', 'college-football', 'Washington Huskies', 'Penn State Nittany Lions', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856745', 'college-football', 'Tennessee Volunteers', 'Kentucky Wildcats', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856745', 'college-football', 'Tennessee Volunteers', 'Kentucky Wildcats', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856739', 'college-football', 'Florida Gators', 'Oklahoma Sooners', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858287', 'college-football', 'Georgia Tech Yellow Jackets', 'Louisville Cardinals', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856742', 'college-football', 'Mississippi State Bulldogs', 'Vanderbilt Commodores', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858513', 'college-football', 'Northwestern Wildcats', 'Iowa Hawkeyes', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856854', 'college-football', 'Kansas State Wildcats', 'Oklahoma State Cowboys', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858511', 'college-football', 'Michigan Wolverines', 'Michigan State Spartans', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858513', 'college-football', 'Northwestern Wildcats', 'Iowa Hawkeyes', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856739', 'college-football', 'Florida Gators', 'Oklahoma Sooners', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858512', 'college-football', 'Minnesota Golden Gophers', 'UCLA Bruins', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856744', 'college-football', 'South Carolina Gamecocks', 'Texas A&M Aggies', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856851', 'college-football', 'Houston Cougars', 'Cincinnati Bearcats', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856742', 'college-football', 'Mississippi State Bulldogs', 'Vanderbilt Commodores', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856738', 'college-football', 'Auburn Tigers', 'Arkansas Razorbacks', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856851', 'college-football', 'Houston Cougars', 'Cincinnati Bearcats', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856744', 'college-football', 'South Carolina Gamecocks', 'Texas A&M Aggies', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856738', 'college-football', 'Auburn Tigers', 'Arkansas Razorbacks', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856850', 'college-football', 'Kansas Jayhawks', 'UCF Knights', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856850', 'college-football', 'Kansas Jayhawks', 'UCF Knights', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856852', 'college-football', 'Arizona State Sun Devils', 'Colorado Buffaloes', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856852', 'college-football', 'Arizona State Sun Devils', 'Colorado Buffaloes', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856853', 'college-football', 'Baylor Bears', 'Iowa State Cyclones', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856853', 'college-football', 'Baylor Bears', 'Iowa State Cyclones', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858285', 'college-football', 'Syracuse Orange', 'Clemson Tigers', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856854', 'college-football', 'Kansas State Wildcats', 'Oklahoma State Cowboys', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858286', 'college-football', 'NC State Wolfpack', 'Duke Blue Devils', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858285', 'college-football', 'Syracuse Orange', 'Clemson Tigers', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858287', 'college-football', 'Georgia Tech Yellow Jackets', 'Louisville Cardinals', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858286', 'college-football', 'NC State Wolfpack', 'Duke Blue Devils', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858289', 'college-football', 'Boston College Eagles', 'Florida State Seminoles', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858289', 'college-football', 'Boston College Eagles', 'Florida State Seminoles', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858290', 'college-football', 'Wake Forest Demon Deacons', 'Merrimack Warriors', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858290', 'college-football', 'Wake Forest Demon Deacons', 'Merrimack Warriors', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858511', 'college-football', 'Michigan Wolverines', 'Michigan State Spartans', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858512', 'college-football', 'Minnesota Golden Gophers', 'UCLA Bruins', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858515', 'college-football', 'Purdue Boilermakers', 'Maryland Terrapins', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858515', 'college-football', 'Purdue Boilermakers', 'Maryland Terrapins', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858516', 'college-football', 'Washington Huskies', 'Penn State Nittany Lions', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858517', 'college-football', 'Wisconsin Badgers', 'Rutgers Scarlet Knights', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858517', 'college-football', 'Wisconsin Badgers', 'Rutgers Scarlet Knights', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862819', 'college-football', 'UAB Blazers', 'Charlotte 49ers', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862819', 'college-football', 'UAB Blazers', 'Charlotte 49ers', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862821', 'college-football', 'North Texas Mean Green', 'Rice Owls', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862821', 'college-football', 'North Texas Mean Green', 'Rice Owls', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862822', 'college-football', 'Tulane Green Wave', 'Tulsa Golden Hurricane', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862822', 'college-football', 'Tulane Green Wave', 'Tulsa Golden Hurricane', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864532', 'college-football', 'UTEP Miners', 'Hawai''i Rainbow Warriors', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864532', 'college-football', 'UTEP Miners', 'Hawai''i Rainbow Warriors', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864534', 'college-football', 'San José State Spartans', 'Northern Illinois Huskies', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864534', 'college-football', 'San José State Spartans', 'Northern Illinois Huskies', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869927', 'college-football', 'App State Mountaineers', 'Georgia State Panthers', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869927', 'college-football', 'App State Mountaineers', 'Georgia State Panthers', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869945', 'college-football', 'Coastal Carolina Chanticleers', 'Old Dominion Monarchs', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869945', 'college-football', 'Coastal Carolina Chanticleers', 'Old Dominion Monarchs', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869951', 'college-football', 'Georgia Southern Eagles', 'Marshall Thundering Herd', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869951', 'college-football', 'Georgia Southern Eagles', 'Marshall Thundering Herd', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869968', 'college-football', 'Louisiana Ragin'' Cajuns', 'South Alabama Jaguars', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869968', 'college-football', 'Louisiana Ragin'' Cajuns', 'South Alabama Jaguars', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871098', 'college-football', 'Troy Trojans', 'Louisiana Tech Bulldogs', '2026-11-07T05:00Z', 0, 'Week 10')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871098', 'college-football', 'Troy Trojans', 'Louisiana Tech Bulldogs', '2026-11-07T05:00Z', 1, 'Week 10')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -7481,21 +7481,21 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866461', 'college-football', 'Ball State Cardinals', 'Buffalo Bulls', '2026-11-11T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866461', 'college-football', 'Ball State Cardinals', 'Buffalo Bulls', '2026-11-11T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866462', 'college-football', 'Central Michigan Chippewas', 'Sacramento State Hornets', '2026-11-11T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866462', 'college-football', 'Central Michigan Chippewas', 'Sacramento State Hornets', '2026-11-11T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866463', 'college-football', 'Toledo Rockets', 'Massachusetts Minutemen', '2026-11-11T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866463', 'college-football', 'Toledo Rockets', 'Massachusetts Minutemen', '2026-11-11T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -7537,294 +7537,294 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856885', 'college-football', 'LSU Tigers', 'Texas Longhorns', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856885', 'college-football', 'LSU Tigers', 'Texas Longhorns', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856883', 'college-football', 'Georgia Bulldogs', 'Missouri Tigers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856883', 'college-football', 'Georgia Bulldogs', 'Missouri Tigers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856887', 'college-football', 'Oklahoma Sooners', 'Ole Miss Rebels', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858296', 'college-football', 'Miami Hurricanes', 'Duke Blue Devils', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858518', 'college-football', 'Indiana Hoosiers', 'USC Trojans', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858522', 'college-football', 'Ohio State Buckeyes', 'Northwestern Wildcats', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858296', 'college-football', 'Miami Hurricanes', 'Duke Blue Devils', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856889', 'college-football', 'Vanderbilt Commodores', 'Alabama Crimson Tide', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858522', 'college-football', 'Ohio State Buckeyes', 'Northwestern Wildcats', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858518', 'college-football', 'Indiana Hoosiers', 'USC Trojans', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856889', 'college-football', 'Vanderbilt Commodores', 'Alabama Crimson Tide', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856858', 'college-football', 'BYU Cougars', 'Baylor Bears', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856858', 'college-football', 'BYU Cougars', 'Baylor Bears', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856887', 'college-football', 'Oklahoma Sooners', 'Ole Miss Rebels', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856863', 'college-football', 'Oklahoma State Cowboys', 'Texas Tech Red Raiders', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856863', 'college-football', 'Oklahoma State Cowboys', 'Texas Tech Red Raiders', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858524', 'college-football', 'Penn State Nittany Lions', 'Minnesota Golden Gophers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856864', 'college-football', 'Arizona Wildcats', 'Utah Utes', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856888', 'college-football', 'Texas A&M Aggies', 'Tennessee Volunteers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858523', 'college-football', 'Oregon Ducks', 'Michigan Wolverines', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856864', 'college-football', 'Arizona Wildcats', 'Utah Utes', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856888', 'college-football', 'Texas A&M Aggies', 'Tennessee Volunteers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858298', 'college-football', 'North Carolina Tar Heels', 'Louisville Cardinals', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856884', 'college-football', 'Kentucky Wildcats', 'Florida Gators', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858519', 'college-football', 'Iowa Hawkeyes', 'Purdue Boilermakers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856886', 'college-football', 'Mississippi State Bulldogs', 'Auburn Tigers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858523', 'college-football', 'Oregon Ducks', 'Michigan Wolverines', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858519', 'college-football', 'Iowa Hawkeyes', 'Purdue Boilermakers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856884', 'college-football', 'Kentucky Wildcats', 'Florida Gators', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858301', 'college-football', 'SMU Mustangs', 'Wake Forest Demon Deacons', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858301', 'college-football', 'SMU Mustangs', 'Wake Forest Demon Deacons', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856857', 'college-football', 'UCF Knights', 'Arizona State Sun Devils', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856886', 'college-football', 'Mississippi State Bulldogs', 'Auburn Tigers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856859', 'college-football', 'Iowa State Cyclones', 'Cincinnati Bearcats', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856857', 'college-football', 'UCF Knights', 'Arizona State Sun Devils', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856861', 'college-football', 'West Virginia Mountaineers', 'Kansas Jayhawks', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856859', 'college-football', 'Iowa State Cyclones', 'Cincinnati Bearcats', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856862', 'college-football', 'TCU Horned Frogs', 'Kansas State Wildcats', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856861', 'college-football', 'West Virginia Mountaineers', 'Kansas Jayhawks', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856882', 'college-football', 'Arkansas Razorbacks', 'South Carolina Gamecocks', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856862', 'college-football', 'TCU Horned Frogs', 'Kansas State Wildcats', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858295', 'college-football', 'Virginia Cavaliers', 'California Golden Bears', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856882', 'college-football', 'Arkansas Razorbacks', 'South Carolina Gamecocks', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858297', 'college-football', 'Clemson Tigers', 'Georgia Tech Yellow Jackets', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858295', 'college-football', 'Virginia Cavaliers', 'California Golden Bears', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858298', 'college-football', 'North Carolina Tar Heels', 'Louisville Cardinals', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858297', 'college-football', 'Clemson Tigers', 'Georgia Tech Yellow Jackets', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858299', 'college-football', 'Virginia Tech Hokies', 'Stanford Cardinal', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858299', 'college-football', 'Virginia Tech Hokies', 'Stanford Cardinal', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858300', 'college-football', 'NC State Wolfpack', 'Syracuse Orange', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858300', 'college-football', 'NC State Wolfpack', 'Syracuse Orange', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858520', 'college-football', 'Maryland Terrapins', 'Wisconsin Badgers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858520', 'college-football', 'Maryland Terrapins', 'Wisconsin Badgers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858521', 'college-football', 'Michigan State Spartans', 'Washington Huskies', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858521', 'college-football', 'Michigan State Spartans', 'Washington Huskies', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858524', 'college-football', 'Penn State Nittany Lions', 'Minnesota Golden Gophers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858525', 'college-football', 'Rutgers Scarlet Knights', 'Nebraska Cornhuskers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858525', 'college-football', 'Rutgers Scarlet Knights', 'Nebraska Cornhuskers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862825', 'college-football', 'Charlotte 49ers', 'East Carolina Pirates', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862825', 'college-football', 'Charlotte 49ers', 'East Carolina Pirates', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862826', 'college-football', 'Tulsa Golden Hurricane', 'Florida Atlantic Owls', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862826', 'college-football', 'Tulsa Golden Hurricane', 'Florida Atlantic Owls', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862827', 'college-football', 'UTSA Roadrunners', 'North Texas Mean Green', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862827', 'college-football', 'UTSA Roadrunners', 'North Texas Mean Green', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862828', 'college-football', 'Rice Owls', 'Tulane Green Wave', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862828', 'college-football', 'Rice Owls', 'Tulane Green Wave', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862829', 'college-football', 'Temple Owls', 'UAB Blazers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862829', 'college-football', 'Temple Owls', 'UAB Blazers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864536', 'college-football', 'Northern Illinois Huskies', 'Nevada Wolf Pack', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864536', 'college-football', 'Northern Illinois Huskies', 'Nevada Wolf Pack', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864540', 'college-football', 'UTEP Miners', 'Wyoming Cowboys', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864540', 'college-football', 'UTEP Miners', 'Wyoming Cowboys', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869928', 'college-football', 'Marshall Thundering Herd', 'App State Mountaineers', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869928', 'college-football', 'Marshall Thundering Herd', 'App State Mountaineers', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869937', 'college-football', 'Coastal Carolina Chanticleers', 'Arkansas State Red Wolves', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869937', 'college-football', 'Coastal Carolina Chanticleers', 'Arkansas State Red Wolves', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869952', 'college-football', 'Georgia State Panthers', 'Georgia Southern Eagles', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869952', 'college-football', 'Georgia State Panthers', 'Georgia Southern Eagles', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871099', 'college-football', 'Louisiana Tech Bulldogs', 'Southern Miss Golden Eagles', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871099', 'college-football', 'Louisiana Tech Bulldogs', 'Southern Miss Golden Eagles', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871100', 'college-football', 'South Alabama Jaguars', 'Troy Trojans', '2026-11-14T05:00Z', 0, 'Week 11')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871100', 'college-football', 'South Alabama Jaguars', 'Troy Trojans', '2026-11-14T05:00Z', 1, 'Week 11')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -7950,14 +7950,14 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866467', 'college-football', 'Massachusetts Minutemen', 'Akron Zips', '2026-11-18T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866467', 'college-football', 'Massachusetts Minutemen', 'Akron Zips', '2026-11-18T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866469', 'college-football', 'Buffalo Bulls', 'Central Michigan Chippewas', '2026-11-18T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866469', 'college-football', 'Buffalo Bulls', 'Central Michigan Chippewas', '2026-11-18T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -8006,273 +8006,273 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856755', 'college-football', 'Texas Longhorns', 'Arkansas Razorbacks', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856755', 'college-football', 'Texas Longhorns', 'Arkansas Razorbacks', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856753', 'college-football', 'South Carolina Gamecocks', 'Georgia Bulldogs', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856753', 'college-football', 'South Carolina Gamecocks', 'Georgia Bulldogs', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858535', 'college-football', 'Washington Huskies', 'Indiana Hoosiers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858302', 'college-football', 'Miami Hurricanes', 'Virginia Tech Hokies', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858302', 'college-football', 'Miami Hurricanes', 'Virginia Tech Hokies', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858531', 'college-football', 'Nebraska Cornhuskers', 'Ohio State Buckeyes', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858531', 'college-football', 'Nebraska Cornhuskers', 'Ohio State Buckeyes', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858535', 'college-football', 'Washington Huskies', 'Indiana Hoosiers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856866', 'college-football', 'Kansas Jayhawks', 'BYU Cougars', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856866', 'college-football', 'Kansas Jayhawks', 'BYU Cougars', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856754', 'college-football', 'Tennessee Volunteers', 'LSU Tigers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856754', 'college-football', 'Tennessee Volunteers', 'LSU Tigers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856871', 'college-football', 'Baylor Bears', 'Texas Tech Red Raiders', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856871', 'college-football', 'Baylor Bears', 'Texas Tech Red Raiders', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858534', 'college-football', 'USC Trojans', 'Maryland Terrapins', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856872', 'college-football', 'TCU Horned Frogs', 'Utah Utes', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858532', 'college-football', 'Penn State Nittany Lions', 'Rutgers Scarlet Knights', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856751', 'college-football', 'Missouri Tigers', 'Kentucky Wildcats', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856872', 'college-football', 'TCU Horned Frogs', 'Utah Utes', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856748', 'college-football', 'Florida Gators', 'Vanderbilt Commodores', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858306', 'college-football', 'Louisville Cardinals', 'Pittsburgh Panthers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856870', 'college-football', 'Arizona State Sun Devils', 'Oklahoma State Cowboys', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858527', 'college-football', 'Illinois Fighting Illini', 'Iowa Hawkeyes', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858534', 'college-football', 'USC Trojans', 'Maryland Terrapins', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858528', 'college-football', 'Michigan Wolverines', 'UCLA Bruins', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858527', 'college-football', 'Illinois Fighting Illini', 'Iowa Hawkeyes', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856751', 'college-football', 'Missouri Tigers', 'Kentucky Wildcats', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858528', 'college-football', 'Michigan Wolverines', 'UCLA Bruins', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856748', 'college-football', 'Florida Gators', 'Vanderbilt Commodores', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856868', 'college-football', 'West Virginia Mountaineers', 'Houston Cougars', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856752', 'college-football', 'Oklahoma Sooners', 'Texas A&M Aggies', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858306', 'college-football', 'Louisville Cardinals', 'Pittsburgh Panthers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856868', 'college-football', 'West Virginia Mountaineers', 'Houston Cougars', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856752', 'college-football', 'Oklahoma Sooners', 'Texas A&M Aggies', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856865', 'college-football', 'Kansas State Wildcats', 'Arizona Wildcats', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856865', 'college-football', 'Kansas State Wildcats', 'Arizona Wildcats', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856867', 'college-football', 'Cincinnati Bearcats', 'Colorado Buffaloes', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856867', 'college-football', 'Cincinnati Bearcats', 'Colorado Buffaloes', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856870', 'college-football', 'Arizona State Sun Devils', 'Oklahoma State Cowboys', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858304', 'college-football', 'Florida State Seminoles', 'NC State Wolfpack', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858304', 'college-football', 'Florida State Seminoles', 'NC State Wolfpack', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858305', 'college-football', 'Virginia Cavaliers', 'North Carolina Tar Heels', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858305', 'college-football', 'Virginia Cavaliers', 'North Carolina Tar Heels', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858308', 'college-football', 'California Golden Bears', 'Stanford Cardinal', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858308', 'college-football', 'California Golden Bears', 'Stanford Cardinal', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858309', 'college-football', 'Boston College Eagles', 'Syracuse Orange', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858309', 'college-football', 'Boston College Eagles', 'Syracuse Orange', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858310', 'college-football', 'Georgia Tech Yellow Jackets', 'Wake Forest Demon Deacons', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858310', 'college-football', 'Georgia Tech Yellow Jackets', 'Wake Forest Demon Deacons', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858530', 'college-football', 'Minnesota Golden Gophers', 'Northwestern Wildcats', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858530', 'college-football', 'Minnesota Golden Gophers', 'Northwestern Wildcats', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858532', 'college-football', 'Penn State Nittany Lions', 'Rutgers Scarlet Knights', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858533', 'college-football', 'Purdue Boilermakers', 'Wisconsin Badgers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858533', 'college-football', 'Purdue Boilermakers', 'Wisconsin Badgers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862832', 'college-football', 'Tulsa Golden Hurricane', 'Charlotte 49ers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862832', 'college-football', 'Tulsa Golden Hurricane', 'Charlotte 49ers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862833', 'college-football', 'Florida Atlantic Owls', 'South Florida Bulls', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862833', 'college-football', 'Florida Atlantic Owls', 'South Florida Bulls', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862835', 'college-football', 'Tulane Green Wave', 'North Texas Mean Green', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862835', 'college-football', 'Tulane Green Wave', 'North Texas Mean Green', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862836', 'college-football', 'UAB Blazers', 'UTSA Roadrunners', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862836', 'college-football', 'UAB Blazers', 'UTSA Roadrunners', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864541', 'college-football', 'Nevada Wolf Pack', 'Hawai''i Rainbow Warriors', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864541', 'college-football', 'Nevada Wolf Pack', 'Hawai''i Rainbow Warriors', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869929', 'college-football', 'App State Mountaineers', 'UL Monroe Warhawks', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869929', 'college-football', 'App State Mountaineers', 'UL Monroe Warhawks', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869938', 'college-football', 'Louisiana Tech Bulldogs', 'Arkansas State Red Wolves', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869938', 'college-football', 'Louisiana Tech Bulldogs', 'Arkansas State Red Wolves', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869946', 'college-football', 'Louisiana Ragin'' Cajuns', 'Coastal Carolina Chanticleers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869946', 'college-football', 'Louisiana Ragin'' Cajuns', 'Coastal Carolina Chanticleers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869953', 'college-football', 'Troy Trojans', 'Georgia Southern Eagles', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869953', 'college-football', 'Troy Trojans', 'Georgia Southern Eagles', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869958', 'college-football', 'Marshall Thundering Herd', 'Georgia State Panthers', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869958', 'college-football', 'Marshall Thundering Herd', 'Georgia State Panthers', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871101', 'college-football', 'Southern Miss Golden Eagles', 'South Alabama Jaguars', '2026-11-21T05:00Z', 0, 'Week 12')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871101', 'college-football', 'Southern Miss Golden Eagles', 'South Alabama Jaguars', '2026-11-21T05:00Z', 1, 'Week 12')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -8419,7 +8419,7 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866471', 'college-football', 'Western Michigan Broncos', 'Miami (OH) RedHawks', '2026-11-24T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401866471', 'college-football', 'Western Michigan Broncos', 'Miami (OH) RedHawks', '2026-11-24T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -8440,21 +8440,21 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862837', 'college-football', 'East Carolina Pirates', 'Florida Atlantic Owls', '2026-11-27T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862837', 'college-football', 'East Carolina Pirates', 'Florida Atlantic Owls', '2026-11-27T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862838', 'college-football', 'Memphis Tigers', 'Temple Owls', '2026-11-27T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862838', 'college-football', 'Memphis Tigers', 'Temple Owls', '2026-11-27T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862839', 'college-football', 'South Florida Bulls', 'Tulane Green Wave', '2026-11-27T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862839', 'college-football', 'South Florida Bulls', 'Tulane Green Wave', '2026-11-27T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -8531,287 +8531,287 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856760', 'college-football', 'Georgia Bulldogs', 'Georgia Tech Yellow Jackets', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856760', 'college-football', 'Georgia Bulldogs', 'Georgia Tech Yellow Jackets', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858314', 'college-football', 'Syracuse Orange', 'Notre Dame Fighting Irish', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858314', 'college-football', 'Syracuse Orange', 'Notre Dame Fighting Irish', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858538', 'college-football', 'Indiana Hoosiers', 'Purdue Boilermakers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858311', 'college-football', 'Miami Hurricanes', 'Boston College Eagles', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858311', 'college-football', 'Miami Hurricanes', 'Boston College Eagles', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856757', 'college-football', 'Alabama Crimson Tide', 'Auburn Tigers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856757', 'college-football', 'Alabama Crimson Tide', 'Auburn Tigers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858538', 'college-football', 'Indiana Hoosiers', 'Purdue Boilermakers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856876', 'college-football', 'BYU Cougars', 'Cincinnati Bearcats', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856876', 'college-football', 'BYU Cougars', 'Cincinnati Bearcats', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856758', 'college-football', 'Arkansas Razorbacks', 'LSU Tigers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856758', 'college-football', 'Arkansas Razorbacks', 'LSU Tigers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858543', 'college-football', 'UCLA Bruins', 'USC Trojans', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858541', 'college-football', 'Oregon Ducks', 'Washington Huskies', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858539', 'college-football', 'Maryland Terrapins', 'Penn State Nittany Lions', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856763', 'college-football', 'Missouri Tigers', 'Oklahoma Sooners', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856765', 'college-football', 'Vanderbilt Commodores', 'Tennessee Volunteers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856765', 'college-football', 'Vanderbilt Commodores', 'Tennessee Volunteers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856761', 'college-football', 'Kentucky Wildcats', 'Louisville Cardinals', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856877', 'college-football', 'Oklahoma State Cowboys', 'Kansas Jayhawks', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856763', 'college-football', 'Missouri Tigers', 'Oklahoma Sooners', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858543', 'college-football', 'UCLA Bruins', 'USC Trojans', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858541', 'college-football', 'Oregon Ducks', 'Washington Huskies', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856874', 'college-football', 'Houston Cougars', 'Baylor Bears', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858316', 'college-football', 'Stanford Cardinal', 'SMU Mustangs', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858316', 'college-football', 'Stanford Cardinal', 'SMU Mustangs', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856874', 'college-football', 'Houston Cougars', 'Baylor Bears', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858315', 'college-football', 'California Golden Bears', 'Pittsburgh Panthers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856764', 'college-football', 'Clemson Tigers', 'South Carolina Gamecocks', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856761', 'college-football', 'Kentucky Wildcats', 'Louisville Cardinals', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856873', 'college-football', 'Arizona Wildcats', 'Arizona State Sun Devils', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856764', 'college-football', 'Clemson Tigers', 'South Carolina Gamecocks', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856875', 'college-football', 'Colorado Buffaloes', 'UCF Knights', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856873', 'college-football', 'Arizona Wildcats', 'Arizona State Sun Devils', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856877', 'college-football', 'Oklahoma State Cowboys', 'Kansas Jayhawks', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856875', 'college-football', 'Colorado Buffaloes', 'UCF Knights', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856878', 'college-football', 'Iowa State Cyclones', 'Kansas State Wildcats', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401856878', 'college-football', 'Iowa State Cyclones', 'Kansas State Wildcats', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858312', 'college-football', 'Wake Forest Demon Deacons', 'Duke Blue Devils', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858312', 'college-football', 'Wake Forest Demon Deacons', 'Duke Blue Devils', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858313', 'college-football', 'North Carolina Tar Heels', 'NC State Wolfpack', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858313', 'college-football', 'North Carolina Tar Heels', 'NC State Wolfpack', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858315', 'college-football', 'California Golden Bears', 'Pittsburgh Panthers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858317', 'college-football', 'Virginia Tech Hokies', 'Virginia Cavaliers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858317', 'college-football', 'Virginia Tech Hokies', 'Virginia Cavaliers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858537', 'college-football', 'Northwestern Wildcats', 'Illinois Fighting Illini', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858537', 'college-football', 'Northwestern Wildcats', 'Illinois Fighting Illini', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858539', 'college-football', 'Maryland Terrapins', 'Penn State Nittany Lions', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858542', 'college-football', 'Rutgers Scarlet Knights', 'Michigan State Spartans', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401858542', 'college-football', 'Rutgers Scarlet Knights', 'Michigan State Spartans', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860926', 'college-football', 'Colorado State Rams', 'TBD', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860926', 'college-football', 'Colorado State Rams', 'TBD', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860927', 'college-football', 'Fresno State Bulldogs', 'TBD', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860927', 'college-football', 'Fresno State Bulldogs', 'TBD', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860928', 'college-football', 'Utah State Aggies', 'TBD', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860928', 'college-football', 'Utah State Aggies', 'TBD', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860929', 'college-football', 'Washington State Cougars', 'TBD', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401860929', 'college-football', 'Washington State Cougars', 'TBD', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401861969', 'college-football', 'Wyoming Cowboys', 'UConn Huskies', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401861969', 'college-football', 'Wyoming Cowboys', 'UConn Huskies', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862840', 'college-football', 'UTSA Roadrunners', 'Tulsa Golden Hurricane', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862840', 'college-football', 'UTSA Roadrunners', 'Tulsa Golden Hurricane', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862841', 'college-football', 'Rice Owls', 'Army Black Knights', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862841', 'college-football', 'Rice Owls', 'Army Black Knights', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862842', 'college-football', 'Charlotte 49ers', 'Navy Midshipmen', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862842', 'college-football', 'Charlotte 49ers', 'Navy Midshipmen', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862843', 'college-football', 'North Texas Mean Green', 'UAB Blazers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401862843', 'college-football', 'North Texas Mean Green', 'UAB Blazers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864550', 'college-football', 'Northern Illinois Huskies', 'UTEP Miners', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864550', 'college-football', 'Northern Illinois Huskies', 'UTEP Miners', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869947', 'college-football', 'James Madison Dukes', 'Coastal Carolina Chanticleers', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869947', 'college-football', 'James Madison Dukes', 'Coastal Carolina Chanticleers', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869954', 'college-football', 'Georgia Southern Eagles', 'Louisiana Tech Bulldogs', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869954', 'college-football', 'Georgia Southern Eagles', 'Louisiana Tech Bulldogs', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869959', 'college-football', 'Georgia State Panthers', 'Louisiana Ragin'' Cajuns', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869959', 'college-football', 'Georgia State Panthers', 'Louisiana Ragin'' Cajuns', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871102', 'college-football', 'UL Monroe Warhawks', 'Marshall Thundering Herd', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871102', 'college-football', 'UL Monroe Warhawks', 'Marshall Thundering Herd', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871103', 'college-football', 'Old Dominion Monarchs', 'Southern Miss Golden Eagles', '2026-11-28T05:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401871103', 'college-football', 'Old Dominion Monarchs', 'Southern Miss Golden Eagles', '2026-11-28T05:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
@@ -8895,14 +8895,14 @@ ON CONFLICT(sport, source_event_id) DO UPDATE SET
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864547', 'college-football', 'Hawai''i Rainbow Warriors', 'Sacramento State Hornets', '2026-11-29T04:00Z', 0, 'Week 13')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401864547', 'college-football', 'Hawai''i Rainbow Warriors', 'Sacramento State Hornets', '2026-11-29T04:00Z', 1, 'Week 13')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,
   kickoff_time = excluded.kickoff_time,
   time_tbd = excluded.time_tbd,
   week_label = excluded.week_label;
-INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869535', 'college-football', 'TBD', 'TBD', '2026-12-04T05:00Z', 0, 'Week 14')
+INSERT INTO schedule_games (source_event_id, sport, home_team, away_team, kickoff_time, time_tbd, week_label) VALUES ('401869535', 'college-football', 'TBD', 'TBD', '2026-12-04T05:00Z', 1, 'Week 14')
 ON CONFLICT(sport, source_event_id) DO UPDATE SET
   home_team = excluded.home_team,
   away_team = excluded.away_team,

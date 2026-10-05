@@ -279,6 +279,7 @@ async function submitPicks() {
 
 // ---- Standings ----
 let allStandings = [];
+let movementInfo = { available: false };
 
 async function loadStandings() {
   try {
@@ -286,6 +287,7 @@ async function loadStandings() {
     if (!res.ok) throw new Error();
     const data = await res.json();
     allStandings = data.standings;
+    movementInfo = data.movement || { available: false };
     populateStandingsFilter();
     renderStandingsView();
   } catch {
@@ -381,9 +383,8 @@ function renderStandingsView() {
 // Standard "competition ranking": ties share the same rank number (prefixed
 // "T-"), and the next distinct entry's rank skips ahead by the tie count.
 // A tie means an identical wins/losses record, not just the same percentage.
-function computeRankLabels(list) {
+function computeRankNumbers(list) {
   const ranks = [];
-  let currentRank = 1;
   for (let i = 0; i < list.length; i++) {
     if (i > 0 && list[i].wins === list[i - 1].wins && list[i].losses === list[i - 1].losses) {
       ranks.push(ranks[i - 1]);
@@ -391,19 +392,63 @@ function computeRankLabels(list) {
       ranks.push(i + 1);
     }
   }
+  return ranks;
+}
+
+function computeRankLabels(list) {
+  const ranks = computeRankNumbers(list);
   const counts = {};
   ranks.forEach(r => { counts[r] = (counts[r] || 0) + 1; });
   return ranks.map(r => (counts[r] > 1 ? `T-${r}` : `${r}`));
 }
 
+// Rank change vs. the baseline record the API sends (standings as they stood
+// before the latest week with results). Computed within whatever list is on
+// screen, so team and org views show movement within that view.
+function computeMovement(list) {
+  if (!movementInfo.available) return list.map(() => null);
+
+  const pct = p => (p.wins + p.losses ? p.wins / (p.wins + p.losses) : 0);
+  const prevList = list.map(p => ({ id: p.player_id, name: p.name, wins: p.prev_wins || 0, losses: p.prev_losses || 0 }));
+  prevList.sort((a, b) => (b.wins - a.wins) || (pct(b) - pct(a)) || a.name.localeCompare(b.name));
+  const prevRanks = computeRankNumbers(prevList);
+  const prevRankById = new Map(prevList.map((p, i) => [p.id, prevRanks[i]]));
+  const currRanks = computeRankNumbers(list);
+
+  return list.map((p, i) => {
+    const hadNoRecord = ((p.prev_wins || 0) + (p.prev_losses || 0)) === 0;
+    if (hadNoRecord && (p.wins + p.losses) > 0) return { type: 'new' };
+    const delta = prevRankById.get(p.player_id) - currRanks[i];
+    return { type: delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat', n: Math.abs(delta) };
+  });
+}
+
+function movementCell(m) {
+  if (!m) return '';
+  if (m.type === 'up') return `<span class="move up">\u25B2 ${m.n}</span>`;
+  if (m.type === 'down') return `<span class="move down">\u25BC ${m.n}</span>`;
+  if (m.type === 'new') return '<span class="move new">NEW</span>';
+  return '<span class="move flat">\u2013</span>';
+}
+
 function renderPodiumAndTable(standings) {
   const table = document.getElementById('standings-table');
   const rankLabels = computeRankLabels(standings);
+  const moves = computeMovement(standings);
+  const showMove = movementInfo.available;
 
-  table.innerHTML = '<tr><th>Rank</th><th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>' +
+  const note = document.getElementById('movement-note');
+  if (note) {
+    note.textContent = showMove
+      ? `Arrows show how each rank changed from ${movementInfo.week_label} results`
+      : '';
+  }
+
+  table.innerHTML = `<tr><th>Rank</th>${showMove ? '<th>+/-</th>' : ''}<th>Name</th><th>W</th><th>L</th><th>Win %</th></tr>` +
     standings.map((p, i) => `
       <tr>
         <td>${rankLabels[i]}</td>
+        ${showMove ? `<td>${movementCell(moves[i])}</td>` : ''}
         <td><a href="#" class="player-link" onclick="event.preventDefault(); viewHistory(${p.player_id}, '${escapeQuotes(p.name)}')">${escapeHtml(p.name)}</a></td>
         <td>${p.wins}</td><td>${p.losses}</td>
         <td class="pctcol">${p.win_pct.toFixed(3)}</td>

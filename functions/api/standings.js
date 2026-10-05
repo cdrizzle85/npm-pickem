@@ -55,7 +55,72 @@ async function seasonStandings(db) {
   // raw win count first, win percentage only as a tiebreaker for equal wins.
   standings.sort((a, b) => b.wins - a.wins || b.win_pct - a.win_pct || a.name.localeCompare(b.name));
 
-  return json({ standings });
+  // Rank movement: attach each player's record as it stood BEFORE the most
+  // recent week with results, so the page can compare ranks then vs now.
+  const baseline = await baselineRecords(db);
+  if (baseline.available) {
+    for (const s of standings) {
+      const prev = baseline.byPlayer.get(s.player_id) || { wins: 0, losses: 0 };
+      s.prev_wins = prev.wins;
+      s.prev_losses = prev.losses;
+    }
+  }
+
+  return json({ standings, movement: { available: baseline.available, week_label: baseline.week_label || null } });
+}
+
+// Standings as of the end of the week before the latest week that has any
+// recorded results. Weeks are ordered playoff-after-regular, then by round.
+// Separate query on purpose, so the main standings query stays untouched.
+async function baselineRecords(db) {
+  const latest = await db
+    .prepare(
+      `SELECT w.round_number, w.is_playoff, (w.is_playoff * 1000 + w.round_number) AS k
+       FROM weeks w
+       WHERE EXISTS (SELECT 1 FROM games g WHERE g.week_id = w.id AND g.winner_team IS NOT NULL)
+       ORDER BY k DESC LIMIT 1`
+    )
+    .first();
+  if (!latest) return { available: false };
+
+  const earlier = await db
+    .prepare('SELECT COUNT(*) AS c FROM weeks WHERE (is_playoff * 1000 + round_number) < ?')
+    .bind(latest.k)
+    .first();
+  if (!earlier || earlier.c === 0) return { available: false }; // nothing before it to compare against
+
+  const rows = await db
+    .prepare(
+      `SELECT pl.id AS player_id,
+              COALESCE(pw.wins, 0) + COALESCE(gc.gw, 0) AS wins,
+              COALESCE(pw.losses, 0) + COALESCE(gc.gl, 0) AS losses
+       FROM players pl
+       LEFT JOIN (
+         SELECT p.player_id,
+                SUM(CASE WHEN p.picked_team = g.winner_team THEN 1 ELSE 0 END) AS wins,
+                SUM(CASE WHEN p.picked_team != g.winner_team THEN 1 ELSE 0 END) AS losses
+         FROM picks p
+         JOIN games g ON g.id = p.game_id AND g.winner_team IS NOT NULL
+         JOIN weeks w ON w.id = g.week_id
+         WHERE (w.is_playoff * 1000 + w.round_number) < ?
+         GROUP BY p.player_id
+       ) pw ON pw.player_id = pl.id
+       LEFT JOIN (
+         SELECT c.player_id, SUM(c.wins_credited) AS gw, SUM(c.losses_credited) AS gl
+         FROM grace_credits c
+         JOIN weeks w ON w.id = c.week_id
+         WHERE (w.is_playoff * 1000 + w.round_number) < ?
+         GROUP BY c.player_id
+       ) gc ON gc.player_id = pl.id`
+    )
+    .bind(latest.k, latest.k)
+    .all();
+
+  return {
+    available: true,
+    week_label: latest.is_playoff ? `Playoff round ${latest.round_number}` : `Week ${latest.round_number}`,
+    byPlayer: new Map(rows.results.map(r => [r.player_id, { wins: r.wins, losses: r.losses }]))
+  };
 }
 
 async function teamStandings(db) {

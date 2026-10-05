@@ -526,3 +526,10 @@ th{
   header .title{font-size:18px;}
   main{padding:20px;}
 }
+
+/* Standings rank movement */
+.move{font-weight:700;font-size:12px;white-space:nowrap;}
+.move.up{color:#0F8A3D;}
+.move.down{color:var(--loss);}
+.move.flat{color:var(--muted);font-weight:400;}
+.move.new{color:var(--royal);font-size:11px;letter-spacing:0.5px;}
