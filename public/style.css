@@ -143,6 +143,21 @@ main{
   opacity:0.55;
   cursor:not-allowed;
 }
+/* Result states: must come after the disabled rule so they win on locked weeks */
+.team-btn.team-won{
+  opacity:1;
+  border-color:#0F8A3D;
+  background:#E4F7EA;
+  color:#0F8A3D;
+  cursor:default;
+}
+.team-btn.team-wrong{
+  opacity:1;
+  border-color:var(--loss);
+  background:#FBEAEA;
+  color:var(--loss);
+  cursor:default;
+}
 
 /* Standings / peak podium */
 .podium{

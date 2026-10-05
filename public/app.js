@@ -5,6 +5,9 @@ function showView(id, btn) {
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   if (id === 'standings') loadStandings();
+  // Once the week is locked nothing is editable, so it's safe to re-fetch and
+  // pick up any results entered since the page first loaded.
+  if (id === 'picks' && currentWeek && currentWeek.locked) loadWeek();
   if (id === 'smacktalk') loadComments();
   if (id === 'history') loadHistory();
 }
@@ -193,12 +196,31 @@ function renderGames(games) {
     const clickHome = locked ? '' : `onclick="selectPick(${g.id}, '${escapeQuotes(g.home_team)}')"`;
     const clickAway = locked ? '' : `onclick="selectPick(${g.id}, '${escapeQuotes(g.away_team)}')"`;
 
+    // Once a result is in: the winning team gets a green check, and your own
+    // pick is marked Correct or Wrong (same labels as My History).
+    const hasResult = !!g.winner_team;
+    const teamClasses = (team, picked) => [
+      'team-btn',
+      picked ? 'picked' : '',
+      hasResult && team === g.winner_team ? 'team-won' : '',
+      hasResult && picked && team !== g.winner_team ? 'team-wrong' : ''
+    ].filter(Boolean).join(' ');
+    const teamLabel = team => (hasResult && team === g.winner_team ? '\u2713 ' : '') + team;
+
+    let resultBadge = '';
+    if (hasResult) {
+      const mine = mySelections[g.id];
+      if (!mine) resultBadge = '<span class="history-result loss">No pick</span>';
+      else if (mine === g.winner_team) resultBadge = '<span class="history-result win">Correct</span>';
+      else resultBadge = '<span class="history-result loss">Wrong</span>';
+    }
+
     return `
       <div class="game-card">
-        <div class="meta"><span>${g.sport === 'nfl' ? 'NFL' : 'College'} &middot; ${kickoff}</span></div>
+        <div class="meta"><span>${g.sport === 'nfl' ? 'NFL' : 'College'} &middot; ${kickoff}</span>${resultBadge}</div>
         <div class="teams">
-          <div class="team-btn ${awayPicked ? 'picked' : ''}" ${disabledAttr} ${clickAway}>${g.away_team}</div>
-          <div class="team-btn ${homePicked ? 'picked' : ''}" ${disabledAttr} ${clickHome}>${g.home_team}</div>
+          <div class="${teamClasses(g.away_team, awayPicked)}" ${disabledAttr} ${clickAway}>${teamLabel(g.away_team)}</div>
+          <div class="${teamClasses(g.home_team, homePicked)}" ${disabledAttr} ${clickHome}>${teamLabel(g.home_team)}</div>
         </div>
       </div>`;
   }).join('');
