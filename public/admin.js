@@ -362,7 +362,7 @@ async function fetchAvailableGames() {
       });
       return `
         <label class="available-game">
-          <span><input type="checkbox" onchange="toggleGame(${i}, this.checked, this)"> ${g.away_team} at ${g.home_team}</span>
+          <span><input type="checkbox" ${selectedGames.some(sg => sg.espn_event_id === g.source_event_id) ? 'checked' : ''} onchange="toggleGame(${i}, this.checked, this)"> ${g.away_team} at ${g.home_team}</span>
           <span class="time">
             ${g.time_tbd ? '<span style="color:var(--loss);">TBD</span> ' : ''}${kickoff}
             <button class="btn-secondary" style="padding:3px 8px;font-size:11px;margin-left:8px;" onclick="editScheduleTime(${g.id}, ${i})">Edit time</button>
@@ -391,6 +391,156 @@ async function editScheduleTime(scheduleId, index) {
     fetchAvailableGames();
   } catch (err) {
     alert(err.message);
+  }
+}
+
+// ---- Refresh schedule times from ESPN (runs in this browser) ----
+// The site's servers can't reach ESPN, but this browser can, so the page fetches
+// ESPN's current times itself and hands them to /api/admin/schedule-refresh.
+// Keep the TBD rules below in sync with scripts/import-schedule.mjs.
+const ESPN_BROWSER_SOURCES = {
+  'nfl': { path: 'nfl', extra: '' },
+  'college-football': { path: 'college-football', extra: '&groups=80' }
+};
+
+function shiftDay(iso, days) {
+  const d = new Date(`${iso}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+// ['YYYY-MM-DD', 'YYYY-MM-DD'] -> ['YYYYMM', ...] for every month touched
+function monthsCovering(startIso, endIso) {
+  const months = [];
+  let y = Number(startIso.slice(0, 4));
+  let m = Number(startIso.slice(5, 7));
+  const endY = Number(endIso.slice(0, 4));
+  const endM = Number(endIso.slice(5, 7));
+  while (y < endY || (y === endY && m <= endM)) {
+    months.push(`${y}${String(m).padStart(2, '0')}`);
+    m++;
+    if (m > 12) { m = 1; y++; }
+  }
+  return months;
+}
+
+function espnEventToRow(ev, sport) {
+  const comp = (ev.competitions || [])[0];
+  if (!comp || !ev.date) return null;
+  const home = (comp.competitors || []).find(c => c.homeAway === 'home');
+  const away = (comp.competitors || []).find(c => c.homeAway === 'away');
+  if (!home || !away) return null;
+
+  // ESPN sends a midnight-Eastern placeholder (04:00Z / 05:00Z) when a real kickoff
+  // hasn't been announced, so treat that, or any TBD signal, as "no confirmed time".
+  const status = comp.status || ev.status;
+  const detailText = `${status?.type?.detail || ''} ${status?.type?.shortDetail || ''}`;
+  const d = new Date(ev.date);
+  const looksLikePlaceholder = [4, 5].includes(d.getUTCHours()) && d.getUTCMinutes() === 0;
+  const tbd = (
+    status?.isTBDFlex ||
+    comp.timeValid === false ||
+    ev.timeValid === false ||
+    /TBD|TBA/i.test(detailText) ||
+    looksLikePlaceholder
+  ) ? 1 : 0;
+
+  return {
+    sport,
+    source_event_id: String(ev.id),
+    kickoff_time: ev.date,
+    time_tbd: tbd,
+    label: `${away.team.displayName} at ${home.team.displayName}`
+  };
+}
+
+function setRefreshStatus(html, isError) {
+  const el = document.getElementById('refresh-status');
+  el.innerHTML = html;
+  el.style.color = isError ? 'var(--loss)' : 'var(--muted)';
+}
+
+async function refreshScheduleTimes() {
+  const sport = document.getElementById('sport-select').value;
+  const start = document.getElementById('date-start').value;
+  const end = document.getElementById('date-end').value;
+
+  if (!start || !end) {
+    setRefreshStatus('Pick a from and to date first.', true);
+    return;
+  }
+
+  const src = ESPN_BROWSER_SOURCES[sport];
+  // A little padding either side, in case a game moved to a neighboring day
+  const lo = shiftDay(start, -2);
+  const hi = shiftDay(end, 2);
+
+  setRefreshStatus('Checking ESPN for current kickoff times&hellip;');
+  const rows = [];
+  try {
+    for (const yyyymm of monthsCovering(lo, hi)) {
+      const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/${src.path}/scoreboard?limit=500&dates=${yyyymm}${src.extra}`);
+      if (!res.ok) throw new Error(`ESPN answered ${res.status}`);
+      const data = await res.json();
+      for (const ev of (data.events || [])) {
+        const day = (ev.date || '').slice(0, 10);
+        if (day < lo || day > hi) continue;
+        const row = espnEventToRow(ev, sport);
+        if (row) rows.push(row);
+      }
+    }
+  } catch (err) {
+    setRefreshStatus(
+      `Couldn't get times from ESPN in this browser (${escapeHtml(err.message)}). That usually means the browser blocked the request, such as a content blocker. ` +
+      'Run the importer script from your computer instead (node scripts/import-schedule.mjs, then load schedule_seed.sql).',
+      true
+    );
+    return;
+  }
+
+  if (!rows.length) {
+    setRefreshStatus('ESPN returned no games for those dates, nothing to update.', true);
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/admin/schedule-refresh', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ games: rows })
+    });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error || 'Could not save refreshed times.');
+
+    const fmt = iso => new Date(iso).toLocaleString(undefined, {
+      weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+    });
+    const stillTbd = rows.filter(r => r.time_tbd).length;
+    const changedHtml = body.changed.map(c =>
+      `<div>&bull; ${escapeHtml(c.label)}: ${c.time_tbd ? 'now marked TBD' : `now ${escapeHtml(fmt(c.kickoff_time))}`}</div>`
+    ).join('');
+
+    setRefreshStatus(
+      `Checked ${body.checked} games against ESPN. ${body.changed.length ? `${body.changed.length} updated:` : 'No times needed updating.'}` +
+      changedHtml +
+      (stillTbd ? `<div style="margin-top:4px;">${stillTbd} still ha${stillTbd === 1 ? 's' : 've'} no confirmed time at ESPN (shown in red below).</div>` : '')
+    );
+
+    // Games already added to the week keep their old time unless we update them too
+    let touchedSelected = false;
+    for (const c of body.changed) {
+      for (const sg of selectedGames) {
+        if (sg.source === 'schedule' && sg.sport === c.sport && sg.espn_event_id === c.source_event_id) {
+          sg.kickoff_time = c.kickoff_time;
+          touchedSelected = true;
+        }
+      }
+    }
+    if (touchedSelected) renderSelected();
+
+    fetchAvailableGames();
+  } catch (err) {
+    setRefreshStatus(escapeHtml(err.message), true);
   }
 }
 
