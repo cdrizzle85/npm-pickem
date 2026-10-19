@@ -4,8 +4,10 @@ export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   const weekId = url.searchParams.get('week_id');
   const teams = url.searchParams.get('teams');
+  const recap = url.searchParams.get('recap');
 
   if (teams) return teamStandings(env.DB);
+  if (recap === 'latest') return latestRecap(env.DB);
   if (weekId) return weeklyRecap(env.DB, weekId);
   return seasonStandings(env.DB);
 }
@@ -176,12 +178,46 @@ async function teamStandings(db) {
   return json({ team_standings: standings });
 }
 
-async function weeklyRecap(db, weekId) {
+// The most recent week whose deadline (first kickoff) has passed. Picks and names
+// are only ever revealed for locked weeks, enforced here on the server, not just in
+// the page, and it keeps showing last week's field until the next week locks.
+async function latestRecap(db) {
+  const rows = await db
+    .prepare(
+      `SELECT w.id, w.round_number, w.is_playoff, g.kickoff_time
+       FROM weeks w JOIN games g ON g.week_id = w.id`
+    )
+    .all();
+
+  const byWeek = new Map();
+  for (const r of rows.results) {
+    const t = new Date(r.kickoff_time).getTime();
+    const cur = byWeek.get(r.id);
+    if (!cur) byWeek.set(r.id, { id: r.id, round_number: r.round_number, is_playoff: r.is_playoff, deadline: t });
+    else if (t < cur.deadline) cur.deadline = t;
+  }
+
+  const locked = [...byWeek.values()]
+    .filter(w => w.deadline <= Date.now())
+    .sort((a, b) => (b.is_playoff * 1000 + b.round_number) - (a.is_playoff * 1000 + a.round_number));
+  if (!locked.length) return json({ none: true });
+
+  const w = locked[0];
+  const label = w.is_playoff ? `Playoff round ${w.round_number}` : `Week ${w.round_number}`;
+  return weeklyRecap(db, w.id, { week_label: label });
+}
+
+async function weeklyRecap(db, weekId, extra = {}) {
   const games = await db
     .prepare('SELECT * FROM games WHERE week_id = ?')
     .bind(weekId)
     .all();
   if (!games.results.length) return errorJson('Week not found or has no games.', 404);
+
+  const deadline = Math.min(...games.results.map(g => new Date(g.kickoff_time).getTime()));
+  if (deadline > Date.now()) {
+    return errorJson('Picks for this week stay hidden until it locks at the first kickoff.', 403);
+  }
 
   const perGame = [];
   let totalWinsAcrossPlayers = 0;
@@ -241,5 +277,5 @@ async function weeklyRecap(db, weekId) {
   totalWinsAcrossPlayers = [...winsByPlayer.values()].reduce((sum, w) => sum + w, 0);
   const avgWins = playerCount ? Number((totalWinsAcrossPlayers / playerCount).toFixed(2)) : 0;
 
-  return json({ week_id: Number(weekId), games: perGame, average_wins: avgWins, player_count: playerCount });
+  return json({ week_id: Number(weekId), ...extra, games: perGame, average_wins: avgWins, player_count: playerCount });
 }

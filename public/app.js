@@ -304,16 +304,16 @@ async function loadStandings() {
     // team standings are supplemental, fail quietly
   }
 
-  if (currentWeek && currentWeek.week_id) {
-    try {
-      const res = await fetch(`/api/standings?week_id=${currentWeek.week_id}`);
-      if (res.ok) {
-        const recap = await res.json();
-        renderRecap(recap);
-      }
-    } catch {
-      // weekly recap is optional, fail quietly
+  // The server picks the week: the most recent one that has locked, so last
+  // week's field stays up until the next week's first kickoff.
+  try {
+    const res = await fetch('/api/standings?recap=latest');
+    if (res.ok) {
+      const recap = await res.json();
+      renderRecap(recap);
     }
+  } catch {
+    // weekly recap is optional, fail quietly
   }
 }
 
@@ -456,15 +456,20 @@ function renderPodiumAndTable(standings) {
 }
 
 function renderRecap(recap) {
-  document.getElementById('stat-row').innerHTML = `
-    <div class="stat-card"><div class="num">${recap.average_wins}</div><div class="label">Avg wins this week</div></div>
-    <div class="stat-card"><div class="num">${recap.player_count}</div><div class="label">Players this week</div></div>`;
-
   const pickbarsBox = document.getElementById('pickbars');
-  if (!currentWeek || !currentWeek.locked) {
+  const label = recap.week_label || '';
+  document.getElementById('pickbars-heading').textContent = label ? `How the field picked (${label})` : 'How the field picked';
+  document.getElementById('recap-heading').textContent = label ? `${label} recap` : "This week's recap";
+
+  if (recap.none) {
+    document.getElementById('stat-row').innerHTML = '';
     pickbarsBox.innerHTML = '<div class="empty-state">Pick percentages reveal once the first game of the week kicks off.</div>';
     return;
   }
+
+  document.getElementById('stat-row').innerHTML = `
+    <div class="stat-card"><div class="num">${recap.average_wins}</div><div class="label">Avg wins</div></div>
+    <div class="stat-card"><div class="num">${recap.player_count}</div><div class="label">Players</div></div>`;
 
   pickbarsBox.innerHTML = recap.games.map(g => {
     const homeWon = g.winner_team && g.winner_team === g.home_team;
