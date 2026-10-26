@@ -5,10 +5,14 @@ export async function onRequestGet({ request, env }) {
   const playerId = url.searchParams.get('player_id');
 
   const week = await env.DB
-    .prepare("SELECT * FROM weeks WHERE status = 'open' ORDER BY round_number DESC LIMIT 1")
+    // The current week is simply the most recently published one. Week status is
+    // deliberately not consulted: pressing "pull results automatically" used to
+    // mark a finished week 'scored', which made the site fall back to an older
+    // week that was still marked open.
+    .prepare('SELECT * FROM weeks ORDER BY (is_playoff * 1000 + round_number) DESC, id DESC LIMIT 1')
     .first();
 
-  if (!week) return errorJson('No open week right now.', 404);
+  if (!week) return errorJson('No week has been published yet.', 404);
 
   await applyGraceCredits(env.DB, week.id);
 

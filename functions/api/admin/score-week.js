@@ -3,8 +3,7 @@ import { json, errorJson, fetchEspnGameResult, fetchSportsDbResult, applyGraceCr
 // POST /api/admin/score-week
 // body: { week_id }
 // Pulls live results for every game in the week (from whichever source it came from),
-// updates winners, applies grace credits for anyone who never submitted, and marks
-// the week scored once every game is final. Manually-entered games are skipped here,
+// updates winners, and applies grace credits for anyone who never submitted. Manually-entered games are skipped here,
 // use set-result for those.
 export async function onRequestPost({ request, env }) {
   const { week_id } = await request.json();
@@ -45,12 +44,7 @@ export async function onRequestPost({ request, env }) {
 
   await applyGraceCredits(env.DB, week_id);
 
-  if (allFinal) {
-    await env.DB
-      .prepare("UPDATE weeks SET status = 'scored' WHERE id = ?")
-      .bind(week_id)
-      .run();
-  }
-
+  // Intentionally does not change the week's status. It used to mark the week
+  // 'scored' here, which changed which week the public site treated as current.
   return json({ ok: true, all_final: allFinal });
 }
